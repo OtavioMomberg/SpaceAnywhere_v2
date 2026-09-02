@@ -43,7 +43,6 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
                   border: Border.all(
                     color: AppThemes.whitePremium.withValues(alpha: 0.5),
                   ),
-                  color: AppThemes.whitePremium.withValues(alpha: 0.15),
                 ),
                 child: Row(
                   mainAxisAlignment: .spaceBetween,

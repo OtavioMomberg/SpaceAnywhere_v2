@@ -31,13 +31,12 @@ class CalculusResult extends StatelessWidget {
             border: Border.all(
               color: AppThemes.whitePremium.withValues(alpha: 0.5),
             ),
-            color: AppThemes.whitePremium.withValues(alpha: 0.15),
           ),
           child: Center(
             child: Text(
               _calculatorService.result == null
-                  ? "Erro ao realizar cálculo."
-                  : "O seu peso em ${_calculatorService.defaultText}\né: ${_calculatorService.result!.toStringAsFixed(2)} kg",
+                ? "Erro ao realizar cálculo."
+                : "O seu peso em ${_calculatorService.defaultText}\né: ${_calculatorService.result!.toStringAsFixed(2)} kg",
               style: const TextStyle(
                 color: AppThemes.whitePremium,
                 fontWeight: FontWeight.bold,

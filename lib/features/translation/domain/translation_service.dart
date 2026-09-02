@@ -44,15 +44,12 @@ class TranslationService<T> {
   }
 
   Future<void> controlTranslationFlow({T? param}) async {
+    print("AQUI");
     await getTranslations(langFlag: param as String?);
 
-    if (_internet.currentRetryAttempt != _internet.retryAttempts) {
-      return;
-    }
+    if (_internet.currentRetryAttempt != _internet.retryAttempts) { return; }
 
-    if (!checkMounted()) {
-      return;
-    }
+    if (!checkMounted()) { return; }
 
     _isLoading = false;
     setState();
@@ -83,15 +80,11 @@ class TranslationService<T> {
   Future<bool> check() async {
     await _internet.hasInternet();
 
-    if (!_internet.checkInternet) {
-      return false;
-    }
+    if (!_internet.checkInternet) { return false; }
 
     await _internet.isApiAwake();
 
-    if (!_internet.checkAPI) {
-      return false;
-    }
+    if (!_internet.checkAPI) { return false; }
 
     return true;
   }
@@ -107,9 +100,7 @@ class TranslationService<T> {
       return;
     }
 
-    if (!await check()) {
-      return;
-    }
+    if (!await check()) { return; }
 
     await getLanguages();
 

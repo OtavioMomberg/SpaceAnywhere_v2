@@ -30,7 +30,9 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(10),
-      color: AppThemes.whitePremium.withValues(alpha: 0.15),
+      color: Colors.transparent,
+      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.1),
+      elevation: 5,
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: () async {

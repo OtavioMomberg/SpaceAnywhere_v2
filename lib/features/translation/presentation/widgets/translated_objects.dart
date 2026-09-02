@@ -18,13 +18,11 @@ class TranslatedObjects extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: ListView.builder(
-        itemCount:
-            translationService.translationController.translationModel.length,
+        itemCount: translationService.translationController.translationModel.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: GlassContainer(
-              borderRadius: BorderRadius.circular(10),
               height: 80,
               child: Row(
                 spacing: 20,
@@ -32,18 +30,17 @@ class TranslatedObjects extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     translationService
-                        .translationController
-                        .translationModel[index]!
-                        .translation,
+                      .translationController
+                      .translationModel[index]!
+                      .translation,
                     style: const TextStyle(color: AppThemes.whitePremium),
                   ),
-                  //if (flutterTtsService.isVoiceAvaliable)...[
                   IconButton(
                     onPressed: () async {
                       final response = translationService
-                          .translationController
-                          .translationModel[index]!
-                          .translation;
+                        .translationController
+                        .translationModel[index]!
+                        .translation;
 
                       await flutterTtsService.play(translation: response);
                     },
@@ -53,7 +50,6 @@ class TranslatedObjects extends StatelessWidget {
                     ),
                   ),
                 ],
-                //]
               ),
             ),
           );

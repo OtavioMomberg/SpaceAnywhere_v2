@@ -38,8 +38,7 @@ class FontsScreen extends StatelessWidget {
                         color: AppThemes.whitePremium.withValues(alpha: 0.1),
                         child: InkWell(
                           borderRadius: AppThemes.borderRadius,
-                          onTap: () =>
-                              OpenLinksHelper.openLink(url: fonts[index]),
+                          onTap: () => OpenLinksHelper.openLink(url: fonts[index]),
                           child: Padding(
                             padding: const EdgeInsets.all(10),
                             child: Text(

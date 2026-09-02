@@ -19,7 +19,9 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: AppThemes.borderRadius,
-      color: AppThemes.whitePremium.withValues(alpha: 0.15),
+      color: Colors.transparent,
+      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.1),
+      elevation: 5,
       child: InkWell(
         borderRadius: AppThemes.borderRadius,
         onTap: () async {
