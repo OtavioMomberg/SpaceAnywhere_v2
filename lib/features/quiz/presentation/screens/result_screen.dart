@@ -13,7 +13,7 @@ class ResultScreen extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      appBar: AppThemes.appBar,
+      appBar: AppThemes.appBarWithHeightZero,
       backgroundColor: AppThemes.blue3,
       body: SafeArea(
         top: false,

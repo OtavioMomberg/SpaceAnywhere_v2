@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:space_anywhere/core/routes/app_routes.dart';
-import 'package:space_anywhere/presentation/drawer_screen.dart';
+import 'package:space_anywhere/core/entry_points/drawer_screen.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 class SplashScreen extends StatelessWidget {

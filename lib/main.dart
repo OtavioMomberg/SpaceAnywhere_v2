@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:space_anywhere/presentation/splash_screen.dart';
+import 'package:space_anywhere/core/entry_points/splash_screen.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 void main() async {
