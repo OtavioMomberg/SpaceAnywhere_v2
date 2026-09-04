@@ -8,9 +8,9 @@ class ExpansibleHeader extends StatelessWidget {
 
   const ExpansibleHeader({
     required this.controller,
-    required CalculatorService calculatorService,
+    required this._calculatorService,
     super.key,
-  }) : _calculatorService = calculatorService;
+  });
 
   @override
   Widget build(BuildContext context) {

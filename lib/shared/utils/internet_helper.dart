@@ -11,12 +11,12 @@ class InternetHelper<T> {
   Future<void> Function()? _function;
 
   InternetHelper.withFunctionParameter({
-    required Future<void> Function({T? param}) function,
-  }) : _functionWithParam = function;
+    required this._functionWithParam,
+  });
 
   InternetHelper.withoutFunctionParameter({
-    required Future<void> Function() function,
-  }) : _function = function;
+    required this._function,
+  });
 
   bool get checkInternet => _checkInternet;
   bool get checkAPI => _checkAPI;

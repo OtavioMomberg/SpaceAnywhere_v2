@@ -84,7 +84,7 @@ class QuizService<T> {
   }
 
   void buildInternetInstance() {
-    _internet = InternetHelper.withFunctionParameter(function: controlQuizFlow);
+    _internet = InternetHelper.withFunctionParameter(functionWithParam: controlQuizFlow);
   }
 
   void initializeConnectionSystem() {

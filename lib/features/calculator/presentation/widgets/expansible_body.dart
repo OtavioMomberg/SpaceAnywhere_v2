@@ -9,10 +9,10 @@ class ExpansibleBody extends StatelessWidget {
 
   const ExpansibleBody({
     required this.controller,
-    required CalculatorService calculatorService,
+    required this._calculatorService,
     required this.setStateCallback,
     super.key,
-  }) : _calculatorService = calculatorService;
+  });
 
   @override
   Widget build(BuildContext context) {

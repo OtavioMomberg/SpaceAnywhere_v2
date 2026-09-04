@@ -6,9 +6,9 @@ class CalculusResult extends StatelessWidget {
   final CalculatorService _calculatorService;
 
   const CalculusResult({
-    required CalculatorService calculatorService,
+    required this._calculatorService,
     super.key,
-  }) : _calculatorService = calculatorService;
+  });
 
   @override
   Widget build(BuildContext context) {

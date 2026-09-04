@@ -44,7 +44,6 @@ class TranslationService<T> {
   }
 
   Future<void> controlTranslationFlow({T? param}) async {
-    print("AQUI");
     await getTranslations(langFlag: param as String?);
 
     if (_internet.currentRetryAttempt != _internet.retryAttempts) { return; }
@@ -57,7 +56,7 @@ class TranslationService<T> {
 
   void buildInternetInstance() {
     _internet = InternetHelper.withFunctionParameter(
-      function: controlTranslationFlow,
+      functionWithParam: controlTranslationFlow,
     );
   }
 
