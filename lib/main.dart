@@ -9,7 +9,7 @@ void main() async {
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString("assets/fonts/OFL.txt");
-    yield LicenseEntryWithLineBreaks(<String>["Google Fonts - Electrolize"], license);
+    yield LicenseEntryWithLineBreaks(["Google Fonts - Electrolize"], license);
   });
 
   await SystemChrome.setPreferredOrientations([
