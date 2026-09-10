@@ -33,14 +33,9 @@ class WallpaperService {
   Future<void> _controlWallpaperFlow() async {
     await getImages();
 
-    await Future.delayed(Duration(seconds: 1));
-    if (!checkMounted()) {
-      return;
-    }
+    if (!checkMounted()) { return; }
 
-    if (_internet.currentRetryAttempt != _internet.retryAttempts) {
-      return;
-    }
+    if (!wallpaperController.isSucced) { return; }
 
     _isLoading = false;
     setState();
@@ -87,16 +82,13 @@ class WallpaperService {
   Future<void> getImages() async {
     await _internet.hasInternet();
 
-    if (!_internet.checkInternet) {
-      return;
-    }
+    if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
 
-    if (!_internet.checkAPI) {
-      return;
-    }
+    if (!_internet.checkAPI) { return; }
 
+    wallpaperController.initIsSucced = false;
     await wallpaperController.onGetWallpaper(offset: _offset);
 
     if (wallpaperController.getErrorWallpaper == null) {

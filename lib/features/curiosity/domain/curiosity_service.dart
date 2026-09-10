@@ -46,18 +46,13 @@ class CuriosityService {
   Future<void> _controlCuriosityFlow() async {
     await _controlCuriosity();
 
-    if (!checkMounted()) {
-      return;
-    }
+    if (!curiosityController.isSucced) { return; }
+
+    if (!checkMounted()) { return; }
 
     if (_internet.checkInternet && _internet.checkAPI) {
       _showActionButtons = true;
     }
-
-    if (_internet.currentRetryAttempt != _internet.retryAttempts) {
-      return;
-    }
-
     _isLoading = false;
     setState();
   }
@@ -95,9 +90,9 @@ class CuriosityService {
 
   String cleanText({required String text}) {
     return text
-        .replaceAll('\\n', '\n')
-        .replaceAll('\\r', '')
-        .replaceAll('\\"', '"');
+      .replaceAll('\\n', '\n')
+      .replaceAll('\\r', '')
+      .replaceAll('\\"', '"');
   }
 
   Future<void> _getCuriosity({
@@ -106,16 +101,13 @@ class CuriosityService {
   }) async {
     await _internet.hasInternet();
 
-    if (!_internet.checkInternet) {
-      return;
-    }
+    if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
 
-    if (!_internet.checkAPI) {
-      return;
-    }
+    if (!_internet.checkAPI) { return; }
 
+    curiosityController.initIsSucced = false;
     await curiosityController.onGetCuriosity(id: curiosityId);
 
     if (curiosityController.getErrorCuriosity == null) {
@@ -149,7 +141,7 @@ class CuriosityService {
         );
         return;
       }
-
+      curiosityController.isSuccedTrue = true;
       _fonts.clear();
       _internet.updateInternetStatus(status: true);
       _internet.updateAPIStatus(status: true);

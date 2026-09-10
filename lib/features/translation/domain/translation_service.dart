@@ -46,7 +46,7 @@ class TranslationService<T> {
   Future<void> controlTranslationFlow({T? param}) async {
     await getTranslations(langFlag: param as String?);
 
-    if (_internet.currentRetryAttempt != _internet.retryAttempts) { return; }
+    if (!languageController.isSucced || !translationController.isSucced) { return; }
 
     if (!checkMounted()) { return; }
 
@@ -94,30 +94,30 @@ class TranslationService<T> {
     if (TranslationCacheHelper.translation[langFlag] != null) {
       final value = TranslationCacheHelper.translation[langFlag]!;
       translationController.cacheTranslationModel = value;
+      translationController.isSuccedTrue = true;
       _internet.updateInternetStatus(status: true);
       _internet.updateAPIStatus(status: true);
-      return;
+      if (!_checkLanguageCache()) { return; }
     }
 
     if (!await check()) { return; }
 
     await getLanguages();
 
+    translationController.initIsSucced = false;
     await translationController.onGetTranslations(langFlag: langFlag);
 
     if (translationController.error == null) {
-      TranslationCacheHelper.translation[langFlag] =
-          translationController.translationModel;
+      TranslationCacheHelper.translation[langFlag] = translationController.translationModel;
     } else {
       _error = translationController.error!;
     }
   }
 
   Future<void> getLanguages() async {
-    if (!_checkLanguageCache()) {
-      return;
-    }
+    if (!_checkLanguageCache()) { return; }
 
+    languageController.initIsSucced = false;
     await languageController.onGetLanguages();
 
     if (languageController.error == null) {
@@ -135,7 +135,7 @@ class TranslationService<T> {
     if (TranslationCacheHelper.language.isEmpty) {
       return true;
     }
-
+    languageController.isSuccedTrue = true;
     _internet.updateInternetStatus(status: true);
     _internet.updateAPIStatus(status: true);
     return false;

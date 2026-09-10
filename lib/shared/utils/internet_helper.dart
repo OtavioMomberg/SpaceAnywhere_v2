@@ -60,7 +60,6 @@ class InternetHelper<T> {
 
       if (checkInternet && checkAPI) {
         _currentRetryAttempt = _retryAttempts;
-        await _function!();
         break;
       }
       _currentRetryAttempt++;
@@ -74,7 +73,6 @@ class InternetHelper<T> {
 
       if (checkInternet && checkAPI) {
         _currentRetryAttempt = _retryAttempts;
-        await _functionWithParam!(param: _param);
         break;
       }
       _currentRetryAttempt++;

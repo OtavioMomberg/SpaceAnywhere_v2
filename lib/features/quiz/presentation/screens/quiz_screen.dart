@@ -170,6 +170,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
                 ? AppThemes.lightBlue
                 : AppThemes.white
           : AppThemes.red,
+      duration: const Duration(seconds: 1)
     );
   }
 

@@ -49,9 +49,7 @@ class QuizService<T> {
   Future<void> controlQuizFlow({T? param}) async {
     await getQuestion(questionId: param as int?);
 
-    if (!checkMounted()) {
-      return;
-    }
+    if (!checkMounted()) { return; }
 
     if (param != null) {
       if (!_internet.checkInternet || !_internet.checkAPI) {
@@ -63,19 +61,14 @@ class QuizService<T> {
         }
         return;
       }
-
       snackBar();
     }
 
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(milliseconds: 800));
 
-    if (_internet.currentRetryAttempt != _internet.retryAttempts) {
-      return;
-    }
+    if (!questionController.isSucced) { return; }
 
-    if (!checkMounted()) {
-      return;
-    }
+    if (!checkMounted()) { return; }
 
     _isLoading = false;
     _retrySucced = false;
@@ -108,9 +101,8 @@ class QuizService<T> {
       snackBar(error: true);
       return;
     }
-    if (!checkMounted()) {
-      return;
-    }
+
+    if (!checkMounted()) { return; }
 
     _changeQuizState();
 
@@ -123,19 +115,16 @@ class QuizService<T> {
     await _internet.hasInternet();
 
     if (questionId != null && !_internet.checkInternet) {
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 2));
     }
 
-    if (!_internet.checkInternet) {
-      return;
-    }
+    if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
 
-    if (!_internet.checkAPI) {
-      return;
-    }
+    if (!_internet.checkAPI) { return; }
 
+    questionController.initIsSucced = false;
     await questionController.onGetQuestion(id: questionId ?? _id);
 
     if (questionController.getErrorQuestion != null) {

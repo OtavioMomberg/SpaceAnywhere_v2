@@ -2,13 +2,21 @@ import 'package:space_anywhere/features/translation/data/models/language_model.d
 import 'package:space_anywhere/features/translation/data/repositories/language_repository.dart';
 
 class LanguageController {
-  final LanguageRepository _languageRepositoryHttp;
+  final LanguageRepository _languageRepository;
 
-  LanguageController(this._languageRepositoryHttp);
+  LanguageController(this._languageRepository);
 
   String? _error;
 
   String? get error => _error;
+
+  bool _isSucced = false;
+
+  bool get isSucced => _isSucced;
+
+  set initIsSucced(bool value) => _isSucced = value;
+
+  set isSuccedTrue(bool value) => _isSucced = value;
 
   List<LanguageModel?> _languageModel = [];
 
@@ -18,10 +26,11 @@ class LanguageController {
     _error = null;
 
     try {
-      final response = await _languageRepositoryHttp.getLanguages();
+      final response = await _languageRepository.getLanguages();
 
       if (response.isNotEmpty) {
         _languageModel = response;
+        _isSucced = true;
       }
     } catch (error) {
       _error = error.toString();

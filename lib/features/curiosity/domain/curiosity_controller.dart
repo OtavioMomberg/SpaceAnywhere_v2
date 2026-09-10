@@ -2,13 +2,21 @@ import 'package:space_anywhere/features/curiosity/data/models/curiosity_model.da
 import 'package:space_anywhere/features/curiosity/data/repositories/curiosity_repository.dart';
 
 class CuriosityController {
-  final CuriosityRepository _curiosityRepositoryHttp;
+  final CuriosityRepository _curiosityRepository;
 
-  CuriosityController(this._curiosityRepositoryHttp);
+  CuriosityController(this._curiosityRepository);
 
   String? _errorGetCuriosity;
 
   String? get getErrorCuriosity => _errorGetCuriosity;
+
+  bool _isSucced = false;
+
+  bool get isSucced => _isSucced;
+
+  set initIsSucced(bool value) => _isSucced = value;
+
+  set isSuccedTrue(bool value) => _isSucced = value;
 
   CuriosityModel? _curiosityModel;
 
@@ -17,10 +25,11 @@ class CuriosityController {
   Future<void> onGetCuriosity({required int id}) async {
     _errorGetCuriosity = null;
     try {
-      final response = await _curiosityRepositoryHttp.getCuriosity(id: id);
+      final response = await _curiosityRepository.getCuriosity(id: id);
 
       if (response != null) {
         _curiosityModel = response;
+        _isSucced = true;
       }
     } catch (error) {
       _errorGetCuriosity = error.toString();
