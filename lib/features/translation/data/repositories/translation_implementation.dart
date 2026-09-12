@@ -6,7 +6,7 @@ import 'package:space_anywhere/features/translation/data/repositories/translatio
 class TranslationImplementation implements TranslationRepository {
   final Client _client;
 
-  const TranslationImplementation({required this._client});
+  const new({required this._client});
 
   @override
   Future<List<TranslationModel?>> getTrasnlations({String? langFlag}) async {

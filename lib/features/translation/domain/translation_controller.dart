@@ -5,7 +5,7 @@ import 'package:space_anywhere/features/translation/data/repositories/translatio
 class TranslationController {
   final TranslationRepository _translationRepository;
 
-  TranslationController(this._translationRepository);
+  new({required this._translationRepository});
 
   String? _error;
 

@@ -4,7 +4,7 @@ import 'package:space_anywhere/features/quiz/data/repositories/question_reposito
 class QuestionController {
   final QuestionRepository _questionRepository;
 
-  QuestionController(this._questionRepository);
+  new({required this._questionRepository});
 
   String? _errorGetQuestion;
 

@@ -6,7 +6,7 @@ class InputNumber extends StatelessWidget {
   final String label;
   final void Function(String)? onFieldSubmitted;
 
-  const InputNumber({
+  const new({
     required this.controller,
     required this.label,
     required this.onFieldSubmitted,

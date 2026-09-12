@@ -12,7 +12,7 @@ import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/features/quiz/presentation/widgets/question_card.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  const new({super.key});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();

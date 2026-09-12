@@ -7,7 +7,10 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 class LanguageSelector extends StatefulWidget {
   final Future<void> Function({String? param}) controlTranslationFlow;
 
-  const LanguageSelector({required this.controlTranslationFlow, super.key});
+  const new({
+    required this.controlTranslationFlow, 
+    super.key
+  });
 
   @override
   State<LanguageSelector> createState() => _LanguageSelectorState();

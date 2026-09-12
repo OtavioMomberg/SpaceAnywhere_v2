@@ -5,7 +5,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 class CalculusResult extends StatelessWidget {
   final CalculatorService _calculatorService;
 
-  const CalculusResult({
+  const new({
     required this._calculatorService,
     super.key,
   });

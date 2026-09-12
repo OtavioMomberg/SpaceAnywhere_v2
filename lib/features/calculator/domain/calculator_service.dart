@@ -3,13 +3,12 @@ import 'package:space_anywhere/features/calculator/data/objects_gravity_dataset.
 
 class CalculatorService {
   static const defaultOptionText = "Escolha um objeto";
-  final _planetsGravity = ObjectsGravityDataset.planetsGravity;
+  final _planetsGravity = PlanetsGravity.planetsGravityData;
   String _text = defaultOptionText;
   double? _result = 0.0;
   int _index = 0;
 
-  List<ObjectInformation> get planetsGravity =>
-      List.unmodifiable(_planetsGravity);
+  List<ObjectInformation> get planetsGravity => List.unmodifiable(_planetsGravity);
   String get defaultText => _text;
   double? get result => _result;
 

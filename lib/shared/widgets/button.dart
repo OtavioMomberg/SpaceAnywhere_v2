@@ -7,9 +7,9 @@ class Button extends StatelessWidget {
   final VoidCallback? function;
   final Future<void> Function()? awaitFunction;
 
-  const Button({
+  const new({
     required this.label,
-    this.height = 50,
+    this.height = 60,
     this.function,
     this.awaitFunction,
     super.key,
@@ -29,9 +29,7 @@ class Button extends StatelessWidget {
             await awaitFunction!();
             return;
           }
-          if (function != null) {
-            function!();
-          }
+          if (function != null) { function!(); }
         },
         child: Container(
           decoration: BoxDecoration(

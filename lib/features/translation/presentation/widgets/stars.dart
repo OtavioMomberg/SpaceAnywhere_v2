@@ -7,7 +7,7 @@ class Stars extends StatefulWidget {
   final bool differentPaddings;
   final bool differentSpacing;
 
-  const Stars({
+  const new({
     this.isLeft = false,
     this.differentSizes = false,
     this.differentPaddings = false,

@@ -4,7 +4,10 @@ import 'package:space_anywhere/core/constants/app_constants.dart';
 import 'package:space_anywhere/features/translation/domain/translation_cache_helper.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class TranslationService<T> {
+class TranslationService<T>({
+  required final TranslationController translationController,
+  required final LanguageController languageController,
+}) {
   static const stepsToInstallVoice = [
     "1- Abra as Configurações do celular",
     "2- Entre em Acessibilidade",
@@ -20,14 +23,7 @@ class TranslationService<T> {
   String? _error;
   bool _isLoading = true;
 
-  final TranslationController translationController;
-  final LanguageController languageController;
-
-  TranslationService({
-    required this.translationController,
-    required this.languageController,
-  });
-
+  int get objectsLength => translationController.translationModel.length;
   bool get checkInternet => _internet.checkInternet;
   bool get checkAPI => _internet.checkAPI;
   String? get error => _error;

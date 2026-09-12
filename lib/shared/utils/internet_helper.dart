@@ -10,11 +10,11 @@ class InternetHelper<T> {
   Future<void> Function({T? param})? _functionWithParam;
   Future<void> Function()? _function;
 
-  InternetHelper.withFunctionParameter({
+  new withFunctionParameter({
     required this._functionWithParam,
   });
 
-  InternetHelper.withoutFunctionParameter({
+  new withoutFunctionParameter({
     required this._function,
   });
 
@@ -28,21 +28,17 @@ class InternetHelper<T> {
   Future<void> hasInternet() async {
     try {
       final url = "https://www.google.com";
-      final response = await http
-          .get(Uri.parse(url))
-          .timeout(const Duration(seconds: 5));
+      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 5));
       _checkInternet = response.statusCode == 200;
     } catch (e) {
       _checkInternet = false;
     }
   }
 
-  Future<void> isApiAwake({
-    Duration duration = const Duration(seconds: 45),
-  }) async {
+  Future<void> isApiAwake() async {
     try {
       final url = "$baseURL/health/";
-      final response = await http.get(Uri.parse(url)).timeout(duration);
+      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 45));
       _checkAPI = response.statusCode == 200;
     } catch (error) {
       _checkAPI = false;

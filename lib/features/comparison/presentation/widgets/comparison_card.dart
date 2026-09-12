@@ -9,7 +9,7 @@ class ComparisonCard extends StatelessWidget {
   final String objectName;
   final String imagePath;
 
-  const ComparisonCard({
+  const new({
     required this.objectData,
     required this.objectName,
     required this.imagePath,

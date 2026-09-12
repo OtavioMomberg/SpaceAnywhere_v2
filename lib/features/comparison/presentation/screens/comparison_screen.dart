@@ -6,7 +6,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/features/comparison/presentation/widgets/comparison_card.dart';
 
 class ComparisonScreen extends StatefulWidget {
-  const ComparisonScreen({super.key});
+  const new({super.key});
 
   @override
   State<ComparisonScreen> createState() => _ComparisonScreenState();
@@ -33,7 +33,7 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
           child: ListView.builder(
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
-            itemCount: ComparisonDataset.objects.length,
+            itemCount: ObjectsDataset.objects.length,
             itemExtent: size.width - 20,
             itemBuilder: (context, index) {
               return Container(
@@ -79,11 +79,11 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
   }
 
   void _randomizeList() {
-    while (finalList.length < ComparisonDataset.objects.length) {
-      int index = rand.nextInt(ComparisonDataset.objects.length);
+    while (finalList.length < ObjectsDataset.objects.length) {
+      int index = rand.nextInt(ObjectsDataset.objects.length);
 
-      if (!finalList.contains(ComparisonDataset.objects[index])) {
-        finalList.add(ComparisonDataset.objects[index]);
+      if (!finalList.contains(ObjectsDataset.objects[index])) {
+        finalList.add(ObjectsDataset.objects[index]);
       }
     }
   }

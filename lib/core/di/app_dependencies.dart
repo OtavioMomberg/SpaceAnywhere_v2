@@ -17,17 +17,17 @@ class AppDependencies {
   static final _client = Client();
 
   static CuriosityController get curiosityController =>
-      CuriosityController(CuriosityImplementation(client: _client));
+    CuriosityController(curiosityRepository: CuriosityImplementation(client: _client));
 
   static QuestionController get questionController =>
-      QuestionController(QuestionInplementation(client: _client));
+    QuestionController(questionRepository: QuestionInplementation(client: _client));
 
   static WallpaperController get wallpaperController =>
-      WallpaperController(WallpaperImplementation(client: _client));
+    WallpaperController(wallpaperRepository: WallpaperImplementation(client: _client));
 
   static LanguageController get languageController =>
-      LanguageController(LanguageImplementation(client: _client));
+    LanguageController(languageRepository: LanguageImplementation(client: _client));
 
   static TranslationController get translationController =>
-      TranslationController(TranslationImplementation(client: _client));
+    TranslationController(translationRepository: TranslationImplementation(client: _client));
 }

@@ -1,17 +1,11 @@
 import 'dart:convert';
 
-class WallpaperModel {
-  final int id;
-  final String fullImageUrl;
-  final String thumbnailImageUrl;
-
-  const WallpaperModel({
-    required this.id,
-    required this.fullImageUrl,
-    required this.thumbnailImageUrl
-  });
-
-  factory WallpaperModel.fromMap({required Map<String, dynamic> map}) {
+class WallpaperModel({
+  required final int id,
+  required final String fullImageUrl,
+  required final String thumbnailImageUrl
+}) {
+  factory fromMap({required Map<String, dynamic> map}) {
     return WallpaperModel(
       id: map["id"], 
       fullImageUrl: map["full_image_url"], 

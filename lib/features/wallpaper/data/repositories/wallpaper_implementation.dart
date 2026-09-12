@@ -6,7 +6,7 @@ import 'package:space_anywhere/features/wallpaper/data/repositories/wallpaper_re
 class WallpaperImplementation implements WallpaperRepository {
   final Client _client;
 
-  WallpaperImplementation({required this._client});
+  const new({required this._client});
 
   @override
   Future<List<WallpaperModel?>> getWallpaper({int? offset}) async {

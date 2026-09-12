@@ -12,14 +12,12 @@ class SqliteImplementation implements SqliteRepository {
 
   static final _instance = SqliteImplementation._();
 
-  SqliteImplementation._();
+  new _();
 
-  factory SqliteImplementation.instance() => _instance;
+  factory instance() => _instance;
 
   Future<Database> get database async {
-    if (_db != null) {
-      return _db!;
-    }
+    if (_db != null) { return _db!; }
 
     _db = await createDatabase();
     return _db!;

@@ -1,19 +1,12 @@
 import 'dart:convert';
 
-class QuestionModel {
-  final int id;
-  final String question;
-  final int rightAnswerIndex;
-  final List<String> alternatives;
-
-  const QuestionModel({
-    required this.id,
-    required this.question,
-    required this.rightAnswerIndex,
-    required this.alternatives
-  });
-
-  factory QuestionModel.fromMap({required Map<String, dynamic> map}) {
+class QuestionModel({
+  required final int id,
+  required final String question,
+  required final int rightAnswerIndex,
+  required final List<String> alternatives
+}) {
+  factory fromMap({required Map<String, dynamic> map}) {
     final alternatives = (map["alternatives"] as List).cast<String>();
     
     return QuestionModel(
@@ -24,5 +17,6 @@ class QuestionModel {
     );
   }
 
-  factory QuestionModel.fromJson({required String source}) => QuestionModel.fromMap(map: jsonDecode(source));
+  factory fromJson({required String source}) => 
+    QuestionModel.fromMap(map: jsonDecode(source));
 }

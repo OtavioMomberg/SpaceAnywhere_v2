@@ -8,7 +8,7 @@ class GlassContainer extends StatelessWidget {
   final Widget? child;
   final double? height;
 
-  const GlassContainer({
+  const new({
     this.borderRadius,
     this.borderColor,
     this.backgroundColor,

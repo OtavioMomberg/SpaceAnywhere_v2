@@ -11,7 +11,7 @@ import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
 
 class WallpaperScreen extends StatefulWidget {
-  const WallpaperScreen({super.key});
+  const new({super.key});
 
   @override
   State<WallpaperScreen> createState() => _WallpaperScreenState();

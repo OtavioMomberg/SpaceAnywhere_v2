@@ -5,7 +5,7 @@ import 'package:space_anywhere/core/entry_points/drawer_screen.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {

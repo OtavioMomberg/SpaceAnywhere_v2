@@ -9,7 +9,7 @@ import 'package:space_anywhere/features/calculator/presentation/widgets/expansib
 import 'package:space_anywhere/features/calculator/presentation/widgets/input_number.dart';
 
 class CalculatorScreen extends StatefulWidget {
-  const CalculatorScreen({super.key});
+  const new({super.key});
 
   @override
   State<CalculatorScreen> createState() => _CalculatorScreenState();

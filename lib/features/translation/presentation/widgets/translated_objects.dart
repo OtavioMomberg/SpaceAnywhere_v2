@@ -6,11 +6,9 @@ import 'package:space_anywhere/features/translation/domain/translation_service.d
 
 class TranslatedObjects extends StatelessWidget {
   final TranslationService translationService;
-  final FlutterTtsHelper flutterTtsService;
 
   const TranslatedObjects({
     required this.translationService,
-    required this.flutterTtsService,
     super.key,
   });
 
@@ -18,7 +16,7 @@ class TranslatedObjects extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: ListView.builder(
-        itemCount: translationService.translationController.translationModel.length,
+        itemCount: translationService.objectsLength,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -42,7 +40,7 @@ class TranslatedObjects extends StatelessWidget {
                         .translationModel[index]!
                         .translation;
 
-                      await flutterTtsService.play(translation: response);
+                      await FlutterTtsHelper.play(translation: response);
                     },
                     icon: const Icon(
                       Icons.volume_up,

@@ -1,21 +1,13 @@
 import 'dart:convert';
 
-class CuriosityModel {
-  final int id;
-  final String title;
-  final String shortAnswer;
-  final String longAnswer;
-  final List<String> contentFont;
-
-  const CuriosityModel({
-    required this.id,
-    required this.title,
-    required this.shortAnswer,
-    required this.longAnswer,
-    required this.contentFont,
-  });
-
-  factory CuriosityModel.fromMap({required Map<String, dynamic> map}) {
+class CuriosityModel({
+  required final int id,
+  required final String title,
+  required final String shortAnswer,
+  required final String longAnswer,
+  required final List<String> contentFont,
+  }) {
+  factory fromMap({required Map<String, dynamic> map}) {
     final fonts = (map["content_font"] as List).cast<String>();
 
     return CuriosityModel(
@@ -27,5 +19,6 @@ class CuriosityModel {
     );
   }
 
-  factory CuriosityModel.fromJson({required String source}) => CuriosityModel.fromMap(map: jsonDecode(source));
+  factory fromJson({required String source}) => 
+    CuriosityModel.fromMap(map: jsonDecode(source));
 }

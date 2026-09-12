@@ -7,7 +7,7 @@ class ExpansibleBody extends StatelessWidget {
   final CalculatorService _calculatorService;
   final VoidCallback setStateCallback;
 
-  const ExpansibleBody({
+  const new({
     required this.controller,
     required this._calculatorService,
     required this.setStateCallback,

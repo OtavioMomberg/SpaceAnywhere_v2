@@ -8,7 +8,11 @@ class ImageWidget extends StatelessWidget {
   final String imagePath;
   final ImageOption option;
 
-  const ImageWidget({required this.imagePath, required this.option, super.key});
+  const new({
+    required this.imagePath, 
+    required this.option, 
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {

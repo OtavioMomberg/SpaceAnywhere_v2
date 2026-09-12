@@ -5,7 +5,7 @@ class ExpansibleWidget extends StatelessWidget {
   final Widget body;
   final ExpansibleController controller;
 
-  const ExpansibleWidget({
+  const new({
     required this.header,
     required this.body,
     required this.controller,

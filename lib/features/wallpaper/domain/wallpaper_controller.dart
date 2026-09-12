@@ -4,7 +4,7 @@ import 'package:space_anywhere/features/wallpaper/data/repositories/wallpaper_re
 class WallpaperController {
   final WallpaperRepository _wallpaperRepository;
 
-  WallpaperController(this._wallpaperRepository);
+  new({required this._wallpaperRepository});
 
   String? _errorGetWallpaper;
 

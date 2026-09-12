@@ -8,7 +8,7 @@ class CheckConnection extends StatelessWidget {
   final bool checkAPI;
   final double height;
 
-  const CheckConnection({
+  const new({
     required this.isLoading,
     required this.checkInternet,
     required this.checkAPI,

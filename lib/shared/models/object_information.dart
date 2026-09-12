@@ -7,7 +7,7 @@ class ObjectInformation {
   final String imagePath;
   final double? gravityOverEarth;
 
-  const ObjectInformation({
+  const new({
     required this.name,
     required this.diameter,
     required this.mass,
@@ -16,7 +16,7 @@ class ObjectInformation {
     required this.imagePath,
   }) : gravityOverEarth = null;
 
-  const ObjectInformation.calculate({
+  const new calculate({
     required this.name,
     required this.gravityOverEarth,
   }) : diameter = "",

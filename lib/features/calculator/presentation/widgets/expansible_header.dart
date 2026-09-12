@@ -6,7 +6,7 @@ class ExpansibleHeader extends StatelessWidget {
   final ExpansibleController controller;
   final CalculatorService _calculatorService;
 
-  const ExpansibleHeader({
+  const new({
     required this.controller,
     required this._calculatorService,
     super.key,

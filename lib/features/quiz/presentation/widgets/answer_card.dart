@@ -8,7 +8,7 @@ class AnswerCard extends StatelessWidget {
   final Color color;
   final Future<void> Function({required int index}) onTap;
 
-  const AnswerCard({
+  const new({
     required this.index,
     required this.option,
     required this.color,

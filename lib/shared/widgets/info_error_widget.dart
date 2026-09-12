@@ -7,7 +7,7 @@ class InfoErrorWidget extends StatelessWidget {
   final double height;
   final IconData icon;
 
-  const InfoErrorWidget({
+  const new({
     required this.message,
     required this.height,
     required this.icon,

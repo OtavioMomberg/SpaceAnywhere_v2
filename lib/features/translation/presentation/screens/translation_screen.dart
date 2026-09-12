@@ -14,7 +14,7 @@ import 'package:space_anywhere/features/translation/presentation/widgets/transla
 import 'package:space_anywhere/features/translation/domain/translation_service.dart';
 
 class TranslationScreen extends StatefulWidget {
-  const TranslationScreen({super.key});
+  const new({super.key});
 
   @override
   State<TranslationScreen> createState() => _TranslationScreenState();
@@ -26,7 +26,6 @@ class _TranslationScreenState extends State<TranslationScreen>
     translationController: AppDependencies.translationController,
     languageController: AppDependencies.languageController,
   );
-  final _flutterTTS = FlutterTtsHelper();
 
   @override
   void initState() {
@@ -47,7 +46,7 @@ class _TranslationScreenState extends State<TranslationScreen>
   }
 
   Future<void> initPlayer() async {
-    await _flutterTTS.init();
+    await FlutterTtsHelper.init();
   }
 
   @override
@@ -101,10 +100,7 @@ class _TranslationScreenState extends State<TranslationScreen>
             ),
             const SizedBox(height: 20),
 
-            TranslatedObjects(
-              translationService: _translationService,
-              flutterTtsService: _flutterTTS,
-            ),
+            TranslatedObjects(translationService: _translationService),
           ] else ...[
             GlassContainer(
               height: size.height * 0.6,
@@ -141,12 +137,12 @@ class _TranslationScreenState extends State<TranslationScreen>
 
     if (_translationService.error == null) {
       final langFlag = _translationService
-          .translationController
-          .translationModel
-          .first!
-          .langFlag;
+        .translationController
+        .translationModel
+        .first!
+        .langFlag;
 
-      await _flutterTTS.setLanguage(langFlag: langFlag);
+      await FlutterTtsHelper.setLanguage(langFlag: langFlag);
     }
   }
 

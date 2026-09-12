@@ -4,7 +4,7 @@ import 'package:space_anywhere/features/curiosity/data/repositories/curiosity_re
 class CuriosityController {
   final CuriosityRepository _curiosityRepository;
 
-  CuriosityController(this._curiosityRepository);
+  new({required this._curiosityRepository});
 
   String? _errorGetCuriosity;
 

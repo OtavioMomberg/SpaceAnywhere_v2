@@ -6,7 +6,11 @@ class ResultScreen extends StatelessWidget {
   final bool isCorrect;
   final String? correctAnswer;
 
-  const ResultScreen({required this.isCorrect, this.correctAnswer, super.key});
+  const new({
+    required this.isCorrect, 
+    this.correctAnswer, 
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {

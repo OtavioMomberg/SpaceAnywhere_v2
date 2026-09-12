@@ -8,54 +8,36 @@ import 'package:space_anywhere/features/wallpaper/screens/wallpaper_screen.dart'
 
 enum TransitionType { slideLtoR, slideRtoL, fade, scale }
 
-class Transitions {
-  static final map = {
-    TransitionType.slideLtoR:
-        ({required Animation<double> animation, required Widget child}) {
-          const begin = Offset(-1.0, 0.0);
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-          final tween = Tween(
-            begin: begin,
-            end: end,
-          ).chain(CurveTween(curve: curve));
+final map = {
+  TransitionType.slideLtoR: ({required Animation<double> animation, required Widget child}) {
+    const begin = Offset(-1.0, 0.0);
+    const end = Offset.zero;
+    const curve = Curves.easeInOut;
+    final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-          return SlideTransition(
-            position: animation.drive(tween),
-            child: child,
-          );
-        },
-    TransitionType.slideRtoL:
-        ({required Animation<double> animation, required Widget child}) {
-          const begin = Offset(1.0, 0.0);
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-          final tween = Tween(
-            begin: begin,
-            end: end,
-          ).chain(CurveTween(curve: curve));
+    return SlideTransition(position: animation.drive(tween), child: child);
+  },
+  TransitionType.slideRtoL: ({required Animation<double> animation, required Widget child}) {
+    const begin = Offset(1.0, 0.0);
+    const end = Offset.zero;
+    const curve = Curves.easeInOut;
+    final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-          return SlideTransition(
-            position: animation.drive(tween),
-            child: child,
-          );
-        },
-    TransitionType
-        .fade: ({required Animation<double> animation, required Widget child}) {
-      return FadeTransition(
-        opacity: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
-        child: child,
-      );
-    },
-    TransitionType.scale:
-        ({required Animation<double> animation, required Widget child}) {
-          return ScaleTransition(
-            scale: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
-            child: child,
-          );
-        },
-  };
-}
+    return SlideTransition(position: animation.drive(tween), child: child);
+  },
+  TransitionType.fade:({required Animation<double> animation, required Widget child}) {
+    return FadeTransition(
+      opacity: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+      child: child,
+    );
+  },
+  TransitionType.scale: ({required Animation<double> animation, required Widget child}) {
+    return ScaleTransition(
+      scale: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+      child: child,
+    );
+  }
+};
 
 class AppRoutes {
   static const pages = [
@@ -85,12 +67,12 @@ class AppRoutes {
       transitionDuration: const Duration(milliseconds: 350),
       reverseTransitionDuration: const Duration(milliseconds: 400),
       transitionsBuilder: (_, animation, _, child) {
-        final transition = Transitions.map[type];
+        final transition = map[type];
 
         if (transition != null) {
           return transition(animation: animation, child: child);
         }
-        return Transitions.map[TransitionType.fade]!(
+        return map[TransitionType.fade]!(
           animation: animation,
           child: child,
         );

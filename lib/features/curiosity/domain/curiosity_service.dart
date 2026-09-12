@@ -3,7 +3,10 @@ import 'package:space_anywhere/features/curiosity/data/repositories/sqlite_imple
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 import 'package:space_anywhere/features/curiosity/data/models/curiosity_db_model.dart';
 
-class CuriosityService {
+class CuriosityService({
+  required final SqliteImplementation db, 
+  required final CuriosityController curiosityController
+}) {
   static const _curiosityId = 1;
   late InternetHelper _internet;
   String _text = "";
@@ -17,11 +20,6 @@ class CuriosityService {
   final _selectFonts = <FontDbModel>[];
   late final bool Function() checkMounted;
   late final void Function() setState;
-
-  final SqliteImplementation db;
-  final CuriosityController curiosityController;
-
-  CuriosityService({required this.db, required this.curiosityController});
 
   bool get checkInternet => _internet.checkInternet;
   bool get checkAPI => _internet.checkAPI;

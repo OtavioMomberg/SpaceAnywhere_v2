@@ -6,7 +6,7 @@ import 'package:space_anywhere/features/translation/data/repositories/language_r
 class LanguageImplementation implements LanguageRepository {
   final Client _client;
 
-  const LanguageImplementation({required this._client});
+  const new({required this._client});
 
   @override
   Future<List<LanguageModel?>> getLanguages() async {

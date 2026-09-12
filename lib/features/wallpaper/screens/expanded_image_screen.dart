@@ -10,7 +10,7 @@ class ExpandedImageScreen extends StatefulWidget {
   final String imagePath;
   final ImageOption option;
 
-  const ExpandedImageScreen({
+  const new({
     required this.imagePath,
     required this.option,
     super.key,

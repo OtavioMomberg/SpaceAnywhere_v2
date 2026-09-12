@@ -1,6 +1,6 @@
 import 'package:space_anywhere/shared/models/object_information.dart';
 
-class ComparisonDataset {
+class ObjectsDataset {
   static const objects = [
     ObjectInformation(
       name: "Mercurío",
@@ -80,7 +80,7 @@ class ComparisonDataset {
       mass: "1.989 x 10^30 kg",
       earthDistance: "147 - 152.1 milhões de km",
       objectType: "Estrela",
-      imagePath: "assets/images/Sol.png"
-    )
+      imagePath: "assets/images/Sol.png",
+    ),
   ];
 }

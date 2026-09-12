@@ -2,17 +2,13 @@ import 'package:space_anywhere/features/wallpaper/domain/wallpaper_controller.da
 import 'package:space_anywhere/features/wallpaper/domain/cache_manager_helper.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class WallpaperService {
+class WallpaperService({required final WallpaperController wallpaperController}) {
   late InternetHelper _internet;
   int _offset = 0;
   String? _error;
   bool _isLoading = true;
   late final bool Function() checkMounted;
   late final void Function() setState;
-
-  final WallpaperController wallpaperController;
-
-  WallpaperService({required this.wallpaperController});
 
   bool get checkInternet => _internet.checkInternet;
   bool get checkAPI => _internet.checkAPI;

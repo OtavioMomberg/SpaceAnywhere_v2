@@ -1,17 +1,11 @@
 import 'dart:convert';
 
-class LanguageModel {
-  final String lang;
-  final String langFlag;
-  final String emoji;
-
-  const LanguageModel({
-    required this.lang,
-    required this.langFlag,
-    required this.emoji
-  });
-
-  factory LanguageModel.fromMap({required Map<String, dynamic> map}) {
+class LanguageModel({
+  required final String lang,
+  required final String langFlag,
+  required final String emoji
+}) {
+  factory fromMap({required Map<String, dynamic> map}) {
     return LanguageModel(
       lang: map["lang"], 
       langFlag: map["lang_flag"],

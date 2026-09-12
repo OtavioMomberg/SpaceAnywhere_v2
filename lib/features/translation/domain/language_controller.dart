@@ -4,7 +4,7 @@ import 'package:space_anywhere/features/translation/data/repositories/language_r
 class LanguageController {
   final LanguageRepository _languageRepository;
 
-  LanguageController(this._languageRepository);
+  new({required this._languageRepository});
 
   String? _error;
 

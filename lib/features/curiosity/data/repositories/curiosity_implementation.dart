@@ -6,7 +6,7 @@ import 'package:space_anywhere/core/constants/api_constants.dart';
 class CuriosityImplementation implements CuriosityRepository {
   final Client _client;
 
-  CuriosityImplementation({required this._client});
+  const new({required this._client});
 
   @override
   Future<CuriosityModel?> getCuriosity({required int id}) async {

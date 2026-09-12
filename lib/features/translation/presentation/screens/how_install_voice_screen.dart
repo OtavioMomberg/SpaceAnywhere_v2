@@ -5,7 +5,7 @@ import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/features/translation/domain/translation_service.dart';
 
 class HowInstallVoiceScreen extends StatelessWidget {
-  const HowInstallVoiceScreen({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {

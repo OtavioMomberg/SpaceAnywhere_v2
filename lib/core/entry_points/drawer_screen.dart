@@ -3,7 +3,7 @@ import 'package:space_anywhere/core/routes/app_routes.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 class DrawerPage extends StatefulWidget {
-  const DrawerPage({super.key});
+  const new({super.key});
 
   @override
   State<DrawerPage> createState() => _DrawerPageState();

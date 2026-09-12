@@ -6,7 +6,7 @@ import 'package:space_anywhere/core/constants/api_constants.dart';
 class QuestionInplementation implements QuestionRepository {
   final Client _client;
 
-  QuestionInplementation({required this._client});
+  const new({required this._client});
 
   @override
   Future<QuestionModel?> getQuestion({required int id}) async {

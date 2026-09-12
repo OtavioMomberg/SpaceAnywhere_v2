@@ -1,7 +1,7 @@
 import 'package:space_anywhere/shared/models/object_information.dart';
 
-class ObjectsGravityDataset {
-  static const planetsGravity = [
+class PlanetsGravity {
+  static const planetsGravityData = [
     ObjectInformation.calculate(name: "Mercúrio", gravityOverEarth: 0.38),
     ObjectInformation.calculate(name: "Vênus", gravityOverEarth: 0.90),
     ObjectInformation.calculate(name: "Terra", gravityOverEarth: 1.0),

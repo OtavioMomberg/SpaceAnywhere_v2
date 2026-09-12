@@ -9,20 +9,16 @@ mixin GlassSnackBarHelper {
     required Color backgroundColor,
     Duration duration = const Duration(milliseconds: 1500),
   }) {
-    CustomFeedback.snackBar(
+    CustomFeedback.responseSnackbar(
       context: context,
-      padding: const EdgeInsets.all(15),
-      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
+      content: msm,
       backgroundColor: backgroundColor.withValues(alpha: 0.15),
+      txtColor: AppThemes.white,
       shape: RoundedRectangleBorder(
         borderRadius: AppThemes.borderRadius,
         side: BorderSide(color: backgroundColor.withValues(alpha: 0.5)),
       ),
-      behavior: SnackBarBehavior.floating,
-      content: Center(
-        child: Text(msm, style: const TextStyle(color: AppThemes.white)),
-      ),
-      duration: duration,
+      duration: duration
     );
   }
 }

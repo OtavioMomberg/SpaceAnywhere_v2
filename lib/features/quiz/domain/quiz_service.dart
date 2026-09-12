@@ -1,7 +1,7 @@
 import 'package:space_anywhere/features/quiz/domain/question_controller.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class QuizService<T> {
+class QuizService<T>({required final QuestionController questionController}) {
   static const _id = 0;
   static const alternativesNumber = 5;
   late InternetHelper<T> _internet;
@@ -9,16 +9,14 @@ class QuizService<T> {
   bool _quizStarted = false;
   bool _isLoading = true;
   bool _retrySucced = false;
-  late final void Function({required bool isCorrect, String? correctAnswer})
-  showResponse;
+  
+  late final void Function({
+    required bool isCorrect, 
+    String? correctAnswer}) showResponse;
   late final Future<void> Function() closeAnswerPage;
   late final bool Function() checkMounted;
   late final void Function() setState;
   late final void Function({bool error}) snackBar;
-
-  final QuestionController questionController;
-
-  QuizService({required this.questionController});
 
   bool get checkInternet => _internet.checkInternet;
   bool get checkAPI => _internet.checkAPI;
