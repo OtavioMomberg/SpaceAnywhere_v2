@@ -46,7 +46,7 @@ class AppRoutes {
     ComparisonScreen(),
     WallpaperScreen(),
     CalculatorScreen(),
-    TranslationScreen(),
+    TranslationScreen()
   ];
 
   static const pageNames = [

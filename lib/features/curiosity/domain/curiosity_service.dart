@@ -1,11 +1,12 @@
+import 'package:space_anywhere/features/curiosity/data/repositories/sqlite_repository.dart';
 import 'package:space_anywhere/features/curiosity/domain/curiosity_controller.dart';
 import 'package:space_anywhere/features/curiosity/data/repositories/sqlite_implementation.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 import 'package:space_anywhere/features/curiosity/data/models/curiosity_db_model.dart';
 
 class CuriosityService({
-  required final SqliteImplementation db, 
-  required final CuriosityController curiosityController
+  required final SqliteRepository db,
+  required final CuriosityController curiosityController,
 }) {
   static const _curiosityId = 1;
   late InternetHelper _internet;
@@ -88,9 +89,9 @@ class CuriosityService({
 
   String cleanText({required String text}) {
     return text
-      .replaceAll('\\n', '\n')
-      .replaceAll('\\r', '')
-      .replaceAll('\\"', '"');
+        .replaceAll('\\n', '\n')
+        .replaceAll('\\r', '')
+        .replaceAll('\\"', '"');
   }
 
   Future<void> _getCuriosity({
@@ -105,7 +106,7 @@ class CuriosityService({
 
     if (!_internet.checkAPI) { return; }
 
-    curiosityController.initIsSucced = false;
+    curiosityController.updadeIsSucced(value: false);
     await curiosityController.onGetCuriosity(id: curiosityId);
 
     if (curiosityController.getErrorCuriosity == null) {
@@ -139,7 +140,7 @@ class CuriosityService({
         );
         return;
       }
-      curiosityController.isSuccedTrue = true;
+      curiosityController.updadeIsSucced(value: true);
       _fonts.clear();
       _internet.updateInternetStatus(status: true);
       _internet.updateAPIStatus(status: true);

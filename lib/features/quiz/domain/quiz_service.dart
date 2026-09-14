@@ -122,7 +122,7 @@ class QuizService<T>({required final QuestionController questionController}) {
 
     if (!_internet.checkAPI) { return; }
 
-    questionController.initIsSucced = false;
+    questionController.updadeIsSucced(value: false);
     await questionController.onGetQuestion(id: questionId ?? _id);
 
     if (questionController.getErrorQuestion != null) {

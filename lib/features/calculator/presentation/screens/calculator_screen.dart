@@ -59,7 +59,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             ),
             controller: _expansibleController,
           ),
-          if (_calculatorService.checkFields(text: _textController.text)) ...[
+          if (_calculatorService.checkFields(newText: _textController.text)) ...[
             const SizedBox(height: 10),
             Button(
               label: "Calcular",

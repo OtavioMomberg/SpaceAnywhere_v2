@@ -90,7 +90,7 @@ class TranslationService<T>({
     if (TranslationCacheHelper.translation[langFlag] != null) {
       final value = TranslationCacheHelper.translation[langFlag]!;
       translationController.cacheTranslationModel = value;
-      translationController.isSuccedTrue = true;
+      translationController.updadeIsSucced(value: true);
       _internet.updateInternetStatus(status: true);
       _internet.updateAPIStatus(status: true);
       if (!_checkLanguageCache()) { return; }
@@ -100,7 +100,7 @@ class TranslationService<T>({
 
     await getLanguages();
 
-    translationController.initIsSucced = false;
+    translationController.updadeIsSucced(value: false);
     await translationController.onGetTranslations(langFlag: langFlag);
 
     if (translationController.error == null) {
@@ -113,7 +113,7 @@ class TranslationService<T>({
   Future<void> getLanguages() async {
     if (!_checkLanguageCache()) { return; }
 
-    languageController.initIsSucced = false;
+    languageController.updadeIsSucced(value: false);
     await languageController.onGetLanguages();
 
     if (languageController.error == null) {
@@ -131,9 +131,7 @@ class TranslationService<T>({
     if (TranslationCacheHelper.language.isEmpty) {
       return true;
     }
-    languageController.isSuccedTrue = true;
-    _internet.updateInternetStatus(status: true);
-    _internet.updateAPIStatus(status: true);
+    languageController.updadeIsSucced(value: true);
     return false;
   }
 }

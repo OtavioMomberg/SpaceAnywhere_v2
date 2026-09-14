@@ -14,7 +14,7 @@ class QuestionController {
 
   bool get isSucced => _isSucced;
 
-  set initIsSucced(bool value) => _isSucced = value;
+  void updadeIsSucced({required bool value}) => _isSucced = value;
 
   QuestionModel? _questionModel;
 
@@ -27,7 +27,7 @@ class QuestionController {
 
       if (response != null) {
         _questionModel = response;
-        _isSucced = !_isSucced;
+        _isSucced = true;
       }
     } catch (error) {
       _errorGetQuestion = error.toString();

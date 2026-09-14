@@ -16,9 +16,9 @@ class ObjectInformation {
     required this.imagePath,
   }) : gravityOverEarth = null;
 
-  const new calculate({
-    required this.name,
-    required this.gravityOverEarth,
+  const new planetGravity({
+    required this.name, 
+    required this.gravityOverEarth
   }) : diameter = "",
        mass = "",
        earthDistance = "",
@@ -33,6 +33,6 @@ class ObjectInformation {
     "Diâmetro:",
     "Massa:",
     "Distância para a Terra:",
-    "Tipo de objeto:"
+    "Tipo de objeto:",
   ];
 }

@@ -84,7 +84,7 @@ class WallpaperService({required final WallpaperController wallpaperController})
 
     if (!_internet.checkAPI) { return; }
 
-    wallpaperController.initIsSucced = false;
+    wallpaperController.updadeIsSucced(value: false);
     await wallpaperController.onGetWallpaper(offset: _offset);
 
     if (wallpaperController.getErrorWallpaper == null) {

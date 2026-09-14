@@ -5,10 +5,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 class CalculusResult extends StatelessWidget {
   final CalculatorService _calculatorService;
 
-  const new({
-    required this._calculatorService,
-    super.key,
-  });
+  const new({required this._calculatorService, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +32,8 @@ class CalculusResult extends StatelessWidget {
           child: Center(
             child: Text(
               _calculatorService.result == null
-                ? "Erro ao realizar cálculo."
-                : "O seu peso em ${_calculatorService.defaultText}\né: ${_calculatorService.result!.toStringAsFixed(2)} kg",
+                  ? "Erro ao realizar cálculo."
+                  : "O seu peso em ${_calculatorService.text}\né: ${_calculatorService.result!.toStringAsFixed(2)} kg",
               style: const TextStyle(
                 color: AppThemes.whitePremium,
                 fontWeight: FontWeight.bold,

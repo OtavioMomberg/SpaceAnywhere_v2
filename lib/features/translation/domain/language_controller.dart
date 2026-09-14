@@ -14,9 +14,7 @@ class LanguageController {
 
   bool get isSucced => _isSucced;
 
-  set initIsSucced(bool value) => _isSucced = value;
-
-  set isSuccedTrue(bool value) => _isSucced = value;
+  void updadeIsSucced({required bool value}) => _isSucced = value;
 
   List<LanguageModel?> _languageModel = [];
 

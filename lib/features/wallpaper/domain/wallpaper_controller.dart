@@ -14,7 +14,7 @@ class WallpaperController {
 
   bool get isSucced => _isSucced;
 
-  set initIsSucced(bool value) => _isSucced = value;
+  void updadeIsSucced({required bool value}) => _isSucced = value;
 
   List<WallpaperModel?> _wallpaperModel = [];
 

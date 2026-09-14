@@ -51,6 +51,7 @@ class SqliteImplementation implements SqliteRepository {
     return database;
   }
 
+  @override
   Future<CuriosityDbModel?> selectCuriosity() async {
     final db = await database;
     final data = await db.query(tableNameCuriosity);
@@ -70,6 +71,7 @@ class SqliteImplementation implements SqliteRepository {
     return formatedData;
   }
 
+  @override
   Future<List<FontDbModel>> selectFonts() async {
     final db = await database;
     final data = await db.query(tableNameFonts);
@@ -81,6 +83,7 @@ class SqliteImplementation implements SqliteRepository {
     return formatedData;
   }
 
+  @override
   Future<void> addCuriosity({required CuriosityDbModel curiosityModel}) async {
     final db = await database;
 
@@ -98,6 +101,7 @@ class SqliteImplementation implements SqliteRepository {
     }
   }
 
+  @override
   Future<void> addFonts({required FontDbModel fontModel}) async {
     final db = await database;
 
@@ -109,6 +113,7 @@ class SqliteImplementation implements SqliteRepository {
     }
   }
 
+  @override
   Future<void> updateCuriosity({
     required CuriosityDbModel curiosityModel,
     required int previousCuriosityId,
@@ -133,6 +138,7 @@ class SqliteImplementation implements SqliteRepository {
     }
   }
 
+  @override
   Future<void> deleteFonts() async {
     final db = await database;
 

@@ -8,8 +8,9 @@ class CalculatorService {
   double? _result = 0.0;
   int _index = 0;
 
-  List<ObjectInformation> get planetsGravity => List.unmodifiable(_planetsGravity);
-  String get defaultText => _text;
+  List<ObjectInformation> get planetsGravity =>
+      List.unmodifiable(_planetsGravity);
+  String get text => _text;
   double? get result => _result;
 
   void defineNewText({required int index}) {
@@ -21,23 +22,30 @@ class CalculatorService {
 
   void initializeResult() => _result = 0.0;
 
-  bool checkFields({required String text}) {
-    return defaultText != defaultOptionText && text.isNotEmpty;
+  bool checkFields({required String newText}) {
+    return text != defaultOptionText && newText.isNotEmpty;
   }
 
   void calculate({required String weight}) {
     if (weight.contains(".") || weight.contains(",")) {
       weight = weight.replaceAll(".", "").replaceAll(",", "");
     } else {
-      weight = (int.parse(weight) * 100).toString();
+      final numConverted = int.tryParse(weight);
+      if (numConverted == null) { 
+        _result = null;
+        return; 
+      }
+      weight = (numConverted * 100).toString();
     }
 
     final checkWeight = double.tryParse(weight);
-
     if (checkWeight == null) {
       _result = null;
       return;
     }
-    _result = (checkWeight * _planetsGravity[_index].gravityOverEarth!) / 100;
+    
+    _result = (checkWeight < 0) ? checkWeight * -1 : checkWeight;
+
+    _result = (_result! * _planetsGravity[_index].gravityOverEarth!) / 100;
   }
 }
