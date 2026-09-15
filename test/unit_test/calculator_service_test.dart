@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 
 void main() {
-  group("Verify calculator service", () {
+  group("Before calculate the weight", () {
     late CalculatorService service;
 
     setUp(() => service = CalculatorService());
@@ -48,9 +48,15 @@ void main() {
       expect(service.checkFields(newText: "70"), isTrue);
     });
 
-    test("checkFields({required String newText}) - error", () {
+    test("checkFields({required String newText}) - text = defaultOptionText should return false", () {
       expect(service.checkFields(newText: "70"), isFalse);
     });
+  });
+
+  group("Calculate method", () {
+    late CalculatorService service;
+
+    setUp(() => service = CalculatorService());
 
     test("calculate({required String weight}) - success", () {
       final index = 1;

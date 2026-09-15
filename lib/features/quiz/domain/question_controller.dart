@@ -25,10 +25,9 @@ class QuestionController {
     try {
       final response = await _questionRepository.getQuestion(id: id);
 
-      if (response != null) {
-        _questionModel = response;
-        _isSucced = true;
-      }
+      _questionModel = response;
+      _isSucced = true;
+
     } catch (error) {
       _errorGetQuestion = error.toString();
     }

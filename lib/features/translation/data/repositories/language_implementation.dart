@@ -9,7 +9,7 @@ class LanguageImplementation implements LanguageRepository {
   const new({required this._client});
 
   @override
-  Future<List<LanguageModel?>> getLanguages() async {
+  Future<List<LanguageModel>> getLanguages() async {
     final url = "$baseURL/api/v1/translation/languages";
 
     final response = await _client.get(

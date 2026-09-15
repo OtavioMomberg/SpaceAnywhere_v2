@@ -9,7 +9,7 @@ class QuestionInplementation implements QuestionRepository {
   const new({required this._client});
 
   @override
-  Future<QuestionModel?> getQuestion({required int id}) async {
+  Future<QuestionModel> getQuestion({required int id}) async {
     final url = "$baseURL/api/v1/quiz/$id";
     final response = await _client.get(
       Uri.parse(url),

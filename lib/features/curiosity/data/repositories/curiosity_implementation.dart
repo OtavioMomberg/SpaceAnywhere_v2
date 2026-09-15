@@ -9,7 +9,7 @@ class CuriosityImplementation implements CuriosityRepository {
   const new({required this._client});
 
   @override
-  Future<CuriosityModel?> getCuriosity({required int id}) async {
+  Future<CuriosityModel> getCuriosity({required int id}) async {
     final url = "$baseURL/api/v1/curiosity/$id";
     final response = await _client.get(
       Uri.parse(url),

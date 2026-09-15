@@ -77,8 +77,8 @@ class SqliteImplementation implements SqliteRepository {
     final data = await db.query(tableNameFonts);
 
     final formatedData = data
-        .map((item) => FontDbModel(font: item[font] as String))
-        .toList();
+      .map((item) => FontDbModel(font: item[font] as String))
+      .toList();
 
     return formatedData;
   }
