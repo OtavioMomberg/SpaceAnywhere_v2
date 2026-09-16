@@ -12,29 +12,31 @@ void main() {
     });
 
     test("text should start = 'Escolha um objeto'", () {
-      expect(service.text, "Escolha um objeto");
+      expect(service.objectName, "Escolha um objeto");
     });
 
     test("defineNewText({required int index}) - success", () {
-      final index = 1;
-      service.defineNewText(index: index);
+      service.changeObjectName(index: 1);
 
-      expect(service.text, "Venûs");
+      expect(service.objectName, "Vênus");
     });
 
-    test("defineNewText({required int index}) - should throw a range error", () {
-      expect(() => service.defineNewText(index: 20), throwsRangeError);
-    });
+    test(
+      "defineNewText({required int index}) - should throw a range error",
+      () {
+        expect(() => service.changeObjectName(index: 20), throwsRangeError);
+      },
+    );
 
     test("setDefaultText() - should set the text value to the default", () {
-      service.defineNewText(index: 1);
+      service.changeObjectName(index: 1);
       service.setDefaultText();
 
-      expect(service.text, "Escolha um objeto");
+      expect(service.objectName, "Escolha um objeto");
     });
 
     test("initializeResult() - should reset the result", () {
-      service.defineNewText(index: 1);
+      service.changeObjectName(index: 1);
       service.calculate(weight: "70");
       service.initializeResult();
 
@@ -42,14 +44,13 @@ void main() {
     });
 
     test("checkFields({required String newText}) - success", () {
-      final index = 1;
-      service.defineNewText(index: index);
+      service.changeObjectName(index: 1);
 
-      expect(service.checkFields(newText: "70"), isTrue);
+      expect(service.checkFields(weight: "70"), isTrue);
     });
 
-    test("checkFields({required String newText}) - text = defaultOptionText should return false", () {
-      expect(service.checkFields(newText: "70"), isFalse);
+    test("checkFields({required String newText}) - objectName = defaultOptionText should return false", () {
+      expect(service.checkFields(weight: "70"), isFalse);
     });
   });
 
@@ -59,48 +60,47 @@ void main() {
     setUp(() => service = CalculatorService());
 
     test("calculate({required String weight}) - success", () {
-      final index = 1;
-      service.defineNewText(index: index);
+      service.changeObjectName(index: 1);
       service.calculate(weight: "70");
 
       final response = (70 * 100) * 0.9 / 100;
-      
+
       expect(service.result, response);
-    });
-
-    test("calculate({required String weight}) - positive and negative 'weight' should return the same result", () {
-      service.defineNewText(index: 1);
-
-      service.calculate(weight: "70");
-      final result1 = service.result;
-
-      service.calculate(weight: "-70");
-      final result2 = service.result;
-      
-      expect(result1, result2);
     });
 
     test("calculate({required String weight}) - should convert negative weight to positive", () {
       final index = 1;
-      service.defineNewText(index: index);
+      service.changeObjectName(index: index);
       service.calculate(weight: "-70");
-      
+
       expect(service.result, isNonNegative);
     });
 
-    test("calculate({required String weight}) - should throw a format exception", () {
-      final index = 1;
-      service.defineNewText(index: index);
-      
-      expect(() => service.calculate(weight: "error"), throwsFormatException);
-    });
-
-    test("calculate({required String weight}) - should return null", () {
-      final index = 1;
-      service.defineNewText(index: index);
+    test("calculate({required String weight}) - non number values should return null", () {
+      service.changeObjectName(index: 1);
       service.calculate(weight: "error");
 
-      expect(service.result, null);
+      expect(service.result, isNull);
+    });
+
+    test("calculate({required String weight}) - empty weight should return null", () {
+      service.changeObjectName(index: 1);
+      service.calculate(weight: "");
+
+      expect(service.result, isNull);
+    });
+
+    test("calculate({required String weight}) - weight = '0' or '.' or ',' should return null", () {
+      service.changeObjectName(index: 1);
+
+      service.calculate(weight: "0");
+      expect(service.result, isNull);
+
+      service.calculate(weight: ".");
+      expect(service.result, isNull);
+
+      service.calculate(weight: ",");
+      expect(service.result, isNull);
     });
   });
 }

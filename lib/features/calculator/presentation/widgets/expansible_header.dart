@@ -28,7 +28,7 @@ class ExpansibleHeader extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Text(
-              _calculatorService.text,
+              _calculatorService.objectName,
               style: TextStyle(
                 color: AppThemes.whitePremium.withValues(alpha: 0.8),
               ),

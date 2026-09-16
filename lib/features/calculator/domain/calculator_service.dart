@@ -4,48 +4,50 @@ import 'package:space_anywhere/features/calculator/data/objects_gravity_dataset.
 class CalculatorService {
   static const defaultOptionText = "Escolha um objeto";
   final _planetsGravity = PlanetsGravity.planetsGravityData;
-  String _text = defaultOptionText;
+  String _objectName = defaultOptionText;
   double? _result = 0.0;
   int _index = 0;
 
   List<ObjectInformation> get planetsGravity =>
       List.unmodifiable(_planetsGravity);
-  String get text => _text;
+  String get objectName => _objectName;
   double? get result => _result;
 
-  void defineNewText({required int index}) {
-    _text = _planetsGravity[index].name;
+  void changeObjectName({required int index}) {
+    _objectName = _planetsGravity[index].name;
     _index = index;
   }
 
-  void setDefaultText() => _text = defaultOptionText;
+  void setDefaultText() => _objectName = defaultOptionText;
 
   void initializeResult() => _result = 0.0;
 
-  bool checkFields({required String newText}) {
-    return text != defaultOptionText && newText.isNotEmpty;
+  bool checkFields({required String weight}) {
+    return objectName != defaultOptionText && weight.isNotEmpty;
   }
 
   void calculate({required String weight}) {
-    if (weight.contains(".") || weight.contains(",")) {
-      weight = weight.replaceAll(".", "").replaceAll(",", "");
-    } else {
-      final numConverted = int.tryParse(weight);
-      if (numConverted == null) { 
-        _result = null;
-        return; 
-      }
-      weight = (numConverted * 100).toString();
+    _result = null;
+
+    if (weight.isEmpty) { return; }
+    if (weight[0] == "0" || weight[0] == "." || weight[0] == ",") { return; }
+
+    switch (weight.contains(".") || weight.contains(",")) {
+      case true:
+        weight = weight.replaceAll(".", "").replaceAll(",", "");
+        break;
+      case false:
+        final weightInt = int.tryParse(weight) ?? 0; 
+        weight = (weightInt * 100).toString();
+        if (weight == "0") { return; }
+        break;
     }
 
-    final checkWeight = double.tryParse(weight);
-    if (checkWeight == null) {
-      _result = null;
-      return;
-    }
-    
-    _result = (checkWeight < 0) ? checkWeight * -1 : checkWeight;
+    final weightParsed = double.tryParse(weight);
+    if (weightParsed == null) { return; }
 
-    _result = (_result! * _planetsGravity[_index].gravityOverEarth!) / 100;
+    _result = (weightParsed < 0) 
+      ? (weightParsed * _planetsGravity[_index].gravityOverEarth!) / 100 * -1
+      : (weightParsed * _planetsGravity[_index].gravityOverEarth!) / 100;
   }
 }

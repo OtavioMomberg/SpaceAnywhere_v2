@@ -87,6 +87,7 @@ lib/
 ├── core/
 │   ├── constants/
 │   ├── di/
+│   ├── entry_points/
 │   ├── routes/
 │   └── themes/
 │
@@ -136,8 +137,6 @@ lib/
 │       ├── domain/
 │       └── screens/
 │
-├── presentation/
-│
 ├── shared/
 │   ├── models/
 │   ├── utils/
@@ -154,7 +153,6 @@ As pastas `data`, `domain` e `presentation` são adicionadas conforme a complexi
 
 - **`core/`** — configurações e elementos fundamentais da aplicação.
 - **`features/`** — funcionalidades independentes do aplicativo.
-- **`presentation/`** — elementos de apresentação compartilhados pelo aplicativo, como telas globais.
 - **`shared/`** — componentes reutilizáveis entre diferentes funcionalidades.
 - **`data/`** — modelos, repositories e acesso aos dados quando necessário.
 - **`domain/`** — regras e serviços relacionados à funcionalidade.

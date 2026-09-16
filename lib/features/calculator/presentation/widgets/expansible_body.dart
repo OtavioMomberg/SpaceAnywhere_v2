@@ -31,7 +31,7 @@ class ExpansibleBody extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              _calculatorService.defineNewText(index: index);
+              _calculatorService.changeObjectName(index: index);
               setStateCallback();
               controller.collapse();
             },
