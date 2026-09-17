@@ -25,29 +25,25 @@ class FontsScreen extends StatelessWidget {
                 style: TextStyle(color: AppThemes.whitePremium, fontSize: 20),
               ),
               Expanded(
-                child: ListView.builder(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => 
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 12, horizontal: 4)),
                   itemCount: fonts.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 4,
-                      ),
-                      child: Material(
+                    return Material(
+                      borderRadius: AppThemes.borderRadius,
+                      color: AppThemes.whitePremium.withValues(alpha: 0.1),
+                      child: InkWell(
                         borderRadius: AppThemes.borderRadius,
-                        color: AppThemes.whitePremium.withValues(alpha: 0.1),
-                        child: InkWell(
-                          borderRadius: AppThemes.borderRadius,
-                          onTap: () => OpenLinksHelper.openLink(url: fonts[index]),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              fonts[index],
-                              style: const TextStyle(
-                                color: AppThemes.whitePremium,
-                                decoration: TextDecoration.underline,
-                                decorationColor: AppThemes.whitePremium,
-                              ),
+                        onTap: () => OpenLinksHelper.openLink(url: fonts[index]),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(
+                            fonts[index],
+                            style: const TextStyle(
+                              color: AppThemes.whitePremium,
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppThemes.whitePremium,
                             ),
                           ),
                         ),

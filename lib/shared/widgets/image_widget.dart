@@ -19,37 +19,37 @@ class ImageWidget extends StatelessWidget {
     return ClipRRect(
       borderRadius: AppThemes.borderRadius,
       child: option == ImageOption.asset
-          ? Image.asset(
-              imagePath,
-              filterQuality: FilterQuality.high,
-              fit: BoxFit.contain,
-              colorBlendMode: BlendMode.darken,
-            )
-          : CachedNetworkImage(
-              imageUrl: imagePath,
-              filterQuality: FilterQuality.high,
-              fit: BoxFit.cover,
-              colorBlendMode: BlendMode.darken,
-              cacheManager: CacheManagerHelper.instance,
-              placeholder: (context, url) {
-                return Container(
-                  color: AppThemes.whitePremium.withValues(alpha: 0.05),
-                  child: Center(
-                    child: CircularProgressIndicator.adaptive(
-                      backgroundColor: AppThemes.whitePremium.withValues(
-                        alpha: 0.5,
-                      ),
+        ? Image.asset(
+            imagePath,
+            filterQuality: FilterQuality.high,
+            fit: BoxFit.contain,
+            colorBlendMode: BlendMode.darken,
+          )
+        : CachedNetworkImage(
+            imageUrl: imagePath,
+            filterQuality: FilterQuality.high,
+            fit: BoxFit.cover,
+            colorBlendMode: BlendMode.darken,
+            cacheManager: CacheManagerHelper.instance,
+            placeholder: (context, _) {
+              return Container(
+                color: AppThemes.whitePremium.withValues(alpha: 0.05),
+                child: Center(
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: AppThemes.whitePremium.withValues(
+                      alpha: 0.5,
                     ),
                   ),
-                );
-              },
-              errorWidget: (context, url, error) {
-                return Container(
-                  color: AppThemes.whitePremium.withValues(alpha: 0.05),
-                  child: const Icon(Icons.broken_image, color: Colors.white38),
-                );
-              },
-            ),
+                ),
+              );
+            },
+            errorWidget: (context, _, _) {
+              return Container(
+                color: AppThemes.whitePremium.withValues(alpha: 0.05),
+                child: const Icon(Icons.broken_image, color: Colors.white38),
+              );
+            },
+          ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
+import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
 class CalculusResult extends StatelessWidget {
   final CalculatorService _calculatorService;
@@ -20,20 +21,14 @@ class CalculusResult extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        Container(
+        GlassContainer(
           height: 200,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: AppThemes.borderRadius,
-            border: Border.all(
-              color: AppThemes.whitePremium.withValues(alpha: 0.5),
-            ),
-          ),
           child: Center(
             child: Text(
               _calculatorService.result == null
                   ? "Erro ao realizar cálculo."
-                  : "O seu peso em ${_calculatorService.objectName}\né: ${_calculatorService.result!.toStringAsFixed(2)} kg",
+                  : "O seu peso em ${_calculatorService.objectName}\n"
+                    "é: ${_calculatorService.result!.toStringAsFixed(2)} kg",
               style: const TextStyle(
                 color: AppThemes.whitePremium,
                 fontWeight: FontWeight.bold,

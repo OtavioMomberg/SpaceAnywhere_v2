@@ -26,7 +26,8 @@ class ExpansibleBody extends StatelessWidget {
           color: AppThemes.whitePremium.withValues(alpha: 0.5),
         ),
       ),
-      child: ListView.builder(
+      child: ListView.separated(
+        separatorBuilder: (context, index) => const Padding(padding: EdgeInsets.all(10)),
         itemCount: _calculatorService.planetsGravity.length,
         itemBuilder: (context, index) {
           return InkWell(
@@ -35,18 +36,15 @@ class ExpansibleBody extends StatelessWidget {
               setStateCallback();
               controller.collapse();
             },
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Center(
-                child: Text(
-                  _calculatorService.planetsGravity[index].name,
-                  style: const TextStyle(color: AppThemes.whitePremium),
-                ),
+            child: Center(
+              child: Text(
+                _calculatorService.planetsGravity[index].name,
+                style: const TextStyle(color: AppThemes.whitePremium),
               ),
             ),
           );
-        },
-      ),
+        }
+      )
     );
   }
 }

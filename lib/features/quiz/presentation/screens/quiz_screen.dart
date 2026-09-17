@@ -84,7 +84,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
             widthFactor: 0.8,
             child: Button(
               label: "Jogar",
-              awaitFunction: _quizService.startQuiz,
+              asyncFunction: _quizService.startQuiz,
             ),
           ),
         ] else if (_quizService.checkState()) ...[
@@ -170,7 +170,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
                 ? AppThemes.lightBlue
                 : AppThemes.white
           : AppThemes.red,
-      duration: const Duration(seconds: 1)
+      duration: const Duration(seconds: 1),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
+import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/shared/widgets/info_error_widget.dart';
 
 class CheckConnection extends StatelessWidget {
@@ -20,22 +21,26 @@ class CheckConnection extends StatelessWidget {
   Widget build(BuildContext context) {
     if (isLoading) {
       return Padding(
-        padding: const EdgeInsets.only(top: 50),
-        child: Column(
-          spacing: 10,
-          children: <Widget>[
-            const Text(
-              "Carregando...",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: AppThemes.whitePremium,
+        padding: const EdgeInsets.only(top: 10),
+        child: GlassContainer(
+          height: height,
+          child: Column(
+            spacing: 10,
+            mainAxisAlignment: .center,
+            children: <Widget>[
+              const Text(
+                "Carregando...",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppThemes.whitePremium,
+                ),
               ),
-            ),
-            const CircularProgressIndicator.adaptive(
-              backgroundColor: AppThemes.whitePremium,
-            ),
-          ],
+              const CircularProgressIndicator.adaptive(
+                backgroundColor: AppThemes.whitePremium,
+              ),
+            ],
+          ),
         ),
       );
     }

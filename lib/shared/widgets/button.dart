@@ -1,17 +1,18 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
+import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
 class Button extends StatelessWidget {
   final String label;
   final double? height;
   final VoidCallback? function;
-  final Future<void> Function()? awaitFunction;
+  final Future<void> Function()? asyncFunction;
 
   const new({
     required this.label,
     this.height = 60,
     this.function,
-    this.awaitFunction,
+    this.asyncFunction,
     super.key,
   });
 
@@ -25,19 +26,13 @@ class Button extends StatelessWidget {
       child: InkWell(
         borderRadius: AppThemes.borderRadius,
         onTap: () async {
-          if (awaitFunction != null) {
-            await awaitFunction!();
+          if (asyncFunction != null) {
+            await asyncFunction!();
             return;
           }
           if (function != null) { function!(); }
         },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: AppThemes.borderRadius,
-            border: Border.all(
-              color: AppThemes.whitePremium.withValues(alpha: 0.5),
-            ),
-          ),
+        child: GlassContainer(
           height: height,
           child: Center(
             child: Text(

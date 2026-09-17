@@ -10,11 +10,7 @@ class ExpandedImageScreen extends StatefulWidget {
   final String imagePath;
   final ImageOption option;
 
-  const new({
-    required this.imagePath,
-    required this.option,
-    super.key,
-  });
+  const new({required this.imagePath, required this.option, super.key});
 
   @override
   State<ExpandedImageScreen> createState() => _ExpandedImageScreenState();
@@ -52,7 +48,7 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
               ),
               FractionallySizedBox(
                 widthFactor: 0.8,
-                child: Button(label: "Baixar", awaitFunction: _saveImage),
+                child: Button(label: "Baixar", asyncFunction: _saveImage),
               ),
             ],
           ),
@@ -81,7 +77,8 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
           context: context,
           title: "Salvando imagem!",
           fontColor: AppThemes.blue1,
-          onOpen: () => SaveImageHelper.saveImageFromUrl(imageUrl: widget.imagePath),
+          onOpen: () =>
+              SaveImageHelper.saveImageFromUrl(imageUrl: widget.imagePath),
         ) ??
         false;
   }
