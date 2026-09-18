@@ -40,9 +40,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
         borderRadius: BorderRadius.circular(10),
         onTap: () async {
           final response = await getLangInfo();
-          if (response == null) {
-            return;
-          }
+          if (response == null) { return; }
 
           langInfo.clear();
           langInfo.addAll(response);
