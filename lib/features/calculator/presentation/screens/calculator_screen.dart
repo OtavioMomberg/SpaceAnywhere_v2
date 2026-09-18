@@ -45,7 +45,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           InputNumber(
             controller: _textController,
             label: "Insira seu peso",
-            onFieldSubmitted: onFieldSubmitted,
+            onFieldSubmitted: _onFieldSubmitted,
           ),
           ExpansibleWidget(
             header: ExpansibleHeader(
@@ -72,7 +72,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               const SizedBox(height: 10),
               CalculusResult(calculatorService: _calculatorService),
               const SizedBox(height: 10),
-              Button(label: "Limpar", function: cleanPage),
+              Button(label: "Limpar", function: _cleanPage),
             ],
           ],
         ],
@@ -80,9 +80,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     );
   }
 
-  void onFieldSubmitted(_) => setState(() {});
+  void _onFieldSubmitted(_) => setState(() {});
 
-  void cleanPage() {
+  void _cleanPage() {
     _calculatorService.setDefaultText();
     _calculatorService.initializeResult();
     _textController.clear();

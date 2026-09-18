@@ -59,7 +59,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Center(
+          child: Center(  
             child: Text(
               langInfo["emoji"]!,
               style: const TextStyle(fontSize: 30),

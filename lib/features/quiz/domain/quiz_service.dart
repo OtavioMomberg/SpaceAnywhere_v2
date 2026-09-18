@@ -131,15 +131,15 @@ class QuizService<T>({required final QuestionController questionController}) {
   }
 
   Future<void> onTapAnswer({required int index}) async {
-    var controller = questionController.getQuestionModel!;
-    if (controller.rightAnswerIndex == index) {
-      showResponse(isCorrect: true);
-    } else {
-      showResponse(
-        isCorrect: false,
-        correctAnswer: controller.alternatives[controller.rightAnswerIndex],
-      );
-    }
+    final controller = questionController.getQuestionModel!;
+    final correctIndex = controller.rightAnswerIndex;
+    final isCorrect = (correctIndex == index);
+
+    showResponse(
+      isCorrect: isCorrect,
+      correctAnswer: isCorrect ? null : controller.alternatives[correctIndex],
+    );
+  
     await closeAnswerPage();
   }
 }

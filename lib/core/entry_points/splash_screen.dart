@@ -34,10 +34,6 @@ class SplashScreen extends StatelessWidget {
                   fontFamily: "Electrolize"
                 )
               ),
-              FadeAnimatedText(
-                "✨     🌍     ✨\n",
-                duration: const Duration(milliseconds: 1300),
-              ),
             ],
             isRepeatingAnimation: false,
             onFinished: () {

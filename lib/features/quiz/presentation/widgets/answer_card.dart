@@ -5,13 +5,11 @@ import 'package:space_anywhere/shared/widgets/glass_container.dart';
 class AnswerCard extends StatelessWidget {
   final int index;
   final String option;
-  final Color color;
   final Future<void> Function({required int index}) onTap;
 
   const new({
     required this.index,
     required this.option,
-    required this.color,
     required this.onTap,
     super.key,
   });
@@ -22,7 +20,7 @@ class AnswerCard extends StatelessWidget {
       borderRadius: AppThemes.borderRadius,
       color: AppThemes.whitePremium.withValues(alpha: 0.01),
       child: InkWell(
-        onTap: () => onTap(index: index),
+        onTap: () async => await onTap(index: index),
         borderRadius: AppThemes.borderRadius,
         child: GlassContainer(
           borderRadius: AppThemes.borderRadius,

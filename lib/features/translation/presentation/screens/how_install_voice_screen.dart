@@ -34,7 +34,7 @@ class HowInstallVoiceScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Stars(differentSizes: true, differentSpacing: true),
+                const Stars(differentSizes: true),
 
                 ...List.generate(
                   TranslationService.stepsToInstallVoice.length,

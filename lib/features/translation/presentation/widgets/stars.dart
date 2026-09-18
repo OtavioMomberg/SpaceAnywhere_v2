@@ -2,16 +2,12 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 class Stars extends StatefulWidget {
-  final bool isLeft;
   final bool differentSizes;
   final bool differentPaddings;
-  final bool differentSpacing;
 
   const new({
-    this.isLeft = false,
     this.differentSizes = false,
     this.differentPaddings = false,
-    this.differentSpacing = false,
     super.key,
   });
 
@@ -26,14 +22,14 @@ class _StarsState extends State<Stars> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: widget.differentSpacing ? 15 : 10,
+      spacing: 10,
       children: <Widget>[
         Row(
           children: <Widget>[
             Padding(
               padding: widget.differentPaddings
-                  ? const EdgeInsets.only(left: 25)
-                  : const EdgeInsets.only(left: 10),
+                ? const EdgeInsets.only(left: 25)
+                : const EdgeInsets.only(left: 10),
               child: Material(
                 elevation: 5,
                 color: AppThemes.whitePremium,
@@ -59,8 +55,8 @@ class _StarsState extends State<Stars> {
           children: <Widget>[
             Padding(
               padding: widget.differentPaddings
-                  ? const EdgeInsets.only(right: 40)
-                  : const EdgeInsets.only(right: 10),
+                ? const EdgeInsets.only(right: 40)
+                : const EdgeInsets.only(right: 10),
               child: Material(
                 elevation: 5,
                 color: AppThemes.whitePremium,

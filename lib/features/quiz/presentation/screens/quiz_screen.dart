@@ -116,12 +116,11 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
                     return AnswerCard(
                       index: index,
                       option: _quizService
-                          .questionController
-                          .getQuestionModel!
-                          .alternatives[index],
-                      color: AppThemes.whitePremium,
+                        .questionController
+                        .getQuestionModel!
+                        .alternatives[index],
                       onTap: ({required int index}) async =>
-                          await _quizService.onTapAnswer(index: index),
+                        await _quizService.onTapAnswer(index: index),
                     );
                   }),
                 ],
@@ -147,9 +146,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
       param: _quizService.questionController.getQuestionModel!.id,
     );
 
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) { return; }
     Navigator.pop(context);
   }
 
@@ -161,21 +158,21 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
     showGlassSnackBar(
       context: context,
       msm: error == false
-          ? _quizService.retrySucced
-                ? "Conexão Reestabelecida!"
-                : "Próxima pergunta!"
-          : "Não foi possível se conectar ao servidor.",
+        ? _quizService.retrySucced
+          ? "Conexão Reestabelecida!"
+          : "Próxima pergunta!"
+        : "Não foi possível se conectar ao servidor.",
       backgroundColor: error == false
-          ? _quizService.retrySucced
-                ? AppThemes.lightBlue
-                : AppThemes.white
-          : AppThemes.red,
+        ? _quizService.retrySucced
+          ? AppThemes.lightBlue
+          : AppThemes.white
+        : AppThemes.red,
       duration: const Duration(seconds: 1),
     );
   }
 
   void _showResponse({required bool isCorrect, String? correctAnswer}) {
-    if (!mounted) return;
+    if (!mounted) { return; }
     Navigator.push(
       context,
       AppRoutes.getRoute(

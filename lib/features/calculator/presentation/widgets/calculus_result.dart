@@ -26,9 +26,9 @@ class CalculusResult extends StatelessWidget {
           child: Center(
             child: Text(
               _calculatorService.result == null
-                  ? "Erro ao realizar cálculo."
-                  : "O seu peso em ${_calculatorService.objectName}\n"
-                    "é: ${_calculatorService.result!.toStringAsFixed(2)} kg",
+                ? "Erro ao realizar cálculo."
+                : "O seu peso em ${_calculatorService.objectName}\n"
+                  "é: ${_calculatorService.result!.toStringAsFixed(2)} kg",
               style: const TextStyle(
                 color: AppThemes.whitePremium,
                 fontWeight: FontWeight.bold,

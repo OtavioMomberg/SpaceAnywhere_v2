@@ -59,7 +59,7 @@ class ComparisonCard extends StatelessWidget {
             const Divider(color: AppThemes.whitePremium),
             const SizedBox(height: 10),
 
-            ...List.generate(ObjectInformation.topics.length, (index) {
+            ...List.generate(objectData.length, (index) {
               return Text(
                 "${ObjectInformation.topics[index]} ${objectData[index]}",
                 style: const TextStyle(color: AppThemes.whitePremium),

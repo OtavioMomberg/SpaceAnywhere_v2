@@ -28,27 +28,9 @@ class InputNumber extends StatelessWidget {
             color: AppThemes.whitePremium.withValues(alpha: 0.8),
           ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: AppThemes.borderRadius,
-          borderSide: BorderSide(
-            width: 1.5,
-            color: AppThemes.whitePremium.withValues(alpha: 0.5),
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: AppThemes.borderRadius,
-          borderSide: BorderSide(
-            width: 1.5,
-            color: AppThemes.whitePremium.withValues(alpha: 0.5),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: AppThemes.borderRadius,
-          borderSide: BorderSide(
-            width: 1.5,
-            color: AppThemes.whitePremium.withValues(alpha: 0.5),
-          ),
-        ),
+        border: AppThemes.outlineInputBorder,
+        enabledBorder: AppThemes.outlineInputBorder,
+        focusedBorder: AppThemes.outlineInputBorder,
       ),
     );
   }

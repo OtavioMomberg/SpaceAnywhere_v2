@@ -54,4 +54,11 @@ class AppThemes {
     systemOverlayStyle: systemUiOverlayStyle,
     shape: shape,
   );
+
+  static final outlineInputBorder = OutlineInputBorder(
+    borderRadius: AppThemes.borderRadius,
+    borderSide: BorderSide(
+      color: whitePremium.withValues(alpha: 0.5),
+    ),
+  );
 }

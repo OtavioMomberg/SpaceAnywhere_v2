@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
+import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
 class ExpansibleHeader extends StatelessWidget {
   final ExpansibleController controller;
@@ -14,14 +15,7 @@ class ExpansibleHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: AppThemes.borderRadius,
-        border: Border.all(
-          width: 1.5,
-          color: AppThemes.whitePremium.withValues(alpha: 0.5),
-        ),
-      ),
+    return GlassContainer(
       child: Row(
         mainAxisAlignment: .spaceBetween,
         children: <Widget>[
@@ -37,8 +31,8 @@ class ExpansibleHeader extends StatelessWidget {
           IconButton(
             onPressed: () {
               controller.isExpanded
-                  ? controller.collapse()
-                  : controller.expand();
+                ? controller.collapse()
+                : controller.expand();
             },
             icon: Icon(
               controller.isExpanded ? Icons.arrow_upward : Icons.arrow_downward,
