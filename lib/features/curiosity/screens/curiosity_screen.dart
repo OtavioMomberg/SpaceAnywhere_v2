@@ -8,6 +8,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/button.dart';
 import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class CuriosityScreen extends StatefulWidget {
   const CuriosityScreen({super.key});
@@ -46,15 +47,17 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
       spacing: 20,
       mainAxisAlignment: .start,
       children: <Widget>[
-        const Text(
-          "Curiosidade do Dia",
-          style: TextStyle(
-            color: AppThemes.whitePremium,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+        const MainHeader(
+          title: Text(
+            "Curiosidade do Dia",
+            style: TextStyle(
+              color: AppThemes.whitePremium,
+              fontWeight: .bold,
+              fontSize: 20,
+            ),
+            textAlign: .center,
           ),
-          textAlign: TextAlign.center,
-        ),
+        ),      
         if (_homeService.checkState()) ...[
           CheckConnection(
             isLoading: _homeService.isLoading,
@@ -75,11 +78,11 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
                         _homeService.title,
                         style: const TextStyle(
                           color: AppThemes.whitePremium,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: .bold,
                           fontSize: 16,
                         ),
                         maxLines: 2,
-                        textAlign: TextAlign.center,
+                        textAlign: .center,
                       ),
                       Text(
                         _homeService.text,
@@ -87,7 +90,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
                           color: AppThemes.whitePremium,
                           height: 1.7,
                         ),
-                        textAlign: TextAlign.justify,
+                        textAlign: .justify,
                       ),
                     ],
                   ),
@@ -101,7 +104,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
             child: Text(
               _homeService.error!,
               style: const TextStyle(color: AppThemes.whitePremium),
-              textAlign: TextAlign.center,
+              textAlign: .center,
             ),
           ),
         ],
@@ -119,7 +122,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
                         title: _homeService.title,
                         text: _homeService.extraText,
                       ),
-                      type: TransitionType.slideLtoR,
+                      type: .slideLtoR,
                     );
                   },
                 ),
@@ -130,7 +133,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
                   function: () {
                     _goNextPage(
                       page: FontsScreen(fonts: _homeService.fonts),
-                      type: TransitionType.slideRtoL,
+                      type: .slideRtoL,
                     );
                   },
                 ),

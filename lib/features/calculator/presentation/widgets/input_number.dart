@@ -16,7 +16,7 @@ class InputNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: TextInputType.number,
+      keyboardType: .number,
       controller: controller,
       cursorColor: AppThemes.whitePremium,
       style: TextStyle(color: AppThemes.whitePremium.withValues(alpha: 0.8)),

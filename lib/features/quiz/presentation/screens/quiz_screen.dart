@@ -10,6 +10,7 @@ import 'package:space_anywhere/features/quiz/presentation/widgets/answer_card.da
 import 'package:space_anywhere/shared/widgets/button.dart';
 import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/features/quiz/presentation/widgets/question_card.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class QuizScreen extends StatefulWidget {
   const new({super.key});
@@ -50,15 +51,17 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
     return Column(
       mainAxisAlignment: .start,
       children: <Widget>[
-        if (!_quizService.quizStarted) ...[
-          Text(
+        const MainHeader(
+          title: Text(
             "Quiz",
             style: TextStyle(
               color: AppThemes.whitePremium,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
+              fontWeight: .bold,
+              fontSize: 25,
             ),
           ),
+        ),
+        if (!_quizService.quizStarted) ...[
           const SizedBox(height: 20),
           GlassContainer(
             height: size.height * 0.4,
@@ -97,10 +100,10 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
         ] else if (_quizService.error == null) ...[
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const .only(top: 8),
               child: QuestionCard(
                 question:
-                    _quizService.questionController.getQuestionModel!.question,
+                  _quizService.questionController.getQuestionModel!.question,
                 color: AppThemes.whitePremium,
               ),
             ),
@@ -133,7 +136,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
             child: Text(
               _quizService.error!,
               style: const TextStyle(color: AppThemes.whitePremium),
-              textAlign: TextAlign.center,
+              textAlign: .center,
             ),
           ),
         ],
@@ -177,7 +180,7 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
       context,
       AppRoutes.getRoute(
         page: ResultScreen(isCorrect: isCorrect, correctAnswer: correctAnswer),
-        type: TransitionType.scale,
+        type: .scale,
       ),
     );
   }

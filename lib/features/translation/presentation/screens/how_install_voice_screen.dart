@@ -3,6 +3,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/features/translation/presentation/widgets/stars.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/features/translation/domain/translation_service.dart';
+import 'package:space_anywhere/shared/widgets/header.dart';
 
 class HowInstallVoiceScreen extends StatelessWidget {
   const new({super.key});
@@ -15,20 +16,24 @@ class HowInstallVoiceScreen extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          padding: const EdgeInsets.only(
+            top: 20,
+            left: 10,
+            right: 10,
+            bottom: 10,
+          ),
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: SingleChildScrollView(
             child: Column(
               spacing: 10,
               crossAxisAlignment: .start,
               children: <Widget>[
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
+                Header(
+                  title: const Text(
                     "Como Instalar a Voz",
                     style: TextStyle(
                       color: AppThemes.whitePremium,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: .bold,
                       fontSize: 20,
                     ),
                   ),
@@ -44,7 +49,7 @@ class HowInstallVoiceScreen extends StatelessWidget {
                         TranslationService.stepsToInstallVoice[index],
                         style: const TextStyle(
                           color: AppThemes.whitePremium,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: .bold,
                         ),
                       ),
                     );

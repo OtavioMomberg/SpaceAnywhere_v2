@@ -3,7 +3,7 @@ import 'package:space_anywhere/features/calculator/domain/calculator_service.dar
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
-class ExpansibleHeader extends StatelessWidget {
+class ExpansibleHeader extends StatefulWidget {
   final ExpansibleController controller;
   final CalculatorService _calculatorService;
 
@@ -14,15 +14,20 @@ class ExpansibleHeader extends StatelessWidget {
   });
 
   @override
+  State<ExpansibleHeader> createState() => _ExpansibleHeaderState();
+}
+
+class _ExpansibleHeaderState extends State<ExpansibleHeader> {
+  @override
   Widget build(BuildContext context) {
     return GlassContainer(
       child: Row(
         mainAxisAlignment: .spaceBetween,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: const .only(left: 10),
             child: Text(
-              _calculatorService.objectName,
+              widget._calculatorService.objectName,
               style: TextStyle(
                 color: AppThemes.whitePremium.withValues(alpha: 0.8),
               ),
@@ -30,12 +35,13 @@ class ExpansibleHeader extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              controller.isExpanded
-                ? controller.collapse()
-                : controller.expand();
+              widget.controller.isExpanded 
+                ? widget.controller.collapse()
+                : widget.controller.expand();
+              setState(() {});
             },
             icon: Icon(
-              controller.isExpanded ? Icons.arrow_upward : Icons.arrow_downward,
+              widget.controller.isExpanded ? Icons.arrow_upward : Icons.arrow_downward,
               color: AppThemes.whitePremium.withValues(alpha: 0.8),
             ),
           ),

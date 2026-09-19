@@ -34,7 +34,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
     return Material(
       borderRadius: BorderRadius.circular(10),
       color: Colors.transparent,
-      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.1),
+      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.05),
       elevation: 5,
       child: InkWell(
         borderRadius: BorderRadius.circular(10),

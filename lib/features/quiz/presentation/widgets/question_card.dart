@@ -20,7 +20,7 @@ class QuestionCard extends StatelessWidget {
         child: Text(
           question,
           style: const TextStyle(color: AppThemes.whitePremium),
-          textAlign: TextAlign.justify,
+          textAlign: .justify,
         ),
       ),
     );

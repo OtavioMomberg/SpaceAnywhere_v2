@@ -17,7 +17,7 @@ class CalculusResult extends StatelessWidget {
           "Resultado:",
           style: TextStyle(
             color: AppThemes.whitePremium,
-            fontWeight: FontWeight.bold,
+            fontWeight: .bold,
             fontSize: 16,
           ),
         ),
@@ -31,10 +31,10 @@ class CalculusResult extends StatelessWidget {
                   "é: ${_calculatorService.result!.toStringAsFixed(2)} kg",
               style: const TextStyle(
                 color: AppThemes.whitePremium,
-                fontWeight: FontWeight.bold,
+                fontWeight: .bold,
                 fontSize: 16,
               ),
-              textAlign: TextAlign.center,
+              textAlign: .center,
             ),
           ),
         ),

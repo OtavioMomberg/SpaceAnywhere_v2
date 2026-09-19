@@ -12,6 +12,7 @@ import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/features/translation/presentation/widgets/language_selector.dart';
 import 'package:space_anywhere/features/translation/presentation/widgets/translated_objects.dart';
 import 'package:space_anywhere/features/translation/domain/translation_service.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class TranslationScreen extends StatefulWidget {
   const new({super.key});
@@ -56,27 +57,30 @@ class _TranslationScreenState extends State<TranslationScreen>
     return Column(
       spacing: 10,
       children: <Widget>[
-        Row(
-          spacing: 10,
-          mainAxisAlignment: .center,
-          children: <Widget>[
-            const Text(
-              "Astronomia Pelo Mundo",
-              style: TextStyle(
-                color: AppThemes.whitePremium,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+        MainHeader(
+          title: Row(
+            spacing: 10,
+            mainAxisAlignment: .center,
+            children: <Widget>[
+              const Text(
+                "Astronomia Pelo Mundo",
+                style: TextStyle(
+                  color: AppThemes.whitePremium,
+                  fontWeight: .bold,
+                  fontSize: 18,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: _helpDialog,
-              icon: const Icon(
-                Icons.help_rounded,
-                color: AppThemes.whitePremium,
+              IconButton(
+                onPressed: _helpDialog,
+                icon: const Icon(
+                  Icons.help_rounded,
+                  color: AppThemes.whitePremium,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+        
         const SizedBox(height: 25),
         if (_translationService.checkState()) ...[
           CheckConnection(
@@ -91,7 +95,7 @@ class _TranslationScreenState extends State<TranslationScreen>
               "Selecione um Idioma!",
               style: TextStyle(
                 color: AppThemes.whitePremium,
-                fontWeight: FontWeight.bold,
+                fontWeight: .bold,
               ),
             ),
             FractionallySizedBox(
@@ -151,7 +155,7 @@ class _TranslationScreenState extends State<TranslationScreen>
       context: context,
       title: const Text(
         "Ajuda",
-        style: TextStyle(color: AppThemes.blue1, fontWeight: FontWeight.bold),
+        style: TextStyle(color: AppThemes.blue1, fontWeight: .bold),
       ),
       closeIcon: true,
       iconColor: AppThemes.blue1,
@@ -168,7 +172,7 @@ class _TranslationScreenState extends State<TranslationScreen>
                 context,
                 AppRoutes.getRoute(
                   page: HowInstallVoiceScreen(),
-                  type: TransitionType.fade,
+                  type: .fade,
                 ),
               );
             },
@@ -176,8 +180,8 @@ class _TranslationScreenState extends State<TranslationScreen>
               "Veja como instalar",
               style: TextStyle(
                 color: AppThemes.blue1,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.underline,
+                fontWeight: .bold,
+                decoration: .underline,
                 decorationColor: AppThemes.blue1,
               ),
             ),

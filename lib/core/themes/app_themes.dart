@@ -5,11 +5,7 @@ class AppThemes {
   static const mainGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: [
-      blue1,
-      blue2,
-      blue3
-    ]
+    colors: [blue1, blue2, blue3],
   );
 
   static const whitePremium = Color.fromARGB(255, 206, 206, 207);
@@ -39,14 +35,6 @@ class AppThemes {
   );
 
   static final appBar = AppBar(
-    surfaceTintColor: Colors.transparent,
-    backgroundColor: blue1,
-    foregroundColor: whitePremium,
-    systemOverlayStyle: systemUiOverlayStyle,
-    shape: shape,
-  );
-
-  static final appBarWithHeightZero = AppBar(
     toolbarHeight: 0,
     surfaceTintColor: Colors.transparent,
     backgroundColor: blue1,
@@ -57,8 +45,6 @@ class AppThemes {
 
   static final outlineInputBorder = OutlineInputBorder(
     borderRadius: AppThemes.borderRadius,
-    borderSide: BorderSide(
-      color: whitePremium.withValues(alpha: 0.5),
-    ),
+    borderSide: BorderSide(color: whitePremium.withValues(alpha: 0.5)),
   );
 }

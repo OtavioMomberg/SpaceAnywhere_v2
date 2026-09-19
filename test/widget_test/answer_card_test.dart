@@ -29,7 +29,6 @@ void main() {
     await tester.tap(find.text("Answer 1"));
 
     expect(isCorrect, isTrue);
-
     expect(isScreenClosed, isFalse);
 
     await tester.pumpAndSettle();

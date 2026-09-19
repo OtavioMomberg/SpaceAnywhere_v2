@@ -1,5 +1,4 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/features/wallpaper/domain/save_image_helper.dart';
 import 'package:space_anywhere/shared/models/object_information.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
@@ -22,8 +21,8 @@ class ComparisonCard extends StatelessWidget {
 
     return Container(
       height: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(10),
+      margin: const .symmetric(vertical: 10),
+      padding: const .all(10),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: .start,
@@ -33,11 +32,11 @@ class ComparisonCard extends StatelessWidget {
               children: <Widget>[
                 SizedBox(
                   height: size.height * 0.3,
-                  width: double.infinity,
+                  width: .infinity,
                   child: Center(
                     child: ImageWidget(
                       imagePath: imagePath,
-                      option: ImageOption.asset,
+                      option: .asset,
                     ),
                   ),
                 ),

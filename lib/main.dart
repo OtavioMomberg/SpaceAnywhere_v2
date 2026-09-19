@@ -17,10 +17,10 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const MyApp());
+  runApp(const SpaceAnywhere());
 }
 
-class MyApp extends StatelessWidget {
+class SpaceAnywhere extends StatelessWidget {
   const new({super.key});
 
   @override

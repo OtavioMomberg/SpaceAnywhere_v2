@@ -17,7 +17,7 @@ class TranslatedObjects extends StatelessWidget {
     return Flexible(
       child: ListView.separated(
         separatorBuilder: (context, index) =>
-          const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
+          const Padding(padding: .symmetric(vertical: 8)),
         itemCount: translationService.objectsLength,
         itemBuilder: (context, index) {
           return GlassContainer(

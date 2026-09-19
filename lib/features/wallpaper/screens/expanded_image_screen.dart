@@ -4,6 +4,7 @@ import 'package:space_anywhere/features/wallpaper/domain/save_image_helper.dart'
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/utils/glass_snackbar_helper.dart';
 import 'package:space_anywhere/shared/widgets/button.dart';
+import 'package:space_anywhere/shared/widgets/header.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
 
 class ExpandedImageScreen extends StatefulWidget {
@@ -28,15 +29,25 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
             mainAxisAlignment: .start,
-            spacing: 20,
+            spacing: 15,
             children: <Widget>[
+              Header(
+                title: const Text(
+                  "Wallpaper para download!",
+                  style: TextStyle(
+                    color: AppThemes.whitePremium,
+                    fontSize: 16,
+                    fontWeight: .bold,
+                  ),
+                ),
+              ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: const .only(bottom: 10),
                   child: Hero(
                     tag: widget.imagePath,
                     child: ImageWidget(

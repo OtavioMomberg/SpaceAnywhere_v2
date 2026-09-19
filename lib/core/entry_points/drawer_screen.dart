@@ -33,13 +33,13 @@ class _DrawerPageState extends State<DrawerPage> {
         child: Drawer(
           backgroundColor: AppThemes.blue1,
           child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
             children: <Widget>[
               SizedBox(
                 height: size.height * 0.15,
                 child: const DrawerHeader(
                   child: Align(
-                    alignment: Alignment.bottomLeft,
+                    alignment: .bottomLeft,
                     child: Text(
                       "Menu",
                       style: TextStyle(
@@ -62,15 +62,15 @@ class _DrawerPageState extends State<DrawerPage> {
                     leading: Icon(
                       _drawerIcons[index],
                       color: selectedPage == index
-                        ? AppThemes.yellow.withValues(alpha: 0.8)
-                        : AppThemes.whitePremium,
+                          ? AppThemes.yellow.withValues(alpha: 0.8)
+                          : AppThemes.whitePremium,
                     ),
                     title: Text(
                       AppRoutes.pageNames[index],
                       style: TextStyle(
                         color: selectedPage == index
-                          ? AppThemes.yellow.withValues(alpha: 0.8)
-                          : AppThemes.whitePremium,
+                            ? AppThemes.yellow.withValues(alpha: 0.8)
+                            : AppThemes.whitePremium,
                       ),
                     ),
                     shape: RoundedRectangleBorder(
@@ -88,9 +88,9 @@ class _DrawerPageState extends State<DrawerPage> {
         ),
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: const EdgeInsets.all(10),
+        width: .infinity,
+        height: .infinity,
+        padding: const .all(10),
         decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
         child: SafeArea(child: AppRoutes.pages[selectedPage]),
       ),

@@ -4,6 +4,7 @@ import 'package:space_anywhere/features/comparison/data/comparison_dataset.dart'
 import 'package:space_anywhere/shared/models/object_information.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/features/comparison/presentation/widgets/comparison_card.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class ComparisonScreen extends StatefulWidget {
   const new({super.key});
@@ -29,15 +30,25 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
 
     return Column(
       children: <Widget>[
+        const MainHeader(
+          title: Text(
+            "Metrícas",
+            style: TextStyle(
+              color: AppThemes.whitePremium,
+              fontWeight: .bold,
+              fontSize: 22,
+            ),
+          ),
+        ),
         Expanded(
           child: ListView.builder(
             controller: _scrollController,
-            scrollDirection: Axis.horizontal,
+            scrollDirection: .horizontal,
             itemCount: ObjectsDataset.objects.length,
             itemExtent: size.width - 20,
             itemBuilder: (context, index) {
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                margin: const .symmetric(horizontal: 5, vertical: 15),
                 decoration: BoxDecoration(
                   borderRadius: AppThemes.borderRadius,
                   border: Border.all(

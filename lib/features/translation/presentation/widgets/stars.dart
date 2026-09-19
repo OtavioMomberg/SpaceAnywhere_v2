@@ -36,7 +36,7 @@ class _StarsState extends State<Stars> {
                 shadowColor: AppThemes.whitePremium,
                 shape: StarBorder(pointRounding: .5, rotation: rotationL),
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: .circular(10),
                   splashColor: Colors.transparent,
                   onTap: () {
                     rotationL = changeRotation(rotation: rotationL);
@@ -63,7 +63,7 @@ class _StarsState extends State<Stars> {
                 shadowColor: AppThemes.whitePremium,
                 shape: StarBorder(pointRounding: .5, rotation: rotationR),
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: .circular(10),
                   splashColor: Colors.transparent,
                   onTap: () {
                     rotationR = changeRotation(rotation: rotationR);

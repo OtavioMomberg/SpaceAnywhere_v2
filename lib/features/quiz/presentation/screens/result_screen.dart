@@ -6,24 +6,20 @@ class ResultScreen extends StatelessWidget {
   final bool isCorrect;
   final String? correctAnswer;
 
-  const new({
-    required this.isCorrect, 
-    this.correctAnswer, 
-    super.key
-  });
+  const new({required this.isCorrect, this.correctAnswer, super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
     return Scaffold(
-      appBar: AppThemes.appBarWithHeightZero,
+      appBar: AppThemes.appBar,
       backgroundColor: AppThemes.blue3,
       body: SafeArea(
         top: false,
         child: Container(
-          height: double.infinity,
-          padding: const EdgeInsets.all(10),
+          height: .infinity,
+          padding: const .all(10),
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: GlassContainer(
             height: size.height * 0.6,
@@ -40,7 +36,7 @@ class ResultScreen extends StatelessWidget {
                     style: const TextStyle(
                       color: AppThemes.whitePremium,
                       fontSize: 22,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: .bold,
                     ),
                   ),
                   if (!isCorrect) ...[
@@ -57,9 +53,9 @@ class ResultScreen extends StatelessWidget {
                       style: const TextStyle(
                         color: AppThemes.whitePremium,
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: .bold,
                       ),
-                      textAlign: TextAlign.center,
+                      textAlign: .center,
                     ),
                   ],
                 ],

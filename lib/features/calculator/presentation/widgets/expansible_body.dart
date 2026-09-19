@@ -2,46 +2,47 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
-class ExpansibleBody extends StatelessWidget {
+class ExpansibleBody extends StatefulWidget {
   final ExpansibleController controller;
   final CalculatorService _calculatorService;
-  final VoidCallback setStateCallback;
 
   const new({
     required this.controller,
     required this._calculatorService,
-    required this.setStateCallback,
     super.key,
   });
 
   @override
+  State<ExpansibleBody> createState() => _ExpansibleBodyState();
+}
+
+class _ExpansibleBodyState extends State<ExpansibleBody> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
+      margin: const .only(top: 10),
       height: 250,
       decoration: BoxDecoration(
         borderRadius: AppThemes.borderRadius,
         border: Border.all(
-          width: 1.5,
           color: AppThemes.whitePremium.withValues(alpha: 0.5),
         ),
       ),
-      child: ListView.separated(
-        separatorBuilder: (context, index) => const Padding(padding: EdgeInsets.all(10)),
-        itemCount: _calculatorService.planetsGravity.length,
+      child: ListView.builder(
+        itemCount: widget._calculatorService.planetsGravity.length,
         itemBuilder: (context, index) {
-          return InkWell(
+          return ListTile(
             onTap: () {
-              _calculatorService.changeObjectName(index: index);
-              setStateCallback();
-              controller.collapse();
+              widget._calculatorService.changeObjectName(index: index);
+              setState(() {});
+              widget.controller.collapse();
             },
-            child: Center(
+            title: Center(
               child: Text(
-                _calculatorService.planetsGravity[index].name,
+                widget._calculatorService.planetsGravity[index].name,
                 style: const TextStyle(color: AppThemes.whitePremium),
               ),
-            ),
+            )
           );
         }
       )

@@ -25,10 +25,10 @@ class AnswerCard extends StatelessWidget {
         child: GlassContainer(
           borderRadius: AppThemes.borderRadius,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            padding: const .symmetric(horizontal: 8, vertical: 6),
             child: Text(
               option,
-              textAlign: TextAlign.start,
+              textAlign: .start,
               softWrap: true,
               style: TextStyle(color: AppThemes.whitePremium),
             ),

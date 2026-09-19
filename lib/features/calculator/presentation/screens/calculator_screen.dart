@@ -7,6 +7,7 @@ import 'package:space_anywhere/shared/widgets/button.dart';
 import 'package:space_anywhere/features/calculator/presentation/widgets/calculus_result.dart';
 import 'package:space_anywhere/features/calculator/presentation/widgets/expansible_widget.dart';
 import 'package:space_anywhere/features/calculator/presentation/widgets/input_number.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class CalculatorScreen extends StatefulWidget {
   const new({super.key});
@@ -25,6 +26,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     super.initState();
     _calculatorService.setDefaultText();
     _calculatorService.initializeResult();
+
+    _expansibleController.expand();
   }
 
   @override
@@ -33,12 +36,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       child: Column(
         spacing: 10,
         children: <Widget>[
-          const Text(
-            "Calcule seu peso em outros planetas",
-            style: TextStyle(
-              color: AppThemes.whitePremium,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
+          const MainHeader(
+            title: Text(
+              "Calcule seu peso em outros planetas",
+              style: TextStyle(
+                color: AppThemes.whitePremium,
+                fontWeight: .bold,
+                fontSize: 16,
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -55,7 +60,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             body: ExpansibleBody(
               controller: _expansibleController,
               calculatorService: _calculatorService,
-              setStateCallback: () => setState(() {}),
             ),
             controller: _expansibleController,
           ),

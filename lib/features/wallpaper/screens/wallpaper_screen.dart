@@ -9,6 +9,7 @@ import 'package:space_anywhere/features/wallpaper/domain/wallpaper_service.dart'
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
+import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class WallpaperScreen extends StatefulWidget {
   const new({super.key});
@@ -45,12 +46,14 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
     return Column(
       spacing: 20,
       children: <Widget>[
-        const Text(
-          "Catálogo de Wallpapers",
-          style: TextStyle(
-            color: AppThemes.whitePremium,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+        const MainHeader(
+          title: Text(
+            "Catálogo de Wallpapers",
+            style: TextStyle(
+              color: AppThemes.whitePremium,
+              fontWeight: .bold,
+              fontSize: 18,
+            ),
           ),
         ),
         if (_wallpaperService.checkState()) ...[
@@ -78,13 +81,13 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
                   },
                   child: Container(
                     padding: index % 2 == 0
-                      ? const EdgeInsets.only(right: 5, bottom: 10)
-                      : const EdgeInsets.only(left: 5, bottom: 10),
+                      ? const .only(right: 5, bottom: 10)
+                      : const .only(left: 5, bottom: 10),
                     child: Hero(
                       tag: CacheManagerHelper.wallpapers![index]!.fullImageUrl,
                       child: ImageWidget(
                         imagePath: CacheManagerHelper.wallpapers![index]!.fullImageUrl,
-                        option: ImageOption.network,
+                        option: .network,
                       ),
                     ),
                   ),
@@ -98,7 +101,7 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
             child: Text(
               _wallpaperService.error!,
               style: const TextStyle(color: AppThemes.whitePremium),
-              textAlign: TextAlign.center,
+              textAlign: .center,
             ),
           ),
         ],

@@ -21,7 +21,7 @@ class Button extends StatelessWidget {
     return Material(
       borderRadius: AppThemes.borderRadius,
       color: Colors.transparent,
-      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.1),
+      shadowColor: AppThemes.whitePremium.withValues(alpha: 0.05),
       elevation: 5,
       child: InkWell(
         borderRadius: AppThemes.borderRadius,
