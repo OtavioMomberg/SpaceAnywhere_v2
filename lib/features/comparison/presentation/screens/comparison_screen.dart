@@ -40,6 +40,7 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
             ),
           ),
         ),
+        const SizedBox(height: 25),
         Expanded(
           child: ListView.builder(
             controller: _scrollController,

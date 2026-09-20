@@ -7,6 +7,7 @@ class GlassContainer extends StatelessWidget {
   final Color? backgroundColor;
   final Widget? child;
   final double? height;
+  final double? width;
 
   const new({
     this.borderRadius,
@@ -14,28 +15,27 @@ class GlassContainer extends StatelessWidget {
     this.backgroundColor,
     this.child,
     this.height,
-    super.key
+    this.width,
+    super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: height,
-        width: double.infinity,
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: borderRadius == null
+    return Container(
+      height: height,
+      width: width ?? double.infinity,
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: borderRadius == null
             ? AppThemes.borderRadius
             : borderRadius!,
-          border: Border.all(
-            color: borderColor == null
+        border: Border.all(
+          color: borderColor == null
               ? AppThemes.whitePremium.withValues(alpha: 0.5)
               : borderColor!.withValues(alpha: 0.5),
-          ),
         ),
-        child: height != null ? Center(child: child) : child,
       ),
+      child: height != null ? Center(child: child) : child,
     );
   }
 }

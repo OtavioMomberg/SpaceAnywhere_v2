@@ -2,21 +2,18 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
-class ExpansibleBody extends StatefulWidget {
+class ExpansibleBody extends StatelessWidget {
   final ExpansibleController controller;
   final CalculatorService _calculatorService;
+  final VoidCallback setState;
 
   const new({
     required this.controller,
     required this._calculatorService,
+    required this.setState,
     super.key,
   });
 
-  @override
-  State<ExpansibleBody> createState() => _ExpansibleBodyState();
-}
-
-class _ExpansibleBodyState extends State<ExpansibleBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,17 +26,17 @@ class _ExpansibleBodyState extends State<ExpansibleBody> {
         ),
       ),
       child: ListView.builder(
-        itemCount: widget._calculatorService.planetsGravity.length,
+        itemCount: _calculatorService.planetsGravity.length,
         itemBuilder: (context, index) {
           return ListTile(
             onTap: () {
-              widget._calculatorService.changeObjectName(index: index);
-              setState(() {});
-              widget.controller.collapse();
+              _calculatorService.changeObjectName(index: index);
+              setState();
+              controller.collapse();
             },
             title: Center(
               child: Text(
-                widget._calculatorService.planetsGravity[index].name,
+                _calculatorService.planetsGravity[index].name,
                 style: const TextStyle(color: AppThemes.whitePremium),
               ),
             )

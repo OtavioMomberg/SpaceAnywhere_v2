@@ -20,48 +20,39 @@ class CheckConnection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: GlassContainer(
-          height: height,
-          child: Column(
-            spacing: 10,
-            mainAxisAlignment: .center,
-            children: <Widget>[
-              const Text(
-                "Carregando...",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: AppThemes.whitePremium,
-                ),
+      return GlassContainer(
+        height: height,
+        child: Column(
+          spacing: 10,
+          mainAxisAlignment: .center,
+          children: <Widget>[
+            const Text(
+              "Carregando...",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppThemes.whitePremium,
               ),
-              const CircularProgressIndicator.adaptive(
-                backgroundColor: AppThemes.whitePremium,
-              ),
-            ],
-          ),
+            ),
+            const CircularProgressIndicator.adaptive(
+              backgroundColor: AppThemes.whitePremium,
+            ),
+          ],
         ),
       );
     }
     if (!checkInternet) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: InfoErrorWidget(
-          message: "Erro. Sem conexão com a internet",
-          icon: Icons.wifi_off,
-          height: height,
-        ),
+      return InfoErrorWidget(
+        message: "Erro. Sem conexão com a internet",
+        icon: Icons.wifi_off,
+        height: height,
       );
     }
     if (!checkAPI) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: InfoErrorWidget(
-          message: "Erro. Não foi possível se conectar ao servidor",
-          icon: Icons.dns,
-          height: height,
-        ),
+      return InfoErrorWidget(
+        message: "Erro. Não foi possível se conectar ao servidor",
+        icon: Icons.dns,
+        height: height,
       );
     }
     return const SizedBox.shrink();

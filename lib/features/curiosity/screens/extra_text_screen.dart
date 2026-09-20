@@ -21,7 +21,7 @@ class ExtraTextScreen extends StatelessWidget {
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
             mainAxisAlignment: .start,
-            spacing: 20,
+            spacing: 40,
             children: <Widget>[
               Header(
                 title: Text(

@@ -2,14 +2,14 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/routes/app_routes.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
-class DrawerPage extends StatefulWidget {
+class DrawerScreen extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<DrawerPage> createState() => _DrawerPageState();
+  State<DrawerScreen> createState() => _DrawerScreenState();
 }
 
-class _DrawerPageState extends State<DrawerPage> {
+class _DrawerScreenState extends State<DrawerScreen> {
   final _drawerIcons = const [
     Icons.home,
     Icons.quiz,
@@ -33,7 +33,12 @@ class _DrawerPageState extends State<DrawerPage> {
         child: Drawer(
           backgroundColor: AppThemes.blue1,
           child: ListView(
-            padding: const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+            padding: const EdgeInsets.only(
+              top: 20,
+              left: 10,
+              right: 10,
+              bottom: 10,
+            ),
             children: <Widget>[
               SizedBox(
                 height: size.height * 0.15,
@@ -62,15 +67,15 @@ class _DrawerPageState extends State<DrawerPage> {
                     leading: Icon(
                       _drawerIcons[index],
                       color: selectedPage == index
-                          ? AppThemes.yellow.withValues(alpha: 0.8)
-                          : AppThemes.whitePremium,
+                        ? AppThemes.yellow.withValues(alpha: 0.8)
+                        : AppThemes.whitePremium,
                     ),
                     title: Text(
                       AppRoutes.pageNames[index],
                       style: TextStyle(
                         color: selectedPage == index
-                            ? AppThemes.yellow.withValues(alpha: 0.8)
-                            : AppThemes.whitePremium,
+                          ? AppThemes.yellow.withValues(alpha: 0.8)
+                          : AppThemes.whitePremium,
                       ),
                     ),
                     shape: RoundedRectangleBorder(

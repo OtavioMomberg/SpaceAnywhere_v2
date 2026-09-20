@@ -61,8 +61,8 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
             ),
           ),
         ),
+        const SizedBox(height: 25),
         if (!_quizService.quizStarted) ...[
-          const SizedBox(height: 20),
           GlassContainer(
             height: size.height * 0.4,
             borderRadius: AppThemes.borderRadius,

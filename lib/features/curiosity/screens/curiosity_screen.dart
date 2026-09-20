@@ -57,7 +57,8 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
             ),
             textAlign: .center,
           ),
-        ),      
+        ),   
+        const SizedBox(height: 5),
         if (_homeService.checkState()) ...[
           CheckConnection(
             isLoading: _homeService.isLoading,
@@ -68,7 +69,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
         ] else if (_homeService.error == null) ...[
           Flexible(
             child: FractionallySizedBox(
-              heightFactor: 0.9,
+              heightFactor: 1,
               child: GlassContainer(
                 child: SingleChildScrollView(
                   child: Column(
@@ -140,6 +141,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
               ),
             ],
           ),
+          const SizedBox(height: 5),
         ],
       ],
     );

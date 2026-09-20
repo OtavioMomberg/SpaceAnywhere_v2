@@ -19,7 +19,7 @@ class FontsScreen extends StatelessWidget {
           padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
-            spacing: 20,
+            spacing: 40,
             children: <Widget>[
               Header(
                 title: const Text(

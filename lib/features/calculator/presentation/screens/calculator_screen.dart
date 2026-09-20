@@ -59,7 +59,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             ),
             body: ExpansibleBody(
               controller: _expansibleController,
-              calculatorService: _calculatorService,
+              calculatorService: _calculatorService, 
+              setState: () => setState(() {}),
             ),
             controller: _expansibleController,
           ),

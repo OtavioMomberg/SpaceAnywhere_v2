@@ -33,7 +33,7 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
             mainAxisAlignment: .start,
-            spacing: 15,
+            spacing: 25,
             children: <Widget>[
               Header(
                 title: const Text(
