@@ -171,7 +171,7 @@ class _TranslationScreenState extends State<TranslationScreen>
               Navigator.push(
                 context,
                 AppRoutes.getRoute(
-                  page: HowInstallVoiceScreen(),
+                  page: const HowInstallVoiceScreen(),
                   type: .fade,
                 ),
               );

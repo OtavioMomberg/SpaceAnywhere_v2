@@ -28,8 +28,8 @@ class _StarsState extends State<Stars> {
           children: <Widget>[
             Padding(
               padding: widget.differentPaddings
-                ? const EdgeInsets.only(left: 25)
-                : const EdgeInsets.only(left: 10),
+                ? const .only(left: 25)
+                : const .only(left: 10),
               child: Material(
                 elevation: 5,
                 color: AppThemes.whitePremium,
@@ -55,8 +55,8 @@ class _StarsState extends State<Stars> {
           children: <Widget>[
             Padding(
               padding: widget.differentPaddings
-                ? const EdgeInsets.only(right: 40)
-                : const EdgeInsets.only(right: 10),
+                ? const .only(right: 40)
+                : const .only(right: 10),
               child: Material(
                 elevation: 5,
                 color: AppThemes.whitePremium,

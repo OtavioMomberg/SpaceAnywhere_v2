@@ -76,9 +76,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 borderRadius: AppThemes.borderRadius,
                 elevation: 10,
                 shadowColor: AppThemes.blue2,
-                child: ImageWidget(
-                  imagePath: "assets/images/space_anywhere_logo.png",
-                  option: .asset,
+                child: SizedBox.square(
+                  dimension: 250,
+                  child: ImageWidget(
+                    imagePath: "assets/images/space_anywhere_logo.png",
+                    option: .asset,
+                  ),
                 ),
               ),
             ),

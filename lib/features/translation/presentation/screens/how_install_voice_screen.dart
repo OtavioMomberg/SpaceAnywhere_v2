@@ -16,7 +16,7 @@ class HowInstallVoiceScreen extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const EdgeInsets.only(
+          padding: const .only(
             top: 20,
             left: 10,
             right: 10,
@@ -28,8 +28,8 @@ class HowInstallVoiceScreen extends StatelessWidget {
               spacing: 10,
               crossAxisAlignment: .start,
               children: <Widget>[
-                Header(
-                  title: const Text(
+                const Header(
+                  title: Text(
                     "Como Instalar a Voz",
                     style: TextStyle(
                       color: AppThemes.whitePremium,
@@ -41,7 +41,7 @@ class HowInstallVoiceScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 const Stars(differentSizes: true),
 
-                ...List.generate(
+                ....generate(
                   TranslationService.stepsToInstallVoice.length,
                   (index) {
                     return GlassContainer(

@@ -13,7 +13,7 @@ class LanguageImplementation implements LanguageRepository {
     final url = "$baseURL/api/v1/translation/languages";
 
     final response = await _client.get(
-      Uri.parse(url),
+      .parse(url),
       headers: {"Content-Type": "application/json"},
     );
 

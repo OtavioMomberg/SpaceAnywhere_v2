@@ -21,7 +21,7 @@ class ExpansibleBody extends StatelessWidget {
       height: 250,
       decoration: BoxDecoration(
         borderRadius: AppThemes.borderRadius,
-        border: Border.all(
+        border: .all(
           color: AppThemes.whitePremium.withValues(alpha: 0.5),
         ),
       ),

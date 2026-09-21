@@ -89,9 +89,9 @@ class CuriosityService({
 
   String cleanText({required String text}) {
     return text
-        .replaceAll('\\n', '\n')
-        .replaceAll('\\r', '')
-        .replaceAll('\\"', '"');
+      .replaceAll('\\n', '\n')
+      .replaceAll('\\r', '')
+      .replaceAll('\\"', '"');
   }
 
   Future<void> _getCuriosity({
@@ -118,9 +118,9 @@ class CuriosityService({
       );
       _title = curiosityController.getCuriosityModel!.title;
       _fonts.addAll(curiosityController.getCuriosityModel!.contentFont);
-      action == DatabaseActions.add
-          ? await _addCuriosity()
-          : await _updateCuriosity();
+      action == .add
+        ? await _addCuriosity()
+        : await _updateCuriosity();
     } else {
       _error = curiosityController.getErrorCuriosity!;
     }
@@ -136,7 +136,7 @@ class CuriosityService({
       if (currentDate.difference(date).inHours >= 24) {
         await _getCuriosity(
           curiosityId: _selectCuriosity!.curiosityId + 1,
-          action: DatabaseActions.update,
+          action: .update,
         );
         return;
       }
@@ -153,7 +153,7 @@ class CuriosityService({
     } else {
       await _getCuriosity(
         curiosityId: _curiosityId,
-        action: DatabaseActions.add,
+        action: .add,
       );
     }
   }
@@ -180,10 +180,7 @@ class CuriosityService({
     final len = curiosityController.getCuriosityModel!.contentFont.length;
     final fonts = curiosityController.getCuriosityModel!.contentFont;
 
-    final fontModel = List.generate(
-      len,
-      (index) => FontDbModel(font: fonts[index]),
-    );
+    final fontModel = List.generate(len, (index) => FontDbModel(font: fonts[index]));
 
     for (var font in fontModel) {
       await db.addFonts(fontModel: font);

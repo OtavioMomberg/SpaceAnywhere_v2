@@ -9,7 +9,7 @@ class CalculatorService {
   int _index = 0;
 
   List<ObjectInformation> get planetsGravity =>
-      List.unmodifiable(_planetsGravity);
+    .unmodifiable(_planetsGravity);
   String get objectName => _objectName;
   double? get result => _result;
 

@@ -20,5 +20,5 @@ class CuriosityModel({
   }
 
   factory fromJson({required String source}) => 
-    CuriosityModel.fromMap(map: jsonDecode(source));
+    .fromMap(map: jsonDecode(source));
 }

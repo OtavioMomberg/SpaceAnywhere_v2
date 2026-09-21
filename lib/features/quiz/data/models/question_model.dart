@@ -18,5 +18,5 @@ class QuestionModel({
   }
 
   factory fromJson({required String source}) => 
-    QuestionModel.fromMap(map: jsonDecode(source));
+    .fromMap(map: jsonDecode(source));
 }

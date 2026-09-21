@@ -57,16 +57,15 @@ class SqliteImplementation implements SqliteRepository {
     final data = await db.query(tableNameCuriosity);
 
     final formatedData = data
-        .map(
-          (item) => CuriosityDbModel(
-            curiosityId: item[curiosityId] as int,
-            title: item[title] as String,
-            shortAnswer: item[shortAnswer] as String,
-            longAnswer: item[longAnswer] as String,
-            time: item[time] as String,
-          ),
-        )
-        .firstOrNull;
+      .map(
+        (item) => CuriosityDbModel(
+          curiosityId: item[curiosityId] as int,
+          title: item[title] as String,
+          shortAnswer: item[shortAnswer] as String,
+          longAnswer: item[longAnswer] as String,
+          time: item[time] as String,
+        ),
+      ).firstOrNull;
 
     return formatedData;
   }
@@ -77,8 +76,7 @@ class SqliteImplementation implements SqliteRepository {
     final data = await db.query(tableNameFonts);
 
     final formatedData = data
-      .map((item) => FontDbModel(font: item[font] as String))
-      .toList();
+      .map((item) => FontDbModel(font: item[font] as String)).toList();
 
     return formatedData;
   }
@@ -106,7 +104,10 @@ class SqliteImplementation implements SqliteRepository {
     final db = await database;
 
     try {
-      await db.insert(tableNameFonts, {font: fontModel.font});
+      await db.insert(
+        tableNameFonts, 
+        {font: fontModel.font}
+      );
     } catch (e) {
       log(e.toString());
       rethrow;

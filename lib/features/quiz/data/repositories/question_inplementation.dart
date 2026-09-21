@@ -12,12 +12,12 @@ class QuestionInplementation implements QuestionRepository {
   Future<QuestionModel> getQuestion({required int id}) async {
     final url = "$baseURL/api/v1/quiz/$id";
     final response = await _client.get(
-      Uri.parse(url),
+      .parse(url),
       headers: {"Content-Type": "application/json"},
     );
 
     if (response.statusCode == 200) {
-      return QuestionModel.fromJson(source: response.body);
+      return .fromJson(source: response.body);
     }
     throw Exception(response.body);
   }

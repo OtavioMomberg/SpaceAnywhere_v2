@@ -5,7 +5,7 @@ class OpenLinksHelper {
     final uri = Uri.parse(url);
 
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.inAppBrowserView);
+      await launchUrl(uri, mode: .inAppBrowserView);
     } else {
       throw Exception("Erro ao acessar o link.");
     }

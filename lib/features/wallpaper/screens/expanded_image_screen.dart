@@ -35,8 +35,8 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
             mainAxisAlignment: .start,
             spacing: 25,
             children: <Widget>[
-              Header(
-                title: const Text(
+              const Header(
+                title: Text(
                   "Wallpaper para download!",
                   style: TextStyle(
                     color: AppThemes.whitePremium,
@@ -71,9 +71,7 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
   Future<void> _saveImage() async {
     await _showResponse();
 
-    if (!mounted) {
-      return;
-    }
+    if (!mounted) { return; }
 
     showGlassSnackBar(
       context: context,
@@ -83,14 +81,11 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
   }
 
   Future<void> _showResponse() async {
-    response =
-        await CustomFeedback.loadingDialog<bool>(
-          context: context,
-          title: "Salvando imagem!",
-          fontColor: AppThemes.blue1,
-          onOpen: () =>
-              SaveImageHelper.saveImageFromUrl(imageUrl: widget.imagePath),
-        ) ??
-        false;
+    response = await CustomFeedback.loadingDialog<bool>(
+      context: context,
+      title: "Salvando imagem!",
+      fontColor: AppThemes.blue1,
+      onOpen: () => SaveImageHelper.saveImageFromUrl(imageUrl: widget.imagePath),
+    ) ?? false;
   }
 }

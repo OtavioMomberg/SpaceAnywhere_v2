@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 
 class AppThemes {
   static const mainGradient = LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
+    begin: .topCenter,
+    end: .bottomCenter,
     colors: [blue1, blue2, blue3],
   );
 
@@ -18,7 +18,7 @@ class AppThemes {
   static const red = Colors.red;
   static const lightBlue = Colors.lightBlueAccent;
 
-  static const borderRadius = BorderRadius.all(Radius.circular(12));
+  static const borderRadius = BorderRadius.all(.circular(12));
 
   static const systemUiOverlayStyle = SystemUiOverlayStyle(
     systemStatusBarContrastEnforced: false,

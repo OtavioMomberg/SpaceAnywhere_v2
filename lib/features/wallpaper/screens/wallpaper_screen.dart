@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/di/app_dependencies.dart';
 import 'package:space_anywhere/features/wallpaper/domain/cache_manager_helper.dart';
-import 'package:space_anywhere/features/wallpaper/domain/save_image_helper.dart';
 import 'package:space_anywhere/features/wallpaper/screens/expanded_image_screen.dart';
 import 'package:space_anywhere/core/routes/app_routes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
@@ -122,9 +121,9 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
       AppRoutes.getRoute(
         page: ExpandedImageScreen(
           imagePath: imagePath,
-          option: ImageOption.network,
+          option: .network,
         ),
-        type: TransitionType.fade,
+        type: .fade,
       ),
     );
   }

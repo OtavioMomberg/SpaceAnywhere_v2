@@ -25,11 +25,11 @@ class InfoErrorWidget extends StatelessWidget {
             message,
             style: const TextStyle(
               color: AppThemes.whitePremium,
-              fontWeight: FontWeight.bold,
+              fontWeight: .bold,
               fontSize: 16,
             ),
             maxLines: 2,
-            textAlign: TextAlign.center,
+            textAlign: .center,
           ),
           Icon(icon, color: AppThemes.whitePremium, size: 40),
         ],

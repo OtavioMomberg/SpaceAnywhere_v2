@@ -32,12 +32,12 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: .circular(10),
       color: Colors.transparent,
       shadowColor: AppThemes.whitePremium.withValues(alpha: 0.05),
       elevation: 5,
       child: InkWell(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: .circular(10),
         onTap: () async {
           final response = await getLangInfo();
           if (response == null) { return; }
@@ -52,10 +52,10 @@ class _LanguageSelectorState extends State<LanguageSelector> {
         child: Container(
           height: 100,
           decoration: BoxDecoration(
-            border: Border.all(
+            border: .all(
               color: AppThemes.whitePremium.withValues(alpha: 0.5),
             ),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: .circular(10),
           ),
           child: Center(  
             child: Text(

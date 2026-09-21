@@ -18,18 +18,18 @@ class ImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: AppThemes.borderRadius,
-      child: option == ImageOption.asset
+      child: option == .asset
         ? Image.asset(
             imagePath,
-            filterQuality: FilterQuality.high,
-            fit: BoxFit.contain,
-            colorBlendMode: BlendMode.darken,
+            filterQuality: .high,
+            fit: .contain,
+            colorBlendMode: .darken,
           )
         : CachedNetworkImage(
             imageUrl: imagePath,
-            filterQuality: FilterQuality.high,
-            fit: BoxFit.cover,
-            colorBlendMode: BlendMode.darken,
+            filterQuality: .high,
+            fit: .cover,
+            colorBlendMode: .darken,
             cacheManager: CacheManagerHelper.instance,
             placeholder: (context, _) {
               return Container(

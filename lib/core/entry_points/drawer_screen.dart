@@ -33,7 +33,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         child: Drawer(
           backgroundColor: AppThemes.blue1,
           child: ListView(
-            padding: const EdgeInsets.only(
+            padding: const .only(
               top: 20,
               left: 10,
               right: 10,
@@ -58,7 +58,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               const SizedBox(height: 10),
               ...List.generate(AppRoutes.pages.length, (index) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: const .only(bottom: 10),
                   child: ListTile(
                     selected: selectedPage == index,
                     selectedTileColor: AppThemes.whitePremium.withValues(

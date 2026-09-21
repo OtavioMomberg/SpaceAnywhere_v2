@@ -7,7 +7,11 @@ class ExtraTextScreen extends StatelessWidget {
   final String title;
   final String text;
 
-  const ExtraTextScreen({required this.title, required this.text, super.key});
+  const ExtraTextScreen({
+    required this.title, 
+    required this.text, 
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {

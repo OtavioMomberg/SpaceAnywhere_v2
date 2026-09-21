@@ -52,7 +52,7 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
                 margin: const .symmetric(horizontal: 5, vertical: 15),
                 decoration: BoxDecoration(
                   borderRadius: AppThemes.borderRadius,
-                  border: Border.all(
+                  border: .all(
                     color: AppThemes.whitePremium.withValues(alpha: 0.5),
                   ),
                 ),

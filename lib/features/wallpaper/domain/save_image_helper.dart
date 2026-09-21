@@ -13,7 +13,7 @@ class SaveImageHelper {
   }
 
   static Future<bool> saveImageFromUrl({required String imageUrl}) async {
-    final response = await http.get(Uri.parse(imageUrl));
+    final response = await http.get(.parse(imageUrl));
     final imageBytes = response.bodyBytes;
 
     return _saveToGallery(imageBytes: imageBytes);

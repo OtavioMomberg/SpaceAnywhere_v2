@@ -28,7 +28,7 @@ class InternetHelper<T> {
   Future<void> hasInternet() async {
     try {
       final url = "https://www.google.com";
-      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 5));
+      final response = await http.get(.parse(url)).timeout(const Duration(seconds: 5));
       _checkInternet = response.statusCode == 200;
     } catch (e) {
       _checkInternet = false;
@@ -38,7 +38,7 @@ class InternetHelper<T> {
   Future<void> isApiAwake() async {
     try {
       final url = "$baseURL/health/";
-      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 45));
+      final response = await http.get(.parse(url)).timeout(const Duration(seconds: 45));
       _checkAPI = response.statusCode == 200;
     } catch (error) {
       _checkAPI = false;

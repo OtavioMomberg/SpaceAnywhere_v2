@@ -13,8 +13,8 @@ void main() async {
   });
 
   await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
+    .portraitUp,
+    .portraitDown,
   ]);
 
   runApp(const SpaceAnywhere());

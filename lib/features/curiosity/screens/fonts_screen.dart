@@ -21,8 +21,8 @@ class FontsScreen extends StatelessWidget {
           child: Column(
             spacing: 40,
             children: <Widget>[
-              Header(
-                title: const Text(
+              const Header(
+                title: Text(
                   "Fontes Consultadas",
                   style: TextStyle(
                     color: AppThemes.whitePremium,
@@ -43,15 +43,14 @@ class FontsScreen extends StatelessWidget {
                       color: AppThemes.whitePremium.withValues(alpha: 0.1),
                       child: InkWell(
                         borderRadius: AppThemes.borderRadius,
-                        onTap: () =>
-                            OpenLinksHelper.openLink(url: fonts[index]),
+                        onTap: () => OpenLinksHelper.openLink(url: fonts[index]),
                         child: Padding(
                           padding: const .all(10),
                           child: Text(
                             fonts[index],
                             style: const TextStyle(
                               color: AppThemes.whitePremium,
-                              decoration: TextDecoration.underline,
+                              decoration: .underline,
                               decorationColor: AppThemes.whitePremium,
                             ),
                           ),

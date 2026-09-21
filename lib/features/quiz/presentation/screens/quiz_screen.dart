@@ -115,15 +115,14 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
               child: Column(
                 spacing: 10,
                 children: <Widget>[
-                  ...List.generate(QuizService.alternativesNumber, (index) {
+                  ....generate(QuizService.alternativesNumber, (index) {
                     return AnswerCard(
                       index: index,
                       option: _quizService
                         .questionController
                         .getQuestionModel!
                         .alternatives[index],
-                      onTap: ({required int index}) async =>
-                        await _quizService.onTapAnswer(index: index),
+                      onTap: ({required int index}) async => await _quizService.onTapAnswer(index: index),
                     );
                   }),
                 ],
