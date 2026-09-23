@@ -22,6 +22,7 @@ class TranslationService<T>({
   late final void Function() setState;
   String? _error;
   bool _isLoading = true;
+  bool _checkInitialState = false;
 
   int get objectsLength => translationController.translationModel.length;
   bool get checkInternet => _internet.checkInternet;
@@ -42,7 +43,14 @@ class TranslationService<T>({
   Future<void> controlTranslationFlow({T? param}) async {
     await getTranslations(langFlag: param as String?);
 
-    if (!languageController.isSucced || !translationController.isSucced) { return; }
+    if (!languageController.isSucced || !translationController.isSucced) { 
+      if (!_checkInitialState) {
+        _isLoading = false;
+        setState();
+        _checkInitialState = true;
+      }
+      return; 
+    }
 
     if (!checkMounted()) { return; }
 

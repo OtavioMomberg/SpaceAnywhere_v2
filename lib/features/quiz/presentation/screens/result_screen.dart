@@ -21,44 +21,46 @@ class ResultScreen extends StatelessWidget {
           height: .infinity,
           padding: const .all(10),
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
-          child: GlassContainer(
-            height: size.height * 0.6,
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Icon(
-                    isCorrect ? Icons.check_circle : Icons.cancel,
-                    color: AppThemes.whitePremium,
-                    size: 60,
-                  ),
-                  Text(
-                    isCorrect ? "Certa Resposta!" : "Resposta Incorreta!",
-                    style: const TextStyle(
+          child: Center(
+            child: GlassContainer(
+              height: size.height * 0.6,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Icon(
+                      isCorrect ? Icons.check_circle : Icons.cancel,
                       color: AppThemes.whitePremium,
-                      fontSize: 22,
-                      fontWeight: .bold,
-                    ),
-                  ),
-                  if (!isCorrect) ...[
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Alternativa correta:",
-                      style: TextStyle(
-                        color: AppThemes.whitePremium,
-                        fontSize: 14,
-                      ),
+                      size: 60,
                     ),
                     Text(
-                      correctAnswer!,
+                      isCorrect ? "Certa Resposta!" : "Resposta Incorreta!",
                       style: const TextStyle(
                         color: AppThemes.whitePremium,
-                        fontSize: 16,
+                        fontSize: 22,
                         fontWeight: .bold,
                       ),
-                      textAlign: .center,
                     ),
+                    if (!isCorrect) ...[
+                      const SizedBox(height: 10),
+                      const Text(
+                        "Alternativa correta:",
+                        style: TextStyle(
+                          color: AppThemes.whitePremium,
+                          fontSize: 14,
+                        ),
+                      ),
+                      Text(
+                        correctAnswer!,
+                        style: const TextStyle(
+                          color: AppThemes.whitePremium,
+                          fontSize: 16,
+                          fontWeight: .bold,
+                        ),
+                        textAlign: .center,
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),

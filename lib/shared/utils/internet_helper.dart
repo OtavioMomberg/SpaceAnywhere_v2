@@ -59,6 +59,7 @@ class InternetHelper<T> {
         break;
       }
       _currentRetryAttempt++;
+      await Future.delayed(const Duration(seconds: 5));
     }
   }
 
@@ -72,6 +73,7 @@ class InternetHelper<T> {
         break;
       }
       _currentRetryAttempt++;
+      await Future.delayed(const Duration(seconds: 5));
     }
   }
 }

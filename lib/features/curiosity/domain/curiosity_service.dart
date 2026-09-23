@@ -16,6 +16,7 @@ class CuriosityService({
   String? _error;
   bool _isLoading = true;
   bool _showActionButtons = false;
+  bool _checkInitialState = false;
   CuriosityDbModel? _selectCuriosity;
   final _fonts = <String>[];
   final _selectFonts = <FontDbModel>[];
@@ -45,13 +46,19 @@ class CuriosityService({
   Future<void> _controlCuriosityFlow() async {
     await _controlCuriosity();
 
-    if (!curiosityController.isSucced) { return; }
+    if (!curiosityController.isSucced) { 
+      if (!_checkInitialState) {
+        _isLoading = false;
+        setState();
+        _checkInitialState = true;
+      }
+      return; 
+    }
 
     if (!checkMounted()) { return; }
-
-    if (_internet.checkInternet && _internet.checkAPI) {
-      _showActionButtons = true;
-    }
+  
+    _showActionButtons = true;
+    
     _isLoading = false;
     setState();
   }

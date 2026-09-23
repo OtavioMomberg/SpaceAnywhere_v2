@@ -7,6 +7,7 @@ class WallpaperService({required final WallpaperController wallpaperController})
   int _offset = 0;
   String? _error;
   bool _isLoading = true;
+  bool _checkInitialState = false;
   late final bool Function() checkMounted;
   late final void Function() setState;
 
@@ -31,7 +32,14 @@ class WallpaperService({required final WallpaperController wallpaperController})
 
     if (!checkMounted()) { return; }
 
-    if (!wallpaperController.isSucced) { return; }
+    if (!wallpaperController.isSucced) { 
+      if (!_checkInitialState) {
+        _isLoading = false;
+        setState();
+        _checkInitialState = true;
+      }
+      return; 
+    }
 
     _isLoading = false;
     setState();

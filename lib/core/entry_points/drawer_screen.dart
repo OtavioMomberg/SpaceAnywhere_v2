@@ -95,7 +95,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       body: Container(
         width: .infinity,
         height: .infinity,
-        padding: const .all(10),
+        padding: const .only(top: 15, left: 10, right: 10, bottom: 10),
         decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
         child: SafeArea(child: AppRoutes.pages[selectedPage]),
       ),

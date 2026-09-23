@@ -9,6 +9,7 @@ class QuizService<T>({required final QuestionController questionController}) {
   bool _quizStarted = false;
   bool _isLoading = true;
   bool _retrySucced = false;
+  bool _checkInitialState = false;
   
   late final void Function({
     required bool isCorrect, 
@@ -64,7 +65,14 @@ class QuizService<T>({required final QuestionController questionController}) {
 
     await Future.delayed(const Duration(milliseconds: 800));
 
-    if (!questionController.isSucced) { return; }
+    if (!questionController.isSucced) { 
+      if (!_checkInitialState) {
+        _isLoading = false;
+        setState();
+        _checkInitialState = true;
+      }
+      return;
+    }
 
     if (!checkMounted()) { return; }
 
@@ -75,7 +83,9 @@ class QuizService<T>({required final QuestionController questionController}) {
   }
 
   void buildInternetInstance() {
-    _internet = InternetHelper.withFunctionParameter(functionWithParam: controlQuizFlow);
+    _internet = InternetHelper.withFunctionParameter(
+      functionWithParam: controlQuizFlow
+    );
   }
 
   void initializeConnectionSystem() {

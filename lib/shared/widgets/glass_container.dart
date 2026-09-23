@@ -27,12 +27,12 @@ class GlassContainer extends StatelessWidget {
       padding: const .all(10),
       decoration: BoxDecoration(
         borderRadius: borderRadius == null
-            ? AppThemes.borderRadius
-            : borderRadius!,
+          ? AppThemes.borderRadius
+          : borderRadius!,
         border: .all(
           color: borderColor == null
-            ? AppThemes.whitePremium.withValues(alpha: 0.5)
-            : borderColor!.withValues(alpha: 0.5),
+          ? AppThemes.whitePremium.withValues(alpha: 0.5)
+          : borderColor!.withValues(alpha: 0.5),
         ),
       ),
       child: height != null ? Center(child: child) : child,
