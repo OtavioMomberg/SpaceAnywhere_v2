@@ -36,7 +36,6 @@ dependencies:
   path: 
   url_launcher:
   image_gallery_saver_plus: 
-  path_provider: 
   cached_network_image:
   flutter_cache_manager: 
   flutter_launcher_icons: 
