@@ -1,0 +1,66 @@
+import 'package:material_ui/material_ui.dart';
+import 'package:space_anywhere/shared/models/object_information.dart';
+import 'package:space_anywhere/core/themes/app_themes.dart';
+import 'package:space_anywhere/shared/widgets/image_widget.dart';
+
+class const ComparisonCard({
+  required final List<String> objectData,
+  required final String objectName,
+  required final String imagePath,
+  super.key,
+  }) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
+    return Container(
+      height: double.infinity,
+      margin: const .symmetric(vertical: 10),
+      padding: const .all(10),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: .start,
+          spacing: 10,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                SizedBox(
+                  height: size.height * 0.3,
+                  width: .infinity,
+                  child: Center(
+                    child: ImageWidget(
+                      imagePath: imagePath,
+                      option: .asset,
+                    ),
+                  ),
+                ),
+                const Text(
+                  "*Imagem gerada por Inteligência Artificial",
+                  style: TextStyle(color: AppThemes.whitePremium),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 10),
+            const Divider(color: AppThemes.whitePremium),
+            Center(
+              child: Text(
+                objectName,
+                style: TextStyle(color: AppThemes.whitePremium),
+              ),
+            ),
+            const Divider(color: AppThemes.whitePremium),
+            const SizedBox(height: 10),
+
+            ....generate(objectData.length, (index) {
+              return Text(
+                "${ObjectInformation.topics[index]} ${objectData[index]}",
+                style: const TextStyle(color: AppThemes.whitePremium),
+              );
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+}

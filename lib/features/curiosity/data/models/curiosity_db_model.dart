@@ -1,4 +1,4 @@
-class CuriosityDbModel({
+final class const CuriosityDbModel({
   required final int curiosityId,
   required final String shortAnswer,
   required final String longAnswer,
@@ -6,4 +6,4 @@ class CuriosityDbModel({
   required final String time,
 });
 
-class FontDbModel({required final String font});
+final class const FontDbModel({required final String font});

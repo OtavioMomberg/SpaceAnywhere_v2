@@ -4,7 +4,7 @@ import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 
 enum ImageOption { network, asset }
 
-class SaveImageHelper {
+final class const SaveImageHelper._() {
   static Future<bool> saveImageFromAsset({required String imagePath}) async {
     final byteData = await rootBundle.load(imagePath);
     final imageBytes = byteData.buffer.asUint8List();

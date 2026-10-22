@@ -3,11 +3,9 @@ import 'package:space_anywhere/core/constants/api_constants.dart';
 import 'package:space_anywhere/features/translation/data/models/translation_model.dart';
 import 'package:space_anywhere/features/translation/data/repositories/translation_repository.dart';
 
-class TranslationImplementation implements TranslationRepository {
-  final Client _client;
-
-  const new({required this._client});
-
+final class TranslationImplementation({
+  required final Client _client
+}) implements TranslationRepository {
   @override
   Future<List<TranslationModel?>> getTrasnlations({String? langFlag}) async {
     final domain = baseURL.replaceFirst("https://", "");

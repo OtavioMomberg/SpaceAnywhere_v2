@@ -1,14 +1,15 @@
+import 'package:space_anywhere/core/constants/app_images.dart';
 import 'package:space_anywhere/shared/models/object_information.dart';
 
-class ObjectsDataset {
-  static const objects = [
+final class ObjectsDataset {
+  static final objects = [
     ObjectInformation(
       name: "Mercurío",
       diameter: "4.880 km",
       mass: "3.30 x 10^23 kg",
       earthDistance: "77 - 222 milhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Mercurio.png",
+      imagePath: AppImages.mercury,
     ),
     ObjectInformation(
       name: "Vênus",
@@ -16,7 +17,7 @@ class ObjectsDataset {
       mass: "4.87 x 10^23 kg",
       earthDistance: "38 - 261 milhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Venus.png",
+      imagePath: AppImages.venus,
     ),
     ObjectInformation(
       name: "Terra",
@@ -24,7 +25,7 @@ class ObjectsDataset {
       mass: "5.97 x 10^24 kg",
       earthDistance: "0",
       objectType: "Planeta",
-      imagePath: "assets/images/Terra.png",
+      imagePath: AppImages.earth,
     ),
     ObjectInformation(
       name: "Marte",
@@ -32,7 +33,7 @@ class ObjectsDataset {
       mass: "6.42 x 10^23 kg",
       earthDistance: "56 - 401 milhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Marte.png",
+      imagePath: AppImages.mars,
     ),
     ObjectInformation(
       name: "Jupiter",
@@ -40,7 +41,7 @@ class ObjectsDataset {
       mass: "1.90  x 10^27 kg",
       earthDistance: "588 - 968 milhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Jupiter.png",
+      imagePath: AppImages.jupter,
     ),
     ObjectInformation(
       name: "Saturno",
@@ -48,7 +49,7 @@ class ObjectsDataset {
       mass: "5.68  x 10^26 kg",
       earthDistance: "1.2 - 1.6 bilhão de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Saturno.png",
+      imagePath: AppImages.saturn,
     ),
     ObjectInformation(
       name: "Urano",
@@ -56,7 +57,7 @@ class ObjectsDataset {
       mass: "8.68 x 10^25 kg",
       earthDistance: "2.6 - 3.1 bilhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Urano.png",
+      imagePath: AppImages.uranus,
     ),
     ObjectInformation(
       name: "Netuno",
@@ -64,7 +65,7 @@ class ObjectsDataset {
       mass: "1.02 x 10^26 kg",
       earthDistance: "4.3 - 4.7 bilhões de km",
       objectType: "Planeta",
-      imagePath: "assets/images/Netuno.png",
+      imagePath: AppImages.neptune,
     ),
     ObjectInformation(
       name: "Plutão",
@@ -72,7 +73,7 @@ class ObjectsDataset {
       mass: "1.31 x 10^22 kg",
       earthDistance: "4.28 - 7.5 bilhões de km",
       objectType: "Planeta-Anão",
-      imagePath: "assets/images/Plutao.png",
+      imagePath: AppImages.pluto,
     ),
     ObjectInformation(
       name: "Sol",
@@ -80,7 +81,7 @@ class ObjectsDataset {
       mass: "1.989 x 10^30 kg",
       earthDistance: "147 - 152.1 milhões de km",
       objectType: "Estrela",
-      imagePath: "assets/images/Sol.png",
+      imagePath: AppImages.sun,
     ),
   ];
 }

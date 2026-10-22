@@ -1,24 +1,27 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/features/comparison/presentation/screens/comparison_screen.dart';
-import 'package:space_anywhere/features/calculator/presentation/screens/calculator_screen.dart';
+import 'package:space_anywhere/features/comparison/ui/screens/comparison_screen.dart';
+import 'package:space_anywhere/features/calculator/ui/screens/calculator_screen.dart';
 import 'package:space_anywhere/features/curiosity/screens/curiosity_screen.dart';
-import 'package:space_anywhere/features/quiz/presentation/screens/quiz_screen.dart';
-import 'package:space_anywhere/features/translation/presentation/screens/translation_screen.dart';
+import 'package:space_anywhere/features/quiz/ui/screens/quiz_screen.dart';
+import 'package:space_anywhere/features/translation/ui/screens/translation_screen.dart';
 import 'package:space_anywhere/features/wallpaper/screens/wallpaper_screen.dart';
 
 enum TransitionType { slideLtoR, slideRtoL, fade, scale }
 
-Widget getTranslation({
-  required Animation<double> animation, 
+Widget _getTranslation({
+  required Animation<double> animation,
   required Widget child,
-  required TransitionType type
+  required TransitionType type,
 }) {
   switch (type) {
     case .slideLtoR:
       const begin = Offset(-1.0, 0.0);
       const end = Offset.zero;
       const curve = Curves.easeInOut;
-      final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      final tween = Tween(
+        begin: begin,
+        end: end,
+      ).chain(CurveTween(curve: curve));
 
       return SlideTransition(position: animation.drive(tween), child: child);
 
@@ -26,7 +29,10 @@ Widget getTranslation({
       const begin = Offset(1.0, 0.0);
       const end = Offset.zero;
       const curve = Curves.easeInOut;
-      final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      final tween = Tween(
+        begin: begin,
+        end: end,
+      ).chain(CurveTween(curve: curve));
 
       return SlideTransition(position: animation.drive(tween), child: child);
 
@@ -35,7 +41,7 @@ Widget getTranslation({
         opacity: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
         child: child,
       );
-      
+
     case .scale:
       return ScaleTransition(
         scale: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
@@ -44,14 +50,14 @@ Widget getTranslation({
   }
 }
 
-class AppRoutes {
+final class AppRoutes._() {
   static const pages = [
     CuriosityScreen(),
     QuizScreen(),
     ComparisonScreen(),
     WallpaperScreen(),
     CalculatorScreen(),
-    TranslationScreen()
+    TranslationScreen(),
   ];
 
   static const pageNames = [
@@ -64,15 +70,15 @@ class AppRoutes {
   ];
 
   static Route<dynamic> getRoute({
-    required Widget page,
+    required Widget screen,
     required TransitionType type,
   }) {
     return PageRouteBuilder(
-      pageBuilder: (_, _, _) => page,
+      pageBuilder: (_, _, _) => screen,
       transitionDuration: const Duration(milliseconds: 350),
       reverseTransitionDuration: const Duration(milliseconds: 400),
       transitionsBuilder: (_, animation, _, child) {
-        return getTranslation(
+        return _getTranslation(
           animation: animation, 
           child: child, 
           type: type

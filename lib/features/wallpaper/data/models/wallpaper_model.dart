@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class WallpaperModel({
+final class const WallpaperModel({
   required final int id,
   required final String fullImageUrl,
   required final String thumbnailImageUrl

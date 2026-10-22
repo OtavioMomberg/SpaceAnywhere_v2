@@ -2,11 +2,10 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
-class Header extends StatelessWidget {
-  final Widget title;
-
-  const new({required this.title, super.key});
-
+class const Header({
+  required final Widget title, 
+  super.key
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(

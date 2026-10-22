@@ -4,7 +4,7 @@ import 'package:space_anywhere/features/curiosity/data/repositories/sqlite_imple
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 import 'package:space_anywhere/features/curiosity/data/models/curiosity_db_model.dart';
 
-class CuriosityService({
+final class CuriosityService({
   required final SqliteRepository db,
   required final CuriosityController curiosityController,
 }) {

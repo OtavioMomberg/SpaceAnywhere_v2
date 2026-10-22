@@ -1,24 +1,15 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
-class GlassContainer extends StatelessWidget {
-  final BorderRadius? borderRadius;
-  final Color? borderColor;
-  final Color? backgroundColor;
-  final Widget? child;
-  final double? height;
-  final double? width;
-
-  const new({
-    this.borderRadius,
-    this.borderColor,
-    this.backgroundColor,
-    this.child,
-    this.height,
-    this.width,
-    super.key,
-  });
-
+class const GlassContainer({
+  final BorderRadius? borderRadius,
+  final Color? borderColor,
+  final Color? backgroundColor,
+  final double? height,
+  final double? width,
+  final Widget? child,
+  super.key,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

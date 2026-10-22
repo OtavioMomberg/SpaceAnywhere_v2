@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
-class AppThemes {
+final class AppThemes._() {
   static const mainGradient = LinearGradient(
     begin: .topCenter,
     end: .bottomCenter,

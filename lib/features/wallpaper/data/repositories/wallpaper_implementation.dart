@@ -3,11 +3,9 @@ import 'package:space_anywhere/features/wallpaper/data/models/wallpaper_model.da
 import 'package:space_anywhere/core/constants/api_constants.dart';
 import 'package:space_anywhere/features/wallpaper/data/repositories/wallpaper_repository.dart';
 
-class WallpaperImplementation implements WallpaperRepository {
-  final Client _client;
-
-  const new({required this._client});
-
+final class const WallpaperImplementation({
+  required final Client _client
+}) implements WallpaperRepository {
   @override
   Future<List<WallpaperModel?>> getWallpaper({int? offset}) async {
     final domain = baseURL.replaceFirst("https://", "");

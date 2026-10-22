@@ -2,11 +2,9 @@ import 'package:space_anywhere/core/constants/app_constants.dart';
 import 'package:space_anywhere/features/translation/data/models/translation_model.dart';
 import 'package:space_anywhere/features/translation/data/repositories/translation_repository.dart';
 
-class TranslationController {
-  final TranslationRepository _translationRepository;
-
-  new({required this._translationRepository});
-
+final class TranslationController({
+  required final TranslationRepository _translationRepository
+}) {
   String? _error;
 
   String? get error => _error;

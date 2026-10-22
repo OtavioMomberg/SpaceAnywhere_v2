@@ -10,9 +10,7 @@ import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/shared/widgets/main_header.dart';
 
-class CuriosityScreen extends StatefulWidget {
-  const CuriosityScreen({super.key});
-
+class const CuriosityScreen({super.key}) extends StatefulWidget {
   @override
   State<CuriosityScreen> createState() => _CuriosityScreenState();
 }
@@ -57,7 +55,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
             ),
             textAlign: .center,
           ),
-        ),   
+        ),
         const SizedBox(height: 5),
         if (_homeService.checkState()) ...[
           CheckConnection(
@@ -152,6 +150,6 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
   void _setStateCallback() => setState(() {});
 
   void _goNextPage({required Widget page, required TransitionType type}) {
-    Navigator.push(context, AppRoutes.getRoute(page: page, type: type));
+    Navigator.push(context, AppRoutes.getRoute(screen: page, type: type));
   }
 }

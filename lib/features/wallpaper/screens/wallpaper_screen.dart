@@ -10,9 +10,7 @@ import 'package:space_anywhere/shared/widgets/check_connection.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
 import 'package:space_anywhere/shared/widgets/main_header.dart';
 
-class WallpaperScreen extends StatefulWidget {
-  const new({super.key});
-
+class const WallpaperScreen({super.key}) extends StatefulWidget {
   @override
   State<WallpaperScreen> createState() => _WallpaperScreenState();
 }
@@ -74,7 +72,8 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
                 return InkWell(
                   onTap: () {
                     _seeImageExpanded(
-                      imagePath: CacheManagerHelper.wallpapers![index]!.fullImageUrl,
+                      imagePath:
+                          CacheManagerHelper.wallpapers![index]!.fullImageUrl,
                       context: context,
                     );
                   },
@@ -85,7 +84,8 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
                     child: Hero(
                       tag: CacheManagerHelper.wallpapers![index]!.fullImageUrl,
                       child: ImageWidget(
-                        imagePath: CacheManagerHelper.wallpapers![index]!.fullImageUrl,
+                        imagePath:
+                            CacheManagerHelper.wallpapers![index]!.fullImageUrl,
                         option: .network,
                       ),
                     ),
@@ -119,10 +119,7 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
     Navigator.push(
       context,
       AppRoutes.getRoute(
-        page: ExpandedImageScreen(
-          imagePath: imagePath,
-          option: .network,
-        ),
+        screen: ExpandedImageScreen(imagePath: imagePath, option: .network),
         type: .fade,
       ),
     );

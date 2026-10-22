@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/features/quiz/presentation/widgets/answer_card.dart';
+import 'package:space_anywhere/features/quiz/ui/widgets/answer_card.dart';
 
 void main() {
   testWidgets("verify onTap function", (tester) async {

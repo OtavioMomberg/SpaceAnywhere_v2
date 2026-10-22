@@ -3,16 +3,11 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/shared/widgets/header.dart';
 
-class ExtraTextScreen extends StatelessWidget {
-  final String title;
-  final String text;
-
-  const ExtraTextScreen({
-    required this.title, 
-    required this.text, 
-    super.key
-  });
-
+class const ExtraTextScreen({
+  required final String title, 
+  required final String text, 
+  super.key
+  }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,11 +3,9 @@ import 'package:space_anywhere/features/curiosity/data/models/curiosity_model.da
 import 'package:space_anywhere/features/curiosity/data/repositories/curiosity_repository.dart';
 import 'package:space_anywhere/core/constants/api_constants.dart';
 
-class CuriosityImplementation implements CuriosityRepository {
-  final Client _client;
-
-  const new({required this._client});
-
+class const CuriosityImplementation({
+  required final Client _client
+}) implements CuriosityRepository {
   @override
   Future<CuriosityModel> getCuriosity({required int id}) async {
     final url = "$baseURL/api/v1/curiosity/$id";

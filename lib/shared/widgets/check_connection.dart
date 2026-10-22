@@ -3,20 +3,13 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 import 'package:space_anywhere/shared/widgets/info_error_widget.dart';
 
-class CheckConnection extends StatelessWidget {
-  final bool isLoading;
-  final bool checkInternet;
-  final bool checkAPI;
-  final double height;
-
-  const new({
-    required this.isLoading,
-    required this.checkInternet,
-    required this.checkAPI,
-    required this.height,
-    super.key,
-  });
-
+class const CheckConnection({
+  required final bool isLoading,
+  required final bool checkInternet,
+  required final bool checkAPI,
+  required final double height,
+  super.key,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {

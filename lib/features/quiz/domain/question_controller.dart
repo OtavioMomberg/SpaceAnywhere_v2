@@ -1,11 +1,9 @@
 import 'package:space_anywhere/features/quiz/data/models/question_model.dart';
 import 'package:space_anywhere/features/quiz/data/repositories/question_repository.dart';
 
-class QuestionController {
-  final QuestionRepository _questionRepository;
-
-  new({required this._questionRepository});
-
+final class QuestionController({
+  required final QuestionRepository _questionRepository
+}) {
   String? _errorGetQuestion;
 
   String? get getErrorQuestion => _errorGetQuestion;

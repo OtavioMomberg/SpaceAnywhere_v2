@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/translation/data/models/language_model.dart';
 import 'package:space_anywhere/features/translation/domain/translation_cache_helper.dart';
-import 'package:space_anywhere/features/translation/presentation/widgets/language_selector.dart';
+import 'package:space_anywhere/features/translation/ui/widgets/language_selector.dart';
 
 void main() {
   group("Check LanguageSelector widget", () {

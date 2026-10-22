@@ -1,11 +1,9 @@
 import 'package:space_anywhere/features/wallpaper/data/models/wallpaper_model.dart';
 import 'package:space_anywhere/features/wallpaper/data/repositories/wallpaper_repository.dart';
 
-class WallpaperController {
-  final WallpaperRepository _wallpaperRepository;
-
-  new({required this._wallpaperRepository});
-
+final class WallpaperController({
+  required final WallpaperRepository _wallpaperRepository
+}) {
   String? _errorGetWallpaper;
 
   String? get getErrorWallpaper => _errorGetWallpaper;

@@ -4,16 +4,11 @@ import 'package:space_anywhere/features/wallpaper/domain/save_image_helper.dart'
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/features/wallpaper/domain/cache_manager_helper.dart';
 
-class ImageWidget extends StatelessWidget {
-  final String imagePath;
-  final ImageOption option;
-
-  const new({
-    required this.imagePath, 
-    required this.option, 
-    super.key
-  });
-
+class const ImageWidget({
+  required final String imagePath, 
+  required final ImageOption option, 
+  super.key
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/features/calculator/presentation/widgets/input_number.dart';
+import 'package:space_anywhere/features/calculator/ui/widgets/input_number.dart';
 
 void main() {
     testWidgets("verify is onFieldSubmitted is working", (tester) async {

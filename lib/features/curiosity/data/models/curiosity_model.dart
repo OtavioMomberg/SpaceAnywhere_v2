@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class CuriosityModel({
+final class const CuriosityModel({
   required final int id,
   required final String title,
   required final String shortAnswer,

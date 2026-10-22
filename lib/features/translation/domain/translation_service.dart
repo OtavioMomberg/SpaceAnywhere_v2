@@ -4,7 +4,7 @@ import 'package:space_anywhere/core/constants/app_constants.dart';
 import 'package:space_anywhere/features/translation/domain/translation_cache_helper.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class TranslationService<T>({
+final class TranslationService<T>({
   required final TranslationController translationController,
   required final LanguageController languageController,
 }) {

@@ -7,18 +7,17 @@ import 'package:space_anywhere/shared/widgets/button.dart';
 import 'package:space_anywhere/shared/widgets/header.dart';
 import 'package:space_anywhere/shared/widgets/image_widget.dart';
 
-class ExpandedImageScreen extends StatefulWidget {
-  final String imagePath;
-  final ImageOption option;
-
-  const new({required this.imagePath, required this.option, super.key});
-
+class const ExpandedImageScreen({
+  required final String imagePath, 
+  required final ImageOption option, 
+  super.key
+}) extends StatefulWidget {
   @override
   State<ExpandedImageScreen> createState() => _ExpandedImageScreenState();
 }
 
 class _ExpandedImageScreenState extends State<ExpandedImageScreen>
-    with GlassSnackBarHelper {
+  with GlassSnackBarHelper {
   bool response = false;
 
   @override
@@ -72,7 +71,6 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
     await _showResponse();
 
     if (!mounted) { return; }
-
     showGlassSnackBar(
       context: context,
       msm: response ? "Imagem salva na galeria!" : "Erro ao salvar imagem.",

@@ -1,7 +1,7 @@
 import "package:http/http.dart" as http;
 import "package:space_anywhere/core/constants/api_constants.dart";
 
-class InternetHelper<T> {
+final class InternetHelper<T> {
   static const _retryAttempts = 15;
   int _currentRetryAttempt = 0;
   bool _checkInternet = false;
@@ -10,13 +10,8 @@ class InternetHelper<T> {
   Future<void> Function({T? param})? _functionWithParam;
   Future<void> Function()? _function;
 
-  new withFunctionParameter({
-    required this._functionWithParam,
-  });
-
-  new withoutFunctionParameter({
-    required this._function,
-  });
+  new withFunctionParameter({required this._functionWithParam});
+  new withoutFunctionParameter({required this._function});
 
   bool get checkInternet => _checkInternet;
   bool get checkAPI => _checkAPI;

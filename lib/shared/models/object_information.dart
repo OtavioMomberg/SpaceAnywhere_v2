@@ -1,29 +1,26 @@
-class ObjectInformation {
-  final String name;
-  final String diameter;
-  final String mass;
-  final String earthDistance;
-  final String objectType;
-  final String imagePath;
-  final double? gravityOverEarth;
-
-  const new({
-    required this.name,
-    required this.diameter,
-    required this.mass,
-    required this.earthDistance,
-    required this.objectType,
-    required this.imagePath,
-  }) : gravityOverEarth = null;
-
-  const new planetGravity({
-    required this.name, 
-    required this.gravityOverEarth
-  }) : diameter = "",
-       mass = "",
-       earthDistance = "",
-       objectType = "",
-       imagePath = "";
+final class const ObjectInformation({
+  required final String name,
+  required final String diameter,
+  required final String mass,
+  required final String earthDistance,
+  required final String objectType,
+  required final String imagePath,
+  final double? gravityOverEarth
+}) {
+  factory planetGravity({
+    required String name, 
+    required double gravityOverEarth
+  }) {
+    return ObjectInformation(
+      name: name, 
+      diameter: "", 
+      mass: "", 
+      earthDistance: "", 
+      objectType: "", 
+      imagePath: "",
+      gravityOverEarth: gravityOverEarth
+    );
+  }
 
   List<String> toList() {
     return [diameter, mass, earthDistance, objectType];

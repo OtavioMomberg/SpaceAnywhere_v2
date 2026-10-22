@@ -3,11 +3,10 @@ import 'package:space_anywhere/features/curiosity/domain/open_links_helper.dart'
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/header.dart';
 
-class FontsScreen extends StatelessWidget {
-  final List<String> fonts;
-
-  const FontsScreen({required this.fonts, super.key});
-
+class const FontsScreen({
+  required final List<String> fonts, 
+  super.key
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

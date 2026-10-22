@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class QuestionModel({
+final class const QuestionModel({
   required final int id,
   required final String question,
   required final int rightAnswerIndex,

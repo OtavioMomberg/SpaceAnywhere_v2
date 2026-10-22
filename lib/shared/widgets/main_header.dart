@@ -1,11 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
-class MainHeader extends StatelessWidget {
-  final Widget title;
-
-  const new({required this.title, super.key});
-
+class const MainHeader({
+  required final Widget title, 
+  super.key
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(

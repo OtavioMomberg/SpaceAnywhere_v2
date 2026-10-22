@@ -1,7 +1,9 @@
 import 'package:space_anywhere/features/quiz/domain/question_controller.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class QuizService<T>({required final QuestionController questionController}) {
+final class QuizService<T>({
+  required final QuestionController questionController
+}) {
   static const _id = 0;
   static const alternativesNumber = 5;
   late InternetHelper<T> _internet;

@@ -1,7 +1,7 @@
 import 'package:space_anywhere/shared/models/object_information.dart';
 import 'package:space_anywhere/features/calculator/data/objects_gravity_dataset.dart';
 
-class CalculatorService {
+final class CalculatorService {
   static const defaultOptionText = "Escolha um objeto";
   final _planetsGravity = PlanetsGravity.planetsGravityData;
   String _objectName = defaultOptionText;

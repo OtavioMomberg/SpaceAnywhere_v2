@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class LanguageModel({
+final class const LanguageModel({
   required final String lang,
   required final String langFlag,
   required final String emoji

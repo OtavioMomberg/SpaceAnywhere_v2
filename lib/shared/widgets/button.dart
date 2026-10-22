@@ -2,20 +2,13 @@ import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/shared/widgets/glass_container.dart';
 
-class Button extends StatelessWidget {
-  final String label;
-  final double? height;
-  final VoidCallback? function;
-  final Future<void> Function()? asyncFunction;
-
-  const new({
-    required this.label,
-    this.height = 60,
-    this.function,
-    this.asyncFunction,
-    super.key,
-  });
-
+class const Button({
+  required final String label,
+  final double? height = 60,
+  final VoidCallback? function,
+  final Future<void> Function()? asyncFunction,
+  super.key,
+  }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(

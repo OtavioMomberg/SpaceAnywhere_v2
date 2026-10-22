@@ -2,7 +2,9 @@ import 'package:space_anywhere/features/wallpaper/domain/wallpaper_controller.da
 import 'package:space_anywhere/features/wallpaper/domain/cache_manager_helper.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
-class WallpaperService({required final WallpaperController wallpaperController}) {
+final class WallpaperService({
+  required final WallpaperController wallpaperController
+}) {
   late InternetHelper _internet;
   int _offset = 0;
   String? _error;

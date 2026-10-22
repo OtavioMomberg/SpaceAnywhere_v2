@@ -3,10 +3,9 @@ import 'package:space_anywhere/core/constants/api_constants.dart';
 import 'package:space_anywhere/features/translation/data/models/language_model.dart';
 import 'package:space_anywhere/features/translation/data/repositories/language_repository.dart';
 
-class LanguageImplementation implements LanguageRepository {
-  final Client _client;
-
-  const new({required this._client});
+final class const LanguageImplementation({
+  required final Client _client
+}) implements LanguageRepository {
 
   @override
   Future<List<LanguageModel>> getLanguages() async {

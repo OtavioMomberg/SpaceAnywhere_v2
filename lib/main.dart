@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
-import 'package:space_anywhere/core/entry_points/splash_screen.dart';
+import 'package:space_anywhere/features/entry_points/splash_screen.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 
 void main() async {
@@ -13,16 +13,12 @@ void main() async {
   });
 
   await SystemChrome.setPreferredOrientations([
-    .portraitUp,
-    .portraitDown,
-  ]);
+    .portraitUp, .portraitDown]);
 
   runApp(const SpaceAnywhere());
 }
 
-class SpaceAnywhere extends StatelessWidget {
-  const new({super.key});
-
+class const SpaceAnywhere({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

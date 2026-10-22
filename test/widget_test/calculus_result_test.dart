@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
-import 'package:space_anywhere/features/calculator/presentation/widgets/calculus_result.dart';
+import 'package:space_anywhere/features/calculator/ui/widgets/calculus_result.dart';
 
 void main() {
   group("Check CalculusResult widget", () {

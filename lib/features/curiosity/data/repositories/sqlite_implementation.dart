@@ -7,12 +7,11 @@ import 'package:sqflite/sqflite.dart';
 
 enum DatabaseActions { add, update }
 
-class SqliteImplementation implements SqliteRepository {
+final class SqliteImplementation implements SqliteRepository {
   Database? _db;
 
-  static final _instance = SqliteImplementation._();
-
   new _();
+  static final _instance = SqliteImplementation._();
 
   factory instance() => _instance;
 

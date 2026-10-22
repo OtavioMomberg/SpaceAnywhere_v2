@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class TranslationModel({
+final class const TranslationModel({
   required final int id,
   required final String translation,
   required final String langFlag

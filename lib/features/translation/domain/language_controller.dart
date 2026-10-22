@@ -1,11 +1,9 @@
 import 'package:space_anywhere/features/translation/data/models/language_model.dart';
 import 'package:space_anywhere/features/translation/data/repositories/language_repository.dart';
 
-class LanguageController {
-  final LanguageRepository _languageRepository;
-
-  new({required this._languageRepository});
-
+final class LanguageController({
+  required final LanguageRepository _languageRepository
+}) {
   String? _error;
 
   String? get error => _error;

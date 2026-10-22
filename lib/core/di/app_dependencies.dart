@@ -11,7 +11,7 @@ import 'package:space_anywhere/features/translation/data/repositories/translatio
 import 'package:space_anywhere/features/wallpaper/data/repositories/wallpaper_implementation.dart';
 import 'package:space_anywhere/features/curiosity/data/repositories/sqlite_implementation.dart';
 
-class AppDependencies {
+final class const AppDependencies._() {
   static final db = SqliteImplementation.instance();
 
   static final _client = Client();

@@ -1,7 +1,7 @@
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:space_anywhere/core/constants/app_constants.dart';
 
-class FlutterTtsHelper {
+final class FlutterTtsHelper {
   static final _player = FlutterTts();
 
   static const error =
