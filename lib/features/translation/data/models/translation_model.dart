@@ -16,7 +16,6 @@ final class const TranslationModel({
   static List<TranslationModel> fromList({required String source}) {
     final decoded = (jsonDecode(source) as List).cast<Map<String, dynamic>>();
     final translations = decoded.map((item) => TranslationModel.fromMap(map: item)).toList();
-
     return translations;
   }
 }

@@ -73,7 +73,7 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
                   onTap: () {
                     _seeImageExpanded(
                       imagePath:
-                          CacheManagerHelper.wallpapers![index]!.fullImageUrl,
+                        CacheManagerHelper.wallpapers![index]!.fullImageUrl,
                       context: context,
                     );
                   },

@@ -16,7 +16,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
     Icons.calculate,
     Icons.language,
   ];
-  int selectedPage = 0;
+  final selectedPage = ValueNotifier<int>(0);
 
   @override
   Widget build(BuildContext context) {
@@ -52,32 +52,37 @@ class _DrawerScreenState extends State<DrawerScreen> {
               ....generate(AppRoutes.pages.length, (index) {
                 return Padding(
                   padding: const .only(bottom: 10),
-                  child: ListTile(
-                    selected: selectedPage == index,
-                    selectedTileColor: AppThemes.whitePremium.withValues(
-                      alpha: 0.15,
-                    ),
-                    leading: Icon(
-                      _drawerIcons[index],
-                      color: selectedPage == index
-                        ? AppThemes.yellow.withValues(alpha: 0.8)
-                        : AppThemes.whitePremium,
-                    ),
-                    title: Text(
-                      AppRoutes.pageNames[index],
-                      style: TextStyle(
-                        color: selectedPage == index
-                          ? AppThemes.yellow.withValues(alpha: 0.8)
-                          : AppThemes.whitePremium,
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: AppThemes.borderRadius,
-                    ),
-                    onTap: () {
-                      setState(() => selectedPage = index);
-                      Navigator.pop(context);
-                    },
+                  child: ValueListenableBuilder(
+                    valueListenable: selectedPage,
+                    builder: (_, value, _) {
+                      return ListTile(
+                        selected: value == index,
+                        selectedTileColor: AppThemes.whitePremium.withValues(
+                          alpha: 0.15,
+                        ),
+                        leading: Icon(
+                          _drawerIcons[index],
+                          color: value == index
+                            ? AppThemes.yellow.withValues(alpha: 0.8)
+                            : AppThemes.whitePremium,
+                        ),
+                        title: Text(
+                          AppRoutes.pageNames[index],
+                          style: TextStyle(
+                            color: value == index
+                              ? AppThemes.yellow.withValues(alpha: 0.8)
+                              : AppThemes.whitePremium,
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: AppThemes.borderRadius,
+                        ),
+                        onTap: () {
+                          selectedPage.value = index;
+                          Navigator.pop(context);
+                        },
+                      );
+                    }
                   ),
                 );
               }),
@@ -90,7 +95,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         height: .infinity,
         padding: const .only(top: 15, left: 10, right: 10, bottom: 10),
         decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
-        child: SafeArea(child: AppRoutes.pages[selectedPage]),
+        child: SafeArea(child: AppRoutes.pages[selectedPage.value]),
       ),
     );
   }

@@ -8,14 +8,12 @@ final class const SaveImageHelper._() {
   static Future<bool> saveImageFromAsset({required String imagePath}) async {
     final byteData = await rootBundle.load(imagePath);
     final imageBytes = byteData.buffer.asUint8List();
-
     return _saveToGallery(imageBytes: imageBytes);
   }
 
   static Future<bool> saveImageFromUrl({required String imageUrl}) async {
     final response = await http.get(.parse(imageUrl));
     final imageBytes = response.bodyBytes;
-
     return _saveToGallery(imageBytes: imageBytes);
   }
 
@@ -24,7 +22,6 @@ final class const SaveImageHelper._() {
       imageBytes,
       quality: 100
     );
-
     return response["isSuccess"] == true;
   }
 }

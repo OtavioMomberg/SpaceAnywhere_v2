@@ -7,17 +7,14 @@ import 'package:sqflite/sqflite.dart';
 
 enum DatabaseActions { add, update }
 
-final class SqliteImplementation implements SqliteRepository {
+final class SqliteImplementation._() implements SqliteRepository {
   Database? _db;
 
-  new _();
   static final _instance = SqliteImplementation._();
-
   factory instance() => _instance;
 
   Future<Database> get database async {
     if (_db != null) { return _db!; }
-
     _db = await createDatabase();
     return _db!;
   }

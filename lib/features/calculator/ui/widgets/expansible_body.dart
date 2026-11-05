@@ -5,6 +5,7 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 class const ExpansibleBody({
   required final ExpansibleController controller,
   required final CalculatorService _calculatorService,
+  required final bool isWeightSet,
   required final VoidCallback setState,
   super.key,
 }) extends StatelessWidget {
@@ -25,9 +26,10 @@ class const ExpansibleBody({
           return ListTile(
             onTap: () {
               _calculatorService.changeObjectName(index: index);
-              setState();
               controller.collapse();
+              if (isWeightSet) { setState(); }
             },
+            splashColor: AppThemes.whitePremium.withValues(alpha: 0.5),
             title: Center(
               child: Text(
                 _calculatorService.planetsGravity[index].name,

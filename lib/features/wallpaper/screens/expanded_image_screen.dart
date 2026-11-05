@@ -69,7 +69,6 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
 
   Future<void> _saveImage() async {
     await _showResponse();
-
     if (!mounted) { return; }
     showGlassSnackBar(
       context: context,

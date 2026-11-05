@@ -1,5 +1,5 @@
-import 'package:custom_feedback/custom_feedback.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:custom_feedback/custom_feedback.dart';
 import 'package:space_anywhere/core/constants/app_constants.dart';
 import 'package:space_anywhere/features/translation/domain/translation_cache_helper.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
@@ -21,9 +21,7 @@ class _LanguageSelectorState extends State<LanguageSelector> {
   @override
   void initState() {
     super.initState();
-
     _langInfo = {"emoji": defaultEmoji, "lang_flag": defaultLangFlag};
-
     _length = TranslationCacheHelper.language.length;
   }
 
@@ -42,7 +40,6 @@ class _LanguageSelectorState extends State<LanguageSelector> {
 
           _langInfo.clear();
           _langInfo.addAll(response);
-
           setState(() {});
 
           await widget.controlTranslationFlow(param: _langInfo["lang_flag"]);

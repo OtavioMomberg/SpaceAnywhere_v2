@@ -16,7 +16,6 @@ final class const WallpaperModel({
   static List<WallpaperModel> listFromJson({required String source}) {
     final decoded = (jsonDecode(source) as List).cast<Map<String, dynamic>>();
     final wallpaperList = decoded.map((item) => WallpaperModel.fromMap(map: item)).toList();
-    
     return wallpaperList;
   }
 }

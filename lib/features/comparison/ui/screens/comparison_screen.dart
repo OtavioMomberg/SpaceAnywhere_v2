@@ -14,7 +14,7 @@ class const ComparisonScreen({super.key}) extends StatefulWidget {
 class _ComparisonScreenState extends State<ComparisonScreen> {
   final _scrollController = ScrollController();
   final finalList = <ObjectInformation>[];
-  final rand = Random();
+  final random = Random();
 
   @override
   void initState() {
@@ -90,7 +90,7 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
 
   void _randomizeList() {
     while (finalList.length < ObjectsDataset.objects.length) {
-      int index = rand.nextInt(ObjectsDataset.objects.length);
+      int index = random.nextInt(ObjectsDataset.objects.length);
 
       if (!finalList.contains(ObjectsDataset.objects[index])) {
         finalList.add(ObjectsDataset.objects[index]);

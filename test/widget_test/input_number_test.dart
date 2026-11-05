@@ -6,6 +6,7 @@ void main() {
     testWidgets("verify is onFieldSubmitted is working", (tester) async {
       final controller = TextEditingController();
       bool simulateSetState = false;
+      bool isPlanetSelected = true;
 
       await tester.pumpWidget(
         MaterialApp(
@@ -13,7 +14,10 @@ void main() {
             body: InputNumber(
               controller: controller, 
               label: "Enter a number:", 
-              onFieldSubmitted: (_) => simulateSetState = true
+              isPlanetSelected: isPlanetSelected,
+              onFieldSubmitted: () {
+                if (isPlanetSelected) { simulateSetState = true; }
+              } 
             )
           ),
         ),

@@ -46,19 +46,17 @@ final class CuriosityService({
   Future<void> _controlCuriosityFlow() async {
     await _controlCuriosity();
 
-    if (!curiosityController.isSucced) { 
+    if (!curiosityController.isSucced) {
       if (!_checkInitialState) {
         _isLoading = false;
         setState();
         _checkInitialState = true;
       }
-      return; 
+      return;
     }
 
     if (!checkMounted()) { return; }
-  
     _showActionButtons = true;
-    
     _isLoading = false;
     setState();
   }
@@ -71,7 +69,7 @@ final class CuriosityService({
 
   void initializeConnectionSystem() {
     try {
-      _internet.retryConnectionSystem();
+      _internet.retryConnection();
     } on Exception catch (error) {
       generalError = error.toString();
       _internet.updateInternetStatus(status: true);
@@ -87,10 +85,8 @@ final class CuriosityService({
 
   Future<bool> _checkDatabaseIsNull() async {
     _selectCuriosity = await db.selectCuriosity();
-
     _selectFonts.clear();
     _selectFonts.addAll(await db.selectFonts());
-
     return _selectCuriosity == null;
   }
 
@@ -106,11 +102,9 @@ final class CuriosityService({
     required DatabaseActions action,
   }) async {
     await _internet.hasInternet();
-
     if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
-
     if (!_internet.checkAPI) { return; }
 
     curiosityController.updadeIsSucced(value: false);
@@ -125,9 +119,7 @@ final class CuriosityService({
       );
       _title = curiosityController.getCuriosityModel!.title;
       _fonts.addAll(curiosityController.getCuriosityModel!.contentFont);
-      action == .add
-        ? await _addCuriosity()
-        : await _updateCuriosity();
+      action == .add ? await _addCuriosity() : await _updateCuriosity();
     } else {
       _error = curiosityController.getErrorCuriosity!;
     }
@@ -158,10 +150,7 @@ final class CuriosityService({
         _fonts.add(font.font);
       }
     } else {
-      await _getCuriosity(
-        curiosityId: _curiosityId,
-        action: .add,
-      );
+      await _getCuriosity(curiosityId: _curiosityId, action: .add);
     }
   }
 
@@ -179,16 +168,16 @@ final class CuriosityService({
     );
 
     await db.addCuriosity(curiosityModel: curiosityModel);
-
     await _addFonts();
   }
 
   Future<void> _addFonts() async {
-    final len = curiosityController.getCuriosityModel!.contentFont.length;
+    final length = curiosityController.getCuriosityModel!.contentFont.length;
     final fonts = curiosityController.getCuriosityModel!.contentFont;
-
-    final fontModel = List.generate(len, (index) => FontDbModel(font: fonts[index]));
-
+    final fontModel = List.generate(
+      length,
+      (index) => FontDbModel(font: fonts[index]),
+    );
     for (var font in fontModel) {
       await db.addFonts(fontModel: font);
     }
@@ -211,9 +200,7 @@ final class CuriosityService({
       curiosityModel: curiosityModel,
       previousCuriosityId: _selectCuriosity!.curiosityId,
     );
-
     await db.deleteFonts();
-
     await _addFonts();
   }
 }

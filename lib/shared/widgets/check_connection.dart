@@ -23,7 +23,7 @@ class const CheckConnection({
               "Carregando...",
               style: TextStyle(
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontWeight: .bold,
                 color: AppThemes.whitePremium,
               ),
             ),
@@ -43,7 +43,8 @@ class const CheckConnection({
     }
     if (!checkAPI) {
       return InfoErrorWidget(
-        message: "Erro. Não foi possível se conectar ao servidor",
+        message: "Erro. Não foi possível se conectar ao servidor\n"
+        "Tentando se conectar novamente...",
         icon: Icons.dns,
         height: height,
       );

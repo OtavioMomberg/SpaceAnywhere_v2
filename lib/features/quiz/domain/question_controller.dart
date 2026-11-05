@@ -25,7 +25,6 @@ final class QuestionController({
 
       _questionModel = response;
       _isSucced = true;
-
     } catch (error) {
       _errorGetQuestion = error.toString();
     }

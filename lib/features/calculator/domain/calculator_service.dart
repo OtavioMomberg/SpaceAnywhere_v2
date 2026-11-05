@@ -8,8 +8,7 @@ final class CalculatorService {
   double? _result = 0.0;
   int _index = 0;
 
-  List<ObjectInformation> get planetsGravity =>
-    .unmodifiable(_planetsGravity);
+  List<ObjectInformation> get planetsGravity => .unmodifiable(_planetsGravity);
   String get objectName => _objectName;
   double? get result => _result;
 
@@ -22,22 +21,27 @@ final class CalculatorService {
 
   void initializeResult() => _result = 0.0;
 
-  bool checkFields({required String weight}) {
-    return objectName != defaultOptionText && weight.isNotEmpty;
+  bool isPlanetSelected() => objectName != defaultOptionText;
+  
+
+  bool checkFields({required String weightText}) {
+    return objectName != defaultOptionText && weightText.isNotEmpty;
   }
 
   void calculate({required String weight}) {
     _result = null;
 
     if (weight.isEmpty) { return; }
-    if (weight[0] == "0" || weight[0] == "." || weight[0] == ",") { return; }
+    if (weight[0] == "0" || weight[0] == "." || weight[0] == ",") {
+      return;
+    }
 
     switch (weight.contains(".") || weight.contains(",")) {
       case true:
         weight = weight.replaceAll(".", "").replaceAll(",", "");
         break;
       case false:
-        final weightInt = int.tryParse(weight) ?? 0; 
+        final weightInt = int.tryParse(weight) ?? 0;
         weight = (weightInt * 100).toString();
         if (weight == "0") { return; }
         break;
@@ -45,8 +49,7 @@ final class CalculatorService {
 
     final weightParsed = double.tryParse(weight);
     if (weightParsed == null) { return; }
-
-    _result = (weightParsed < 0) 
+    _result = (weightParsed < 0)
       ? (weightParsed * _planetsGravity[_index].gravityOverEarth!) / 100 * -1
       : (weightParsed * _planetsGravity[_index].gravityOverEarth!) / 100;
   }

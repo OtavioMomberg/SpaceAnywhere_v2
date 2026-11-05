@@ -29,7 +29,6 @@ class _TranslationScreenState extends State<TranslationScreen>
   @override
   void initState() {
     super.initState();
-
     _initPlayer();
 
     _translationService.postInit(
@@ -101,7 +100,6 @@ class _TranslationScreenState extends State<TranslationScreen>
               child: LanguageSelector(controlTranslationFlow: _changeLanguage),
             ),
             const SizedBox(height: 20),
-
             TranslatedObjects(translationService: _translationService),
           ] else ...[
             GlassContainer(
@@ -139,10 +137,10 @@ class _TranslationScreenState extends State<TranslationScreen>
 
     if (_translationService.error == null) {
       final langFlag = _translationService
-          .translationController
-          .translationModel
-          .first!
-          .langFlag;
+        .translationController
+        .translationModel
+        .first!
+        .langFlag;
 
       await FlutterTtsHelper.setLanguage(langFlag: langFlag);
     }

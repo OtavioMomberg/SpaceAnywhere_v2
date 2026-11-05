@@ -3,7 +3,7 @@ import 'package:space_anywhere/features/wallpaper/domain/cache_manager_helper.da
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
 final class WallpaperService({
-  required final WallpaperController wallpaperController
+  required final WallpaperController wallpaperController,
 }) {
   late InternetHelper _internet;
   int _offset = 0;
@@ -34,15 +34,14 @@ final class WallpaperService({
 
     if (!checkMounted()) { return; }
 
-    if (!wallpaperController.isSucced) { 
+    if (!wallpaperController.isSucced) {
       if (!_checkInitialState) {
         _isLoading = false;
         setState();
         _checkInitialState = true;
       }
-      return; 
+      return;
     }
-
     _isLoading = false;
     setState();
   }
@@ -60,7 +59,7 @@ final class WallpaperService({
       return;
     }
     try {
-      _internet.retryConnectionSystem();
+      _internet.retryConnection();
     } on Exception catch (error) {
       generalError = error.toString();
       _internet.updateInternetStatus(status: true);
@@ -87,11 +86,9 @@ final class WallpaperService({
 
   Future<void> getImages() async {
     await _internet.hasInternet();
-
     if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
-
     if (!_internet.checkAPI) { return; }
 
     wallpaperController.updadeIsSucced(value: false);

@@ -44,7 +44,7 @@ final class InternetHelper<T> {
 
   void updateAPIStatus({required bool status}) => _checkAPI = status;
 
-  Future<void> retryConnectionSystem() async {
+  Future<void> retryConnection() async {
     _currentRetryAttempt = 0;
     while (_currentRetryAttempt < _retryAttempts) {
       await _function!();
@@ -54,11 +54,12 @@ final class InternetHelper<T> {
         break;
       }
       _currentRetryAttempt++;
-      await Future.delayed(const Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 2));
+      //await Future.delayed(const Duration(seconds: 5));
     }
   }
 
-  Future<void> retryConnectionSystemWithParam() async {
+  Future<void> retryConnectionWithParam() async {
     _currentRetryAttempt = 0;
     while (_currentRetryAttempt < _retryAttempts) {
       await _functionWithParam!(param: _param);
@@ -68,7 +69,8 @@ final class InternetHelper<T> {
         break;
       }
       _currentRetryAttempt++;
-      await Future.delayed(const Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 2));
+      //await Future.delayed(const Duration(seconds: 5));
     }
   }
 }

@@ -1,8 +1,10 @@
 import 'package:space_anywhere/features/quiz/domain/question_controller.dart';
 import 'package:space_anywhere/shared/utils/internet_helper.dart';
 
+typedef CorrectAnswer = void Function({required bool isCorrect, String? correctAnswer});
+
 final class QuizService<T>({
-  required final QuestionController questionController
+  required final QuestionController questionController,
 }) {
   static const _id = 0;
   static const alternativesNumber = 5;
@@ -12,10 +14,8 @@ final class QuizService<T>({
   bool _isLoading = true;
   bool _retrySucced = false;
   bool _checkInitialState = false;
-  
-  late final void Function({
-    required bool isCorrect, 
-    String? correctAnswer}) showResponse;
+
+  late final CorrectAnswer showResponse;
   late final Future<void> Function() closeAnswerPage;
   late final bool Function() checkMounted;
   late final void Function() setState;
@@ -33,8 +33,7 @@ final class QuizService<T>({
   void initializeQuiz() => _quizStarted = false;
 
   void postInit({
-    required void Function({required bool isCorrect, String? correctAnswer})
-    showResponseFunc,
+    required CorrectAnswer showResponseFunc,
     required Future<void> Function() closeAnswerPageFunc,
     required bool Function() checkMountedFunc,
     required Function() setStateFunc,
@@ -56,7 +55,7 @@ final class QuizService<T>({
       if (!_internet.checkInternet || !_internet.checkAPI) {
         if (_internet.currentRetryAttempt == _internet.retryAttempts) {
           _internet.sendParam(value: param);
-          _internet.retryConnectionSystemWithParam();
+          _internet.retryConnectionWithParam();
           _retrySucced = true;
           setState();
         }
@@ -67,7 +66,7 @@ final class QuizService<T>({
 
     await Future.delayed(const Duration(milliseconds: 800));
 
-    if (!questionController.isSucced) { 
+    if (!questionController.isSucced) {
       if (!_checkInitialState) {
         _isLoading = false;
         setState();
@@ -77,22 +76,20 @@ final class QuizService<T>({
     }
 
     if (!checkMounted()) { return; }
-
     _isLoading = false;
     _retrySucced = false;
-
     setState();
   }
 
   void buildInternetInstance() {
     _internet = InternetHelper.withFunctionParameter(
-      functionWithParam: controlQuizFlow
+      functionWithParam: controlQuizFlow,
     );
   }
 
   void initializeConnectionSystem() {
     try {
-      _internet.retryConnectionSystemWithParam();
+      _internet.retryConnectionWithParam();
     } on Exception catch (error) {
       generalError = error.toString();
       _internet.updateInternetStatus(status: true);
@@ -111,11 +108,8 @@ final class QuizService<T>({
       snackBar(error: true);
       return;
     }
-
     if (!checkMounted()) { return; }
-
     _changeQuizState();
-
     setState();
   }
 
@@ -127,11 +121,9 @@ final class QuizService<T>({
     if (questionId != null && !_internet.checkInternet) {
       await Future.delayed(const Duration(seconds: 2));
     }
-
     if (!_internet.checkInternet) { return; }
 
     await _internet.isApiAwake();
-
     if (!_internet.checkAPI) { return; }
 
     questionController.updadeIsSucced(value: false);
@@ -151,7 +143,6 @@ final class QuizService<T>({
       isCorrect: isCorrect,
       correctAnswer: isCorrect ? null : controller.alternatives[correctIndex],
     );
-  
     await closeAnswerPage();
   }
 }

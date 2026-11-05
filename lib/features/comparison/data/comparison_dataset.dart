@@ -2,7 +2,7 @@ import 'package:space_anywhere/core/constants/app_images.dart';
 import 'package:space_anywhere/shared/models/object_information.dart';
 
 final class ObjectsDataset {
-  static final objects = [
+  static const objects = [
     ObjectInformation(
       name: "Mercurío",
       diameter: "4.880 km",

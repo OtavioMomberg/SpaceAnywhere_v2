@@ -18,7 +18,8 @@ mixin GlassSnackBarHelper {
         borderRadius: AppThemes.borderRadius,
         side: BorderSide(color: backgroundColor.withValues(alpha: 0.5)),
       ),
-      duration: duration
+      duration: duration,
+      padding: const .symmetric(horizontal: 10, vertical: 15)
     );
   }
 }

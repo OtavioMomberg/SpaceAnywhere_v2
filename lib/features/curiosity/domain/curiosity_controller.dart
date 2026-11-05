@@ -24,8 +24,7 @@ final class CuriosityController({
       final response = await _curiosityRepository.getCuriosity(id: id);
 
       _curiosityModel = response;
-      _isSucced = true;
-      
+      _isSucced = true; 
     } catch (error) {
       _errorGetCuriosity = error.toString();
     }

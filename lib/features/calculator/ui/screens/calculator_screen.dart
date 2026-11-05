@@ -20,7 +20,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     super.initState();
     _calculatorService.setDefaultText();
     _calculatorService.initializeResult();
-
     _expansibleController.expand();
   }
 
@@ -44,7 +43,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           InputNumber(
             controller: _textController,
             label: "Insira seu peso",
-            onFieldSubmitted: _onFieldSubmitted,
+            isPlanetSelected: _calculatorService.isPlanetSelected(),
+            onFieldSubmitted: _setState,
           ),
           ExpansibleWidget(
             header: ExpansibleHeader(
@@ -53,12 +53,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             ),
             body: ExpansibleBody(
               controller: _expansibleController,
-              calculatorService: _calculatorService, 
-              setState: () => setState(() {}),
+              calculatorService: _calculatorService,
+              isWeightSet: _textController.text != "Insira seu peso",
+              setState: _setState,
             ),
             controller: _expansibleController,
           ),
-          if (_calculatorService.checkFields(weight: _textController.text)) ...[
+          if (_calculatorService.checkFields(weightText: _textController.text)) ...[
             const SizedBox(height: 10),
             Button(
               label: "Calcular",
@@ -71,7 +72,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               const SizedBox(height: 10),
               CalculusResult(calculatorService: _calculatorService),
               const SizedBox(height: 10),
-              Button(label: "Limpar", function: _cleanPage),
+              Button(label: "Limpar", function: _cleanScreen),
             ],
           ],
         ],
@@ -79,9 +80,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     );
   }
 
-  void _onFieldSubmitted(_) => setState(() {});
+  void _setState() => setState(() {});
 
-  void _cleanPage() {
+  void _cleanScreen() {
     _calculatorService.setDefaultText();
     _calculatorService.initializeResult();
     _textController.clear();

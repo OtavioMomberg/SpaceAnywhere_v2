@@ -4,7 +4,8 @@ import 'package:space_anywhere/core/themes/app_themes.dart';
 class const InputNumber({
   required final TextEditingController controller,
   required final String label,
-  required final void Function(String)? onFieldSubmitted,
+  required final bool isPlanetSelected,
+  required final VoidCallback onFieldSubmitted,
   super.key,
 }) extends StatelessWidget {
   @override
@@ -14,7 +15,10 @@ class const InputNumber({
       controller: controller,
       cursorColor: AppThemes.whitePremium,
       style: TextStyle(color: AppThemes.whitePremium.withValues(alpha: 0.8)),
-      onFieldSubmitted: onFieldSubmitted,
+      onFieldSubmitted: (_) {
+        if (!isPlanetSelected) { return; }
+        onFieldSubmitted();
+      },
       decoration: InputDecoration(
         hint: Text(
           label,

@@ -12,11 +12,11 @@ class const Header({
       spacing: 5,
       children: <Widget>[
         Material(
-          borderRadius: .circular(12),
+          borderRadius: AppThemes.borderRadius,
           color: AppThemes.whitePremium.withValues(alpha: .1),
           child: InkWell(
             onTap: () => Navigator.pop(context),
-            borderRadius: .circular(12),
+            borderRadius: AppThemes.borderRadius,
             child: GlassContainer(
               height: 40,
               width: 40,

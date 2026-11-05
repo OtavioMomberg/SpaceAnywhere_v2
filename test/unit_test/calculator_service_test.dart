@@ -46,11 +46,11 @@ void main() {
     test("checkFields({required String newText}) - success", () {
       service.changeObjectName(index: 1);
 
-      expect(service.checkFields(weight: "70"), isTrue);
+      expect(service.checkFields(weightText: "70"), isTrue);
     });
 
     test("checkFields({required String newText}) - objectName = defaultOptionText should return false", () {
-      expect(service.checkFields(weight: "70"), isFalse);
+      expect(service.checkFields(weightText: "70"), isFalse);
     });
   });
 
@@ -83,12 +83,15 @@ void main() {
       expect(service.result, isNull);
     });
 
-    test("calculate({required String weight}) - empty weight should return null", () {
-      service.changeObjectName(index: 1);
-      service.calculate(weight: "");
+    test(
+      "calculate({required String weight}) - empty weight should return null",
+      () {
+        service.changeObjectName(index: 1);
+        service.calculate(weight: "");
 
-      expect(service.result, isNull);
-    });
+        expect(service.result, isNull);
+      },
+    );
 
     test("calculate({required String weight}) - weight = '0' or '.' or ',' should return null", () {
       service.changeObjectName(index: 1);

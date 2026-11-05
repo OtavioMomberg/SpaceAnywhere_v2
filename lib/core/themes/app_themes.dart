@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
-final class AppThemes._() {
+final class const AppThemes._() {
   static const mainGradient = LinearGradient(
     begin: .topCenter,
     end: .bottomCenter,
@@ -17,8 +17,6 @@ final class AppThemes._() {
   static const white = Colors.white;
   static const red = Colors.red;
   static const lightBlue = Colors.lightBlueAccent;
-
-  static const borderRadius = BorderRadius.all(.circular(12));
 
   static const systemUiOverlayStyle = SystemUiOverlayStyle(
     systemStatusBarContrastEnforced: false,
@@ -43,8 +41,10 @@ final class AppThemes._() {
     shape: shape,
   );
 
+  static const borderRadius = BorderRadius.all(.circular(12));
+
   static final outlineInputBorder = OutlineInputBorder(
-    borderRadius: AppThemes.borderRadius,
+    borderRadius: borderRadius,
     borderSide: BorderSide(color: whitePremium.withValues(alpha: 0.5)),
   );
 }
