@@ -16,11 +16,10 @@ class const ExtraTextScreen({
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
+          padding: AppThemes.padding,
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
             mainAxisAlignment: .start,
-            spacing: 40,
             children: <Widget>[
               Header(
                 title: Text(
@@ -34,6 +33,7 @@ class const ExtraTextScreen({
                   textAlign: .center,
                 ),
               ),
+              const SizedBox(height: 25),
               Flexible(
                 child: FractionallySizedBox(
                   heightFactor: 0.85,

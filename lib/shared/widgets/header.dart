@@ -1,6 +1,5 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/core/themes/app_themes.dart';
-import 'package:space_anywhere/shared/widgets/glass_container.dart';
+import 'package:space_anywhere/shared/widgets/icon_button_outlined.dart';
 
 class const Header({
   required final Widget title, 
@@ -11,22 +10,11 @@ class const Header({
     return Row(
       spacing: 5,
       children: <Widget>[
-        Material(
-          borderRadius: AppThemes.borderRadius,
-          color: AppThemes.whitePremium.withValues(alpha: .1),
-          child: InkWell(
-            onTap: () => Navigator.pop(context),
-            borderRadius: AppThemes.borderRadius,
-            child: GlassContainer(
-              height: 40,
-              width: 40,
-              child: const Icon(
-                Icons.arrow_back, 
-                color: AppThemes.whitePremium, 
-                size: 20
-              )
-            )
-          )
+        IconButtonOutlined(
+          function: (_) => Navigator.pop(context), 
+          icon: Icons.arrow_back,
+          height: 40,
+          width: 40,
         ),
         title
       ],

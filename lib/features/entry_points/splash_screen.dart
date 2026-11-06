@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         width: .infinity,
         height: .infinity,
-        padding: const .symmetric(vertical: 10, horizontal: 20),
+        padding: const .symmetric(vertical: 15, horizontal: 20),
         decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
         child: Column(
           spacing: 10,

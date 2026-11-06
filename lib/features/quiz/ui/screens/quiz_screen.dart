@@ -97,13 +97,10 @@ class _QuizScreenState extends State<QuizScreen> with GlassSnackBarHelper {
           ),
         ] else if (_quizService.error == null) ...[
           Expanded(
-            child: Padding(
-              padding: const .only(top: 8),
-              child: QuestionCard(
-                question:
-                  _quizService.questionController.getQuestionModel!.question,
-                color: AppThemes.whitePremium,
-              ),
+            child: QuestionCard(
+              question:
+                _quizService.questionController.getQuestionModel!.question,
+              color: AppThemes.whitePremium,
             ),
           ),
           const SizedBox(height: 20),

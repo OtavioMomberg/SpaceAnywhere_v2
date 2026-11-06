@@ -52,7 +52,6 @@ class _TranslationScreenState extends State<TranslationScreen>
     final size = MediaQuery.sizeOf(context);
 
     return Column(
-      spacing: 10,
       children: <Widget>[
         MainHeader(
           title: Row(
@@ -60,7 +59,7 @@ class _TranslationScreenState extends State<TranslationScreen>
             mainAxisAlignment: .center,
             children: <Widget>[
               const Text(
-                "Astronomia Pelo Mundo",
+                "Astronomia pelo Mundo",
                 style: TextStyle(
                   color: AppThemes.whitePremium,
                   fontWeight: .bold,
@@ -77,7 +76,6 @@ class _TranslationScreenState extends State<TranslationScreen>
             ],
           ),
         ),
-
         const SizedBox(height: 25),
         if (_translationService.checkState()) ...[
           CheckConnection(
@@ -99,7 +97,7 @@ class _TranslationScreenState extends State<TranslationScreen>
               widthFactor: 0.5,
               child: LanguageSelector(controlTranslationFlow: _changeLanguage),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             TranslatedObjects(translationService: _translationService),
           ] else ...[
             GlassContainer(

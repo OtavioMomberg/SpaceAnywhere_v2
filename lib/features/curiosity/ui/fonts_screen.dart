@@ -15,10 +15,9 @@ class const FontsScreen({
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
+          padding: AppThemes.padding,
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
-            spacing: 40,
             children: <Widget>[
               const Header(
                 title: Text(
@@ -30,6 +29,7 @@ class const FontsScreen({
                   ),
                 ),
               ),
+              const SizedBox(height: 25),
               Expanded(
                 child: ListView.separated(
                   separatorBuilder: (context, index) => const Padding(

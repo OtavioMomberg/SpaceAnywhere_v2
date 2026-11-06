@@ -5,57 +5,68 @@ import 'package:space_anywhere/shared/widgets/image_widget.dart';
 
 class const ComparisonCard({
   required final List<String> objectData,
-  required final String objectName,
-  required final String imagePath,
+  required final ObjectInformation planetData,
   super.key,
-  }) extends StatelessWidget {
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-
     return Container(
       height: double.infinity,
-      margin: const .symmetric(vertical: 10),
-      padding: const .all(10),
+      margin: const .only(left: 5, right: 5, bottom: 15),
+      padding: const .only(top: 15, left: 10, right: 10, bottom: 10),
+      decoration: BoxDecoration(
+        borderRadius: AppThemes.borderRadius,
+        border: .all(color: AppThemes.whitePremium.withValues(alpha: 0.5)),
+      ),
       child: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: .start,
+          crossAxisAlignment: .center,
           spacing: 10,
           children: <Widget>[
             Column(
               children: <Widget>[
-                SizedBox(
-                  height: size.height * 0.3,
-                  width: .infinity,
-                  child: Center(
-                    child: ImageWidget(
-                      imagePath: imagePath,
-                      option: .asset,
+                Material(
+                  borderRadius: AppThemes.borderRadius,
+                  elevation: 4,
+                  shadowColor: AppThemes.blue3,
+                  color: AppThemes.whitePremium.withValues(alpha: 0.05),
+                  child: DecoratedBox(
+                    position: .foreground,
+                    decoration: BoxDecoration(
+                      borderRadius: AppThemes.borderRadius,
+                      color: AppThemes.whitePremium.withValues(alpha: 0.05),
+                    ),
+                    child: FractionallySizedBox(
+                      widthFactor: .75,
+                      child: ImageWidget(imagePath: planetData.imagePath, option: .asset),
                     ),
                   ),
                 ),
+                const SizedBox(height: 5),
                 const Text(
-                  "*Imagem gerada por Inteligência Artificial",
+                  "*Inteligência Artificial",
                   style: TextStyle(color: AppThemes.whitePremium),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  planetData.name.toUpperCase(),
+                  style: TextStyle(color: AppThemes.whitePremium, fontSize: 16),
+                ),
+                FractionallySizedBox(
+                  widthFactor: .95,
+                  child: Divider(
+                    color: AppThemes.whitePremium.withValues(alpha: .5),
+                  ),
                 ),
               ],
             ),
-
-            const SizedBox(height: 10),
-            const Divider(color: AppThemes.whitePremium),
-            Center(
-              child: Text(
-                objectName,
-                style: TextStyle(color: AppThemes.whitePremium),
-              ),
-            ),
-            const Divider(color: AppThemes.whitePremium),
-            const SizedBox(height: 10),
-
             ....generate(objectData.length, (index) {
-              return Text(
-                "${ObjectInformation.topics[index]} ${objectData[index]}",
-                style: const TextStyle(color: AppThemes.whitePremium),
+              return Align(
+                alignment: .centerLeft,
+                child: Text(
+                  " ${ObjectInformation.topics[index]} ${objectData[index]}",
+                  style: const TextStyle(color: AppThemes.whitePremium),
+                ),
               );
             }),
           ],

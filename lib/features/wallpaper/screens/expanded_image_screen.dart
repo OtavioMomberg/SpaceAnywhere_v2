@@ -28,11 +28,10 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
+          padding: AppThemes.padding,
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
             mainAxisAlignment: .start,
-            spacing: 25,
             children: <Widget>[
               const Header(
                 title: Text(
@@ -44,6 +43,7 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
                   ),
                 ),
               ),
+              const SizedBox(height: 25),
               Expanded(
                 child: Padding(
                   padding: const .only(bottom: 10),
@@ -56,6 +56,7 @@ class _ExpandedImageScreenState extends State<ExpandedImageScreen>
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
               FractionallySizedBox(
                 widthFactor: 0.8,
                 child: Button(label: "Baixar", asyncFunction: _saveImage),

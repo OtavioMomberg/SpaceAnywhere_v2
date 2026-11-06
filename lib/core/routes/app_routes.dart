@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:space_anywhere/features/comparison/ui/screens/comparison_screen.dart';
-import 'package:space_anywhere/features/calculator/ui/screens/calculator_screen.dart';
-import 'package:space_anywhere/features/curiosity/screens/curiosity_screen.dart';
+import 'package:space_anywhere/features/comparison/ui/comparison_screen.dart';
+import 'package:space_anywhere/features/calculator/ui/calculator_screen.dart';
+import 'package:space_anywhere/features/curiosity/ui/curiosity_screen.dart';
 import 'package:space_anywhere/features/quiz/ui/screens/quiz_screen.dart';
 import 'package:space_anywhere/features/translation/ui/screens/translation_screen.dart';
 import 'package:space_anywhere/features/wallpaper/screens/wallpaper_screen.dart';

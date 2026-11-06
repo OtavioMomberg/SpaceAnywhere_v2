@@ -43,6 +43,8 @@ final class const AppThemes._() {
 
   static const borderRadius = BorderRadius.all(.circular(12));
 
+  static const padding = EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10);
+
   static final outlineInputBorder = OutlineInputBorder(
     borderRadius: borderRadius,
     borderSide: BorderSide(color: whitePremium.withValues(alpha: 0.5)),

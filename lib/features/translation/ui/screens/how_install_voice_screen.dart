@@ -13,10 +13,9 @@ class const HowInstallVoiceScreen({super.key}) extends StatelessWidget {
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const .only(top: 20,left: 10,right: 10,bottom: 10),
+          padding: AppThemes.padding,
           decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
           child: Column(
-            spacing: 10,
             crossAxisAlignment: .start,
             children: <Widget>[
               const Header(
@@ -29,16 +28,19 @@ class const HowInstallVoiceScreen({super.key}) extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               ....generate(
                 TranslationService.stepsToInstallVoice.length,
                 (index) {
-                  return GlassContainer(
-                    child: Text(
-                      TranslationService.stepsToInstallVoice[index],
-                      style: const TextStyle(
-                        color: AppThemes.whitePremium,
-                        fontWeight: .bold,
+                  return Padding(
+                    padding: const .symmetric(vertical: 5),
+                    child: GlassContainer(
+                      child: Text(
+                        TranslationService.stepsToInstallVoice[index],
+                        style: const TextStyle(
+                          color: AppThemes.whitePremium,
+                          fontWeight: .bold,
+                        ),
                       ),
                     ),
                   );

@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/core/di/app_dependencies.dart';
-import 'package:space_anywhere/features/curiosity/screens/extra_text_screen.dart';
-import 'package:space_anywhere/features/curiosity/screens/fonts_screen.dart';
+import 'package:space_anywhere/features/curiosity/ui/extra_text_screen.dart';
+import 'package:space_anywhere/features/curiosity/ui/fonts_screen.dart';
 import 'package:space_anywhere/core/routes/app_routes.dart';
 import 'package:space_anywhere/features/curiosity/domain/curiosity_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
@@ -42,7 +42,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
     final size = MediaQuery.sizeOf(context);
 
     return Column(
-      spacing: 20,
+      //spacing: 20,
       mainAxisAlignment: .start,
       children: <Widget>[
         const MainHeader(
@@ -56,7 +56,7 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
             textAlign: .center,
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 25),
         if (_homeService.checkState()) ...[
           CheckConnection(
             isLoading: _homeService.isLoading,
@@ -66,33 +66,30 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
           ),
         ] else if (_homeService.error == null) ...[
           Flexible(
-            child: FractionallySizedBox(
-              heightFactor: 1,
-              child: GlassContainer(
-                child: SingleChildScrollView(
-                  child: Column(
-                    spacing: 15,
-                    children: <Widget>[
-                      Text(
-                        _homeService.title,
-                        style: const TextStyle(
-                          color: AppThemes.whitePremium,
-                          fontWeight: .bold,
-                          fontSize: 16,
-                        ),
-                        maxLines: 2,
-                        textAlign: .center,
+            child: GlassContainer(
+              child: SingleChildScrollView(
+                child: Column(
+                  spacing: 15,
+                  children: <Widget>[
+                    Text(
+                      _homeService.title,
+                      style: const TextStyle(
+                        color: AppThemes.whitePremium,
+                        fontWeight: .bold,
+                        fontSize: 16,
                       ),
-                      Text(
-                        _homeService.text,
-                        style: const TextStyle(
-                          color: AppThemes.whitePremium,
-                          height: 1.7,
-                        ),
-                        textAlign: .justify,
+                      maxLines: 2,
+                      textAlign: .center,
+                    ),
+                    Text(
+                      _homeService.text,
+                      style: const TextStyle(
+                        color: AppThemes.whitePremium,
+                        height: 1.7,
                       ),
-                    ],
-                  ),
+                      textAlign: .justify,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -108,9 +105,10 @@ class _CuriosityScreenState extends State<CuriosityScreen> {
           ),
         ],
         if (_homeService.showActionButtons) ...[
+          const SizedBox(height: 20),
           Row(
-            mainAxisAlignment: .center,
             spacing: 10,
+            mainAxisAlignment: .center,
             children: <Widget>[
               Expanded(
                 child: Button(

@@ -1,3 +1,4 @@
+import 'package:custom_feedback/custom_feedback.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:space_anywhere/features/calculator/domain/calculator_service.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
@@ -27,25 +28,38 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        spacing: 10,
         children: <Widget>[
-          const MainHeader(
-            title: Text(
-              "Calcule seu peso em outros planetas",
-              style: TextStyle(
-                color: AppThemes.whitePremium,
-                fontWeight: .bold,
-                fontSize: 16,
-              ),
+          MainHeader(
+            title: Row(
+              spacing: 10,
+              mainAxisAlignment: .center,
+              children: <Widget>[
+                const Text(
+                  "Calculadora de Peso",
+                  style: TextStyle(
+                    color: AppThemes.whitePremium,
+                    fontWeight: .bold,
+                    fontSize: 18,
+                  ),
+                ),
+                IconButton(
+                  onPressed: _dialog,
+                  icon: const Icon(
+                    Icons.help_rounded,
+                    color: AppThemes.whitePremium,
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 25),
           InputNumber(
             controller: _textController,
             label: "Insira seu peso",
             isPlanetSelected: _calculatorService.isPlanetSelected(),
             onFieldSubmitted: _setState,
           ),
+          const SizedBox(height: 10),
           ExpansibleWidget(
             header: ExpansibleHeader(
               controller: _expansibleController,
@@ -60,7 +74,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             controller: _expansibleController,
           ),
           if (_calculatorService.checkFields(weightText: _textController.text)) ...[
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Button(
               label: "Calcular",
               function: () {
@@ -75,6 +89,29 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               Button(label: "Limpar", function: _cleanScreen),
             ],
           ],
+        ],
+      ),
+    );
+  }
+
+  void _dialog() {
+    CustomFeedback.rawDialog(
+      context: context,
+      title: const Text(
+        "Cálculo",
+        style: TextStyle(color: AppThemes.blue1, fontWeight: .bold),
+      ),
+      closeIcon: true,
+      iconColor: AppThemes.blue1,
+      content: Column(
+        mainAxisSize: .min,
+        children: <Widget>[
+          const Text(
+            "M = Massa corporal\nG = Gravidade em relação a Terra\n"
+            "Peso = M * G\n\n"
+            "Exemplo:\nM = 70kg | G = 0.90\nM * G = 63kg",
+            style: TextStyle(color: AppThemes.blue1),
+          ),
         ],
       ),
     );

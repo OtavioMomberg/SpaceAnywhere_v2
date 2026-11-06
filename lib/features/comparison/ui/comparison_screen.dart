@@ -4,6 +4,7 @@ import 'package:space_anywhere/features/comparison/data/comparison_dataset.dart'
 import 'package:space_anywhere/shared/models/object_information.dart';
 import 'package:space_anywhere/core/themes/app_themes.dart';
 import 'package:space_anywhere/features/comparison/ui/widgets/comparison_card.dart';
+import 'package:space_anywhere/shared/widgets/icon_button_outlined.dart';
 import 'package:space_anywhere/shared/widgets/main_header.dart';
 
 class const ComparisonScreen({super.key}) extends StatefulWidget {
@@ -13,7 +14,7 @@ class const ComparisonScreen({super.key}) extends StatefulWidget {
 
 class _ComparisonScreenState extends State<ComparisonScreen> {
   final _scrollController = ScrollController();
-  final finalList = <ObjectInformation>[];
+  final planetsInfo = <ObjectInformation>[];
   final random = Random();
 
   @override
@@ -27,6 +28,7 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
     final size = MediaQuery.sizeOf(context);
 
     return Column(
+      mainAxisAlignment: .start,
       children: <Widget>[
         const MainHeader(
           title: Text(
@@ -46,54 +48,24 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
             itemCount: ObjectsDataset.objects.length,
             itemExtent: size.width - 20,
             itemBuilder: (context, index) {
-              return Container(
-                margin: const .symmetric(horizontal: 5, vertical: 15),
-                decoration: BoxDecoration(
-                  borderRadius: AppThemes.borderRadius,
-                  border: .all(
-                    color: AppThemes.whitePremium.withValues(alpha: 0.5),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: .spaceBetween,
-                  children: <Widget>[
-                    IconButton(
-                      onPressed: () => _moveScroll(value: -(size.width - 20)),
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: AppThemes.whitePremium,
-                      ),
-                    ),
-                    Expanded(
-                      child: ComparisonCard(
-                        objectData: finalList[index].toList(),
-                        objectName: finalList[index].name,
-                        imagePath: finalList[index].imagePath,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () => _moveScroll(value: size.width - 20),
-                      icon: const Icon(
-                        Icons.arrow_forward,
-                        color: AppThemes.whitePremium,
-                      ),
-                    ),
-                  ],
-                ),
+              return ComparisonCard(
+                objectData: planetsInfo[index].toList(),
+                planetData: planetsInfo[index],
               );
             },
           ),
         ),
+        _MoveScrollButtons(moveScroll: _moveScroll, width: size.width),
       ],
     );
   }
 
   void _randomizeList() {
-    while (finalList.length < ObjectsDataset.objects.length) {
+    while (planetsInfo.length < ObjectsDataset.objects.length) {
       int index = random.nextInt(ObjectsDataset.objects.length);
 
-      if (!finalList.contains(ObjectsDataset.objects[index])) {
-        finalList.add(ObjectsDataset.objects[index]);
+      if (!planetsInfo.contains(ObjectsDataset.objects[index])) {
+        planetsInfo.add(ObjectsDataset.objects[index]);
       }
     }
   }
@@ -110,5 +82,33 @@ class _ComparisonScreenState extends State<ComparisonScreen> {
   void dispose() {
     _scrollController.dispose();
     super.dispose();
+  }
+}
+
+typedef MoveFun = void Function({required double value});
+
+class const _MoveScrollButtons({
+  required final MoveFun moveScroll,
+  required final double width,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: .spaceEvenly,
+      children: <Widget>[
+        IconButtonOutlined(
+          function: (_) => moveScroll(value: -(width - 20)), 
+          height: 60,
+          width: 80,
+          icon: Icons.arrow_back
+        ),
+        IconButtonOutlined(
+          function: (_) => moveScroll(value: width - 20), 
+          height: 60,
+          width: 80,
+          icon: Icons.arrow_forward
+        ),
+      ],
+    );
   }
 }

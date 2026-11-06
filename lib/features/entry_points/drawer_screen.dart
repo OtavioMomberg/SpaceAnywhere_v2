@@ -31,7 +31,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
         child: Drawer(
           backgroundColor: AppThemes.blue1,
           child: ListView(
-            padding: const .only(top: 20, left: 10, right: 10, bottom: 10),
+            padding: AppThemes.padding,
             children: <Widget>[
               SizedBox(
                 height: size.height * 0.15,
@@ -89,7 +89,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       body: Container(
         width: .infinity,
         height: .infinity,
-        padding: const .only(top: 15, left: 10, right: 10, bottom: 10),
+        padding: AppThemes.padding,
         decoration: const BoxDecoration(gradient: AppThemes.mainGradient),
         child: SafeArea(child: AppRoutes.pages[selectedPage]),
       ),

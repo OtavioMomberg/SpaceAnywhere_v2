@@ -41,7 +41,6 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
     final size = MediaQuery.sizeOf(context);
 
     return Column(
-      spacing: 20,
       children: <Widget>[
         const MainHeader(
           title: Text(
@@ -53,6 +52,7 @@ class _WallpaperScreenState extends State<WallpaperScreen> {
             ),
           ),
         ),
+        const SizedBox(height: 25),
         if (_wallpaperService.checkState()) ...[
           CheckConnection(
             isLoading: _wallpaperService.isLoading,
